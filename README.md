@@ -168,7 +168,9 @@
 | その他(gemなど) | google_places / gon / geokit-rails / geocoder / ransack / active_hash / kaminari / carrierwave / redis-rails / puma_worker_killer / dotenv-rails  | 
 
 ### 画面遷移図
-Figma：
+Figma：  
 https://www.figma.com/design/jEObdmmCqTXRWpQH72SY9A/LearnLocator_%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?node-id=0-1&t=Yrjiy1yTzEVb3e65-1
 
 ### ER図
+mermaidchart:  
+https://www.mermaidchart.com/raw/b6d7e76d-8d55-429f-98b9-ca6ed3a8d236?theme=dark&version=v0.1&format=svg

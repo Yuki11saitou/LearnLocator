@@ -160,7 +160,7 @@
 | フロントエンド  | HTML / CSS / JavaScript / Tailwind CSS (＋daisyUI)　                                                                                                           | 
 | バックエンド    | 	Ruby 3.2.3 / Ruby on Rails 7.1.3.4                                                                                                               | 
 | データベース    | PostgreSQL                                                                                                                                        | 
-| 認証            | Devise, Omniauth                                                                                                                                  | 
+| 認証            | Sorcery, Omniauth                                                                                                                                  | 
 | API             | Google Geolocation API / Google Geocoding API / Google Maps JavaScript API / Google Places API                                                    | 
 | 環境構築        | Docker                                                                                                                                            | 
 | CI/CD           | 	GitHub Actions                                                                                                                                   | 

@@ -6,4 +6,9 @@ module.exports = {
     './app/javascript/**/*.js'
   ],
   plugins: [require("daisyui")],
+
+  // 使用テーマの設定
+  daisyui: {
+    themes: ["cmyk"],
+  }
 }

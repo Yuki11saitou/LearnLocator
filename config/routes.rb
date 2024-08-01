@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   # テスト用のルーティング
   resources :tasks
 
-
+  # ユーザー登録用のルーティング
+  resources :users, only: %i[new create]
 
 end

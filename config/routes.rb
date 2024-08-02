@@ -8,9 +8,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "static_pages#top"
 
-  # テスト用のルーティング
-  resources :tasks
-
   # ユーザー登録用のルーティング
   resources :users, only: %i[new create]
 

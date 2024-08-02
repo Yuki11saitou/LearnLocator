@@ -11,6 +11,12 @@ Rails.application.routes.draw do
   # テスト用のルーティング
   resources :tasks
 
+  # ユーザー登録用のルーティング
+  resources :users, only: %i[new create]
 
+  # ログイン・ログアウト用のルーティング
+  get 'login', to: 'user_sessions#new'
+  post 'login', to: 'user_sessions#create'
+  delete 'logout', to: 'user_sessions#destroy'
 
 end

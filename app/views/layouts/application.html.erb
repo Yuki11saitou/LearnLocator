@@ -11,8 +11,13 @@
   </head>
 
   <body>
-    <div class="font-body-jp">
-      <%= render 'shared/header' %>
+    <div class="font-body-jp bg-gray-200">
+      <% if logged_in? %>
+        <%= render 'shared/header' %>
+      <% else %>
+        <%= render 'shared/before_login_header' %>
+      <% end %>
+
       <%= yield %>
       <%= render 'shared/footer' %>
     </div>

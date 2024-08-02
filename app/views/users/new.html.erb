@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-lg-8 mx-auto">
+        <h1>ユーザー登録</h1>
+        <%= form_with model: @user do |f| %>
+            <div class="mb-3">
+            <%= f.label :last_name, class: "form-label" %>
+            <%= f.text_field :last_name, class: "form-control" %>
+            </div>
+            <div class="mb-3">
+            <%= f.label :first_name, class: "form-label" %>
+            <%= f.text_field :first_name, class: "form-control" %>
+            </div>
+            <div class="mb-3">
+            <%= f.label :email, class: "form-label" %>
+            <%= f.email_field :email, class: "form-control" %>
+            </div>
+            <div class="mb-3">
+            <%= f.label :password, class: "form-label" %>
+            <%= f.password_field :password, class: "form-control" %>
+            </div>
+            <div class="mb-3">
+            <%= f.label :password_confirmation, class: "form-label" %>
+            <%= f.password_field :password_confirmation, class: "form-control" %>
+            </div>
+            <%= f.submit "登録", class: "btn btn-primary" %>
+        <% end %>
+        <div class='text-center'>
+            <%= link_to 'ログインページへ', login_path %>
+        </div>
+        </div>
+    </div>
+</div>
+
+

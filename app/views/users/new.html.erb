@@ -4,12 +4,8 @@
         <h1>ユーザー登録</h1>
         <%= form_with model: @user do |f| %>
             <div class="mb-3">
-            <%= f.label :last_name, class: "form-label" %>
-            <%= f.text_field :last_name, class: "form-control" %>
-            </div>
-            <div class="mb-3">
-            <%= f.label :first_name, class: "form-label" %>
-            <%= f.text_field :first_name, class: "form-control" %>
+            <%= f.label :name, class: "form-label" %>
+            <%= f.text_field :name, class: "form-control" %>
             </div>
             <div class="mb-3">
             <%= f.label :email, class: "form-label" %>

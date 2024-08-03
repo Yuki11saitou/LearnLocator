@@ -1,28 +1,2 @@
 # ビューに関する日本語を記述するファイル
 ja:
-  helpers:
-    submit:
-      create: 登録
-      submit: 保存
-      update: 更新
-    label:
-      email: メールアドレス
-      password: パスワード
-  user_sessions:
-    new:
-      title: ログイン
-      login: ログイン
-      to_register_page: 登録ページへ
-      password_forget: パスワードをお忘れの方はこちら
-  users:
-    new:
-      title: ユーザー登録
-      to_login_page: ログインページへ
-  header:
-    login: ログイン
-    logout: ログアウト
-    board: 掲示板
-    board_index: 掲示板一覧
-    create_board: 掲示板作成
-    bookmark_index: ブックマーク一覧
-    profile: プロフィール

@@ -12,11 +12,11 @@
             </div>
             <div class="mb-3">
                 <%= f.label 'パスワード', class: "form-label" %>
-                <%= f.password_field :password, class: "form-control" %>
+                <%= f.password_field :password, placeholder: '4文字以上', class: "form-control" %>
             </div>
             <div class="mb-3">
                 <%= f.label 'パスワード確認', class: "form-label" %>
-                <%= f.password_field :password_confirmation, class: "form-control" %>
+                <%= f.password_field :password_confirmation, placeholder: '4文字以上', class: "form-control" %>
             </div>
             <div class="flex justify-center">
                 <%= f.submit '登録', class: "btn btn-primary" %>

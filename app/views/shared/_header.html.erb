@@ -1,6 +1,6 @@
 <div class="navbar bg-base-100">
     <div class="flex-1">
-        <%= link_to "LearnLocater", root_path, class: "btn btn-ghost text-xl" %>
+        <%= link_to 'LearnLocater', root_path, class: "btn btn-ghost text-xl" %>
     </div>
     <div class="flex-none">
         <div class="dropdown dropdown-end">
@@ -14,17 +14,17 @@
                 <%# todo: リンク先を修正する %>
 
                 <%# ログイン済みユーザー向け %>
-                <li><%= link_to "マイページ", root_path, class: "text-base hover:text-rose-400" %></li>
-                <li><%= link_to "ログアウト", logout_path, class: "text-base hover:text-rose-400", data: { turbo_method: :delete } %></li>
+                <li><%= link_to 'マイページ', root_path, class: "text-base hover:text-rose-400" %></li>
+                <li><%= link_to 'ログアウト', logout_path, class: "text-base hover:text-rose-400", data: { turbo_method: :delete } %></li>
 
                 <%# 以降共通 %>
-                <li><%= link_to "場所検索", root_path, class: "text-base hover:text-rose-400" %></li>
-                <li><%= link_to "一覧検索", root_path, class: "text-base hover:text-rose-400" %></li>
-                <li><%= link_to "オススメの場所診断", root_path, class: "text-base hover:text-rose-400" %></li>
-                <li><%= link_to "ブックマークした場所", root_path, class: "text-base hover:text-rose-400" %></li>
-                <li><%= link_to "利用規約", root_path, class: "text-base hover:text-rose-400" %></li>
-                <li><%= link_to "プライバシーポリシー", root_path, class: "text-base hover:text-rose-400" %></li>
-                <li><%= link_to "お問い合わせ", root_path, class: "text-base hover:text-rose-400" %></li>
+                <li><%= link_to '場所検索', root_path, class: "text-base hover:text-rose-400" %></li>
+                <li><%= link_to '一覧検索', root_path, class: "text-base hover:text-rose-400" %></li>
+                <li><%= link_to 'オススメの場所診断', root_path, class: "text-base hover:text-rose-400" %></li>
+                <li><%= link_to 'ブックマークした場所', root_path, class: "text-base hover:text-rose-400" %></li>
+                <li><%= link_to '利用規約', root_path, class: "text-base hover:text-rose-400" %></li>
+                <li><%= link_to 'プライバシーポリシー', root_path, class: "text-base hover:text-rose-400" %></li>
+                <li><%= link_to 'お問い合わせ', root_path, class: "text-base hover:text-rose-400" %></li>
                 <div class="text-sm text-center m-3">2024 - LearnLocater</div>
             </ul>
         </div>

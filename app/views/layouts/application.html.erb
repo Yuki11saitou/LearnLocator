@@ -12,6 +12,10 @@
 
   <body>
     <div class="font-body-jp bg-gray-200">
+      <%# フラッシュメッセージ %>
+      <%= render 'layouts/flash_messages' %>
+
+      <%# ヘッダー（ログイン有無で出しわけ） %>
       <% if logged_in? %>
         <%= render 'shared/header' %>
       <% else %>
@@ -19,6 +23,8 @@
       <% end %>
 
       <%= yield %>
+
+      <%# フッター %>
       <%= render 'shared/footer' %>
     </div>
   </body>

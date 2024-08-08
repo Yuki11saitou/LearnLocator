@@ -16,4 +16,7 @@ Rails.application.routes.draw do
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
 
+  # 場所検索ページのルーティング
+  get 'spots/map'
+
 end

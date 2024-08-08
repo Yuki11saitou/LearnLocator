@@ -51,7 +51,7 @@ gem "bootsnap", require: false
 gem 'sorcery'
 
 # 秘匿情報保護用のgem
-gem 'dotenv', groups: [:development, :test]
+gem 'dotenv-rails', groups: [:development, :test]
 
 
 group :development, :test do

@@ -102,6 +102,7 @@ GEM
     debug (1.9.2)
       irb (~> 1.10)
       reline (>= 0.3.8)
+    dotenv (3.1.2)
     drb (2.2.1)
     erubi (1.13.0)
     faraday (2.10.1)
@@ -290,6 +291,7 @@ DEPENDENCIES
   capybara
   cssbundling-rails
   debug
+  dotenv
   jbuilder
   jsbundling-rails
   pg (~> 1.1)

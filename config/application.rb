@@ -6,6 +6,9 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+# アプリ起動時に.envに記述した環境変数を読み込む(Google Maps APIのAPIキーなど)
+Dotenv::Railtie.load
+
 module Myapp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.

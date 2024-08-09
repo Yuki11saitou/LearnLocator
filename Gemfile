@@ -53,6 +53,15 @@ gem 'sorcery'
 # 秘匿情報保護用のgem
 gem 'dotenv-rails', groups: [:development, :test]
 
+# GooglePlacesAPIを使用、条件つき検索、店舗情報などの取得のためのgem
+gem 'google_places'
+
+# GeoderdingAPIを使用、緯度経度から住所を取得、現在地を取得するためのgem
+gem 'geocoder'
+
+# Google Places APIを利用、オートコンプリート機能、インフォウィンドウの表示などのためのgem
+gem 'gmaps4rails'
+
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

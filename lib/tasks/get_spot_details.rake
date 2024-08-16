@@ -76,7 +76,7 @@ namespace :Spot do
           )
 
         # スポットデータをDBに保存
-        spot = Spot.create!(spot_data)
+        Spot.create!(spot_data)
         puts "Spotを保存しました: #{row['スポット名']}"
         puts "----------"
       else

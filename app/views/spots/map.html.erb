@@ -1,74 +1,145 @@
-<h2>Google Map Test</h2>
-<input id="address" type="textbox" value="">
-<input type="button" value="送信" onclick="codeAddress()">
-<input type="button" value="現在地を表示" onclick="showCurrentLocation()">
-<div id="latlngDisplay">ここに緯度、経緯が表示される</div>
-<div id="addressDisplay">ここに住所が表示される</div>
-<div id="map"></div>
+<% content_for(:title, t('.title')) %>
+<div class="my-4 w-5/6 mx-auto max-w-screen-xl">
+    <div class="w-full"><input id="pac-input" class="controls input input-bordered w-full mb-3" type="text" placeholder="エリアを検索"></div>
+    <div id="map" style="height: 500px;"></div>
+</div>
 
-<style>
-#map {
-    height: 600px;
-    width: 600px;
-}
-</style>
+<!-- モーダルを表示する要素 -->
+<dialog id="spot_modal" class="modal">
+    <div class="modal-box">
+        <div class="spot_show"></div>
+    </div>
+</dialog>
 
 <script>
-let map, marker;
 
-const latlngDis = document.getElementById('latlngDisplay');
-const addressDis = document.getElementById('addressDisplay');
+    // ⭐️地図を初期化
+    function initMap() {
+        // 地図要素：HTMLの要素 id="map" を持つ div 要素を取得し、その中に地図を表示
+        const mapElement = document.getElementById('map');
 
-function initMap() {
-    const geocoder = new google.maps.Geocoder();
+        // 地図のオプション（デフォルト位置：東京）
+        const defaultMapOptions = {
+        center: { lat: 35.6803997, lng: 139.7690174 },
+        zoom: 12
+        };
 
-    map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 12,
-    });
+        // ⭐️⭐️指定した要素・オプションで地図を表示（const displayMap は mapOptions のみを引数として持つ）
+        const displayMap = (mapOptions) => {
+        // Mapインスタンスを作成（地図要素：mapElement, 地図のオプション：mapOptions）
+        const map = new google.maps.Map(mapElement, mapOptions);
 
-    marker = new google.maps.Marker({
-        map: map,
-    });
-    showCurrentLocation();
-}
+        // 検索ボックスに入力された値を取得
+        const input = document.getElementById('pac-input');
+        const searchBox = new google.maps.places.SearchBox(input);
 
-function codeAddress() {
-    const geocoder = new google.maps.Geocoder();
-    const inputAddress = document.getElementById('address').value;
-    geocoder.geocode({ 'address': inputAddress }, function(results, status) {
-        if (status === 'OK') {
-        map.setCenter(results[0].geometry.location);
-        marker.setPosition(results[0].geometry.location);
-        latlngDis.innerHTML = `Latitude: ${results[0].geometry.location.lat()}, Longitude: ${results[0].geometry.location.lng()}`;
-        addressDis.innerHTML = results[0].formatted_address;
+        // ⭐️⭐️⭐️ユーザーが SearchBox にテキスト入力し検索した際に発生
+        searchBox.addListener('places_changed', function() {
+            // SearchBox に入力したテキストに基づき、選択された場所の詳細情報を取得（返されるのは、PlaceResult オブジェクトの配列）
+            const places = searchBox.getPlaces();
+
+            // スポットの境界（緯度経度ではなくスポットの範囲）
+            const bounds = new google.maps.LatLngBounds();
+
+            // 検索結果がない場合は何もしない
+            if (places.length === 0) {
+            return;
+            }
+
+            // 検索結果がある場合
+            places.forEach(function(place) {
+            // 検索結果の中にジオメトリ情報（ビューポート(範囲)・緯度経度(点)）or （緯度経度）がない場合は何もしない
+            if (!place.geometry || !place.geometry.location) {
+                console.log("Returned place contains no geometry");
+                return;
+            }
+
+            // ジオメトリ情報があれば、マップをその地点に移動
+            if (place.geometry.viewport) {
+                // viewport がある場合は bounds.union を使い、その場所全体が含まれるように境界を調整
+                bounds.union(place.geometry.viewport);
+            } else {
+                // viewport がない場合は bounds.extend を使い、場所の中心点を表示範囲に含めるように境界を調整
+                bounds.extend(place.geometry.location);
+            }
+            });
+
+            // bounds 内のすべての場所が地図上に収まるように一度自動調整（各場所の bounds を範囲に追加し、すべての場所が一度に地図に表示されるよう調整）
+            map.fitBounds(bounds);
+            // 特定の拡大率で地図が表示されるようにする
+            map.setZoom(12);
+        });
+
+        // ⭐️⭐️⭐️マーカーを追加（Postの情報からマーカーを追加する）
+        <% @spots.each do |spot| %>
+            (() => {
+            // Markerインスタンスを作成（繰り返しの時はconstではなく、ループ外の変数と衝突しないletで定義）
+            let marker = new google.maps.Marker({
+                position: {lat: <%= spot.latitude %>, lng: <%= spot.longitude %>},
+                map: map,
+                title: '<%= j spot.name %>'
+            });
+
+            // マーカーをクリックするとSpot詳細に遷移 → spot_path(spot)
+            marker.addListener('click', function() {
+                // モーダルの内容
+                const modalContent = `
+                <div class="mx-auto flex justify-start">
+                    <div class="mr-4">
+                    <%= image_tag 'LearnLocator_logo.png', width: 120 %>
+                    </div>
+                    <div class="m-auto w-full text-center">
+                        <div class="border-dotted border-b-2 border-info">
+                            <p class="text-lg font-bold pb-2"><%= j spot.name %></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4 text-center">
+                    <%= link_to "詳細", '#', data: { turbo: false }, class: "btn btn-neutral" %>
+                </div>
+                `;
+
+                // モーダル内容をclass="spot_show"の要素に追加
+                document.querySelector('.spot_show').innerHTML = modalContent;
+
+                // モーダルを表示
+                const modal= document.getElementById('spot_modal');
+                modal.showModal();
+            });
+            })();
+        <% end %>
+        };
+
+
+        // ⭐️⭐️現在地が取得できる場合はそこを中心に地図を表示
+        // ブラウザがWeb API(であるところのGeolocation API)をサポートしているかどうかをチェック
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+            // 現在の緯度経度を取得
+            const currentLocation = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+            // 地図のオプションを現在地に設定して地図を表示
+            displayMap({ ...defaultMapOptions, center: currentLocation });
+            }, function() {
+            // 現在地が取得できない場合もデフォルトの地図を表示
+            displayMap(defaultMapOptions);
+            });
         } else {
-        alert("該当する結果がありませんでした：" + status);
+            // Geolocation APIが利用不可能な場合もデフォルトの地図を表示
+            displayMap(defaultMapOptions);
+        }
+        }
+
+    // ⭐️画面のどこを押してもモーダルを閉じる
+    document.addEventListener('click', function(event) {
+        // モーダル内容をclass="spot_show"の要素に追加
+        const modal = document.getElementById('spot_modal');
+        if (event.target === modal) {
+        modal.close();
         }
     });
-}
-
-function showCurrentLocation(){
-    // ユーザーの現在地を取得してマップに設定
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-        const userLocation = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-        };
-        map.setCenter(userLocation);
-        marker.setPosition(userLocation);
-        latlngDis.innerHTML = `Latitude: ${userLocation.lat}, Longitude: ${userLocation.lng}`;
-        }, function() {
-        alert('位置情報の取得に失敗しました。');
-        map.setCenter({ lat: 35.6803997, lng: 139.7690174 }); // 東京の座標
-        });
-    } else {
-      // Geolocationがサポートされていないブラウザの場合
-        alert('お使いのブラウザでは地理位置情報の取得がサポートされていません。');
-      map.setCenter({ lat: 35.6803997, lng: 139.7690174 }); // 東京の座標
-    };
-}
 
 </script>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_MAPS_API_KEY"] %>&libraries=places&callback=initMap"></script>

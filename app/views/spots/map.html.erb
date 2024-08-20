@@ -86,16 +86,19 @@
                 const modalContent = `
                 <div class="mx-auto flex justify-start">
                     <div class="mr-4">
-                    <%= image_tag 'LearnLocator_logo.png', width: 120 %>
+                        <%= image_tag 'LearnLocator_logo.png', width: 160 %>
                     </div>
                     <div class="m-auto w-full text-center">
-                        <div class="border-dotted border-b-2 border-info">
-                            <p class="text-lg font-bold pb-2"><%= j spot.name %></p>
-                        </div>
+                        <p class="text-lg font-bold"><%= j spot.name %></p>
                     </div>
                 </div>
-                <div class="mt-4 text-center">
-                    <%= link_to "詳細", '#', data: { turbo: false }, class: "btn btn-neutral" %>
+                <div class="mx-auto flex justify-start mt-4">
+                    <div class="mr-4">
+                        <p class="text-xs font-bold text-rose-400"><%= j spot.category.name %></p>
+                    </div>
+                </div>
+                <div class="mt-4 text-right">
+                    <%= link_to "詳細", spot_path(spot), data: { turbo: false }, class: "btn btn-outline btn-primary" %>
                 </div>
                 `;
 

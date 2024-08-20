@@ -19,4 +19,7 @@ Rails.application.routes.draw do
   # 場所検索ページのルーティング
   get 'spots/map'
 
+  # 一覧検索ページのルーティング
+  resources :spots, only: %i[index show]
+
 end

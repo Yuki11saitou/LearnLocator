@@ -1,6 +1,7 @@
-<div class="navbar bg-base-100">
+<div class="navbar bg-gray-100">
     <div class="flex-1">
-        <%= link_to "LearnLocater", root_path, class: "btn btn-ghost text-xl" %>
+        <%= image_tag 'LearnLocator_logo.png', class: "h-10 ml-2" %>
+        <%= link_to 'LearnLocater', root_path, class: "btn btn-ghost text-xl" %>
     </div>
     <div class="flex-none">
         <div class="dropdown dropdown-end">
@@ -16,7 +17,7 @@
                 <li><%= link_to '新規登録', new_user_path, class: "text-base hover:text-rose-400" %></li>
 
                 <%# 以降共通 %>
-                <li><%= link_to '場所検索', root_path, class: "text-base hover:text-rose-400" %></li>
+                <li><%= link_to '場所検索', spots_map_path, class: "text-base hover:text-rose-400" %></li>
                 <li><%= link_to '一覧検索', root_path, class: "text-base hover:text-rose-400" %></li>
                 <li><%= link_to 'オススメの場所診断', root_path, class: "text-base hover:text-rose-400" %></li>
                 <li><%= link_to 'ブックマークした場所', root_path, class: "text-base hover:text-rose-400" %></li>

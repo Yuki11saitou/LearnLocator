@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html data-theme=cmyk>
   <head>
-    <title>Myapp</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%# ページタイトルを読み込む %>
+    <title><%= page_title(yield(:title)) %></title>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,7 +13,7 @@
   </head>
 
   <body>
-    <div class="font-body-jp bg-gray-200">
+    <div class="font-body-jp">
       <%# フラッシュメッセージ %>
       <%= render 'layouts/flash_messages' %>
 

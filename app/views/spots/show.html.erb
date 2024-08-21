@@ -1,15 +1,33 @@
 <% content_for(:title, @spot.name) %>
 
-<div class="w-5/6 mx-auto my-28 max-w-4xl">
-    <div class="card w-full shadow-xl mx-auto mb-8 max-w-sm md:max-w-4xl">
-        <div class="md:flex justify-evenly m-4">
-        <% if @spot.photo_reference.present? %>
-            <div class="my-auto md:px-4">
-            <%= image_tag "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{@spot.photo_reference}&key=#{ENV["GOOGLE_MAPS_API_KEY"]}", class: "rounded-xl" %>
+<div class="w-5/6 mx-auto max-w-sm">
+    <div class="mt-8">
+        <div class="card shadow-xl">
+            <div class="m-4">
+                <%# Spot画像 %>
+                <% if @spot.photo_reference.present? %>
+                    <%= image_tag "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{@spot.photo_reference}&key=#{ENV["GOOGLE_MAPS_API_KEY"]}", class: "rounded-xl" %>
+                <% end %>
+                <%# Spot名 %>
+                <h1 class="font-bold text-xl mt-4">
+                    <%= @spot.name %>
+                </h1>
+                <%# カテゴリ名 %>
+                <p class="font-bold text-rose-400 mt-4">
+                    <%= @spot.category.name %>
+                </p>
             </div>
-        <% end %>
-        <div class="my-4">
-            <h1 class="font-bold text-xl mb-4 border-dotted border-b-2 border-info"><%= @spot.name %></h1>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="w-5/6 mx-auto my-20 max-w-4xl">
+    <div class="card w-full shadow-xl mx-auto mb-8 max-w-sm md:max-w-4xl">
+
+        <div class="m-4">
+
             <div class="flex justify-start mb-2">
             <div>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="red" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" /></svg>
@@ -53,7 +71,6 @@
                 <p><%= simple_format(@spot.opening_hours) %></p>
             <% end %>
             </div>
-        </div>
         </div>
     </div>
     

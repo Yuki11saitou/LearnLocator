@@ -1,6 +1,6 @@
 <% content_for(:title, @spot.name) %>
 
-<div class="w-5/6 mx-auto max-w-sm">
+<div class="w-5/6 mx-auto max-w-md">
     <div class="mt-8">
         <div class="card">
             <div class="m-4">
@@ -13,7 +13,7 @@
                     <%= @spot.name %>
                 </h1>
                 <%# カテゴリ名 %>
-                <p class="text-white font-bold badge badge-primary mt-4 ">
+                <p class="text-white font-bold badge badge-primary mt-4">
                     <%= @spot.category.name %>
                 </p>
             </div>
@@ -74,13 +74,15 @@
                 <%# Spot営業時間 %>
                 <div class="card">
                     <div class="text-center text-sm">
-                        <div class="border border-base-300 p-4">
-                            <p class="font-bold mb-2">営業時間</p>
-                            <% if @spot.opening_hours.nil? %>
-                                <p>データがありません</p>
-                            <% else %>
-                                <p><%= simple_format(@spot.opening_hours) %></p>
-                            <% end %>
+                        <div class="p-4">
+                            <div class="border border-base-300">
+                                <p class="font-bold mb-2">営業時間</p>
+                                <% if @spot.opening_hours.nil? %>
+                                    <p>データがありません</p>
+                                <% else %>
+                                    <p><%= simple_format(@spot.opening_hours) %></p>
+                                <% end %>
+                            </div>
                         </div>
                     </div>
                 </div>

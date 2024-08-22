@@ -26,7 +26,7 @@
         // 地図のオプション（デフォルト位置：東京）
         const defaultMapOptions = {
         center: { lat: 35.6803997, lng: 139.7690174 },
-        zoom: 12
+        zoom: 14
         };
 
         // ⭐️⭐️指定した要素・オプションで地図を表示（const displayMap は mapOptions のみを引数として持つ）
@@ -99,7 +99,12 @@
                 </div>
                 <div class="mx-auto flex justify-start mt-4">
                     <div class="mr-4">
-                        <p class="text-xs font-bold text-rose-400"><%= j spot.category.name %></p>
+                        <p class="text-xs text-white font-bold badge badge-primary"><%= j spot.category.name %></p>
+                    </div>
+                    <div class="mr-4">
+                        <% if spot.rating.present? %>
+                            <p class="text-xs text-white font-bold badge badge-primary">⭐️ <%= j spot.rating %></p>
+                        <% end %>
                     </div>
                 </div>
                 <div class="mt-4 text-right">

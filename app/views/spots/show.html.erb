@@ -1,2 +1,120 @@
 <% content_for(:title, @spot.name) %>
-aaa
+
+<div class="w-5/6 mx-auto max-w-md">
+    <div class="mt-8">
+        <div class="card">
+            <div class="m-4">
+                <%# Spot画像 %>
+                <% if @spot.photo_reference.present? %>
+                    <%= image_tag "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{@spot.photo_reference}&key=#{ENV["GOOGLE_MAPS_API_KEY"]}", class: "rounded-xl" %>
+                <% end %>
+                <%# Spot名 %>
+                <h1 class="font-bold text-xl mt-4">
+                    <%= @spot.name %>
+                </h1>
+                <%# カテゴリ名 %>
+                <p class="text-white font-bold badge badge-primary mt-4">
+                    <%= @spot.category.name %>
+                </p>
+                <%# レーティング %>
+                <% if @spot.rating.present? %>
+                    <p class="text-white font-bold badge badge-primary mt-4">
+                        ⭐️ <%= @spot.rating %>
+                    </p>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="w-5/6 mx-auto max-w-sm md:max-w-4xl">
+    <div class="mt-10 mb-28">
+        <div class="card shadow-xl">
+            <div class="m-4">
+                <%# Spot郵便番号 %>
+                <div class="mb-2">
+                    <div class="flex justify-start">
+                        <div class="mr-2">
+                            <%= image_tag 'postal_code.svg', class: "h-4 w-4" %>
+                        </div>
+                        <div class="text-sm">
+                            <%= @spot.postal_code %>
+                        </div>
+                    </div>
+                </div>
+
+                <%# Spot住所 %>
+                <div class="mb-2">
+                    <div class="flex justify-start">
+                        <div class="mr-2">
+                            <%= image_tag 'address.svg', class: "h-4 w-4" %>
+                        </div>
+                        <div class="text-sm">
+                            <%= @spot.address %>
+                        </div>
+                    </div>
+                </div>
+
+                <%# Spot電話番号 %>
+                <div class="mb-2">
+                    <div class="flex justify-start">
+                        <div class="mr-2">
+                            <%= image_tag 'phone.svg', class: "h-4 w-4" %>
+                        </div>
+                        <div class="text-sm">
+                            <% if @spot.phone_number.present? %>
+                                <%= link_to @spot.phone_number, "tel:#{@spot.phone_number}", class: "link link-hover" %>
+                            <% else %>
+                                <p>データがありません</p>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+
+                <%# Spot公式HP %>
+                <div class="mb-2">
+                    <div class="flex justify-start">
+                        <div class="mr-2">
+                            <%= image_tag 'web_site.svg', class: "h-4 w-4" %>
+                        </div>
+                        <div class="text-sm">
+                            <% if @spot.web_site.present? %>
+                                <%= link_to "公式HPリンク", "#{@spot.web_site}", target: :_blank, rel: "noopener noreferrer", class: "link link-hover" %>
+                            <% else %>
+                                <p>データがありません</p>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+
+                <%# Spot営業時間 %>
+                <div class="card">
+                    <div class="text-center text-sm">
+                        <div class="p-2">
+                            <div class="border border-base-300">
+                                <div class="p-2">
+                                    <p class="font-bold mb-2">営業時間</p>
+                                    <% if @spot.opening_hours.nil? %>
+                                        <p>データがありません</p>
+                                    <% else %>
+                                        <%= simple_format(@spot.opening_hours) %>
+                                    <% end %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <%# 「ここへ行く」で Google Map の経路情報へ %>
+                <div class="flex flex-col justify-center items-center">
+                    <div class="mt-6">
+                        <%= link_to "https://www.google.com/maps/dir/?api=1&destination=#{@spot.latitude},#{@spot.longitude}", target: :_blank, class: "btn btn-outline btn-primary" do %>
+                            <p>ここへ行く</p>
+                        <% end %>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -17,9 +17,11 @@
                     <%= @spot.category.name %>
                 </p>
                 <%# レーティング %>
-                <p class="text-white font-bold badge badge-primary mt-4">
-                    ⭐️ <%= @spot.rating %>
-                </p>
+                <% if @spot.rating.present? %>
+                    <p class="text-white font-bold badge badge-primary mt-4">
+                        ⭐️ <%= @spot.rating %>
+                    </p>
+                <% end %>
             </div>
         </div>
     </div>

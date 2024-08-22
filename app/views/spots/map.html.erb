@@ -26,7 +26,7 @@
         // 地図のオプション（デフォルト位置：東京）
         const defaultMapOptions = {
         center: { lat: 35.6803997, lng: 139.7690174 },
-        zoom: 14
+        zoom: 12
         };
 
         // ⭐️⭐️指定した要素・オプションで地図を表示（const displayMap は mapOptions のみを引数として持つ）
@@ -72,7 +72,7 @@
             // bounds 内のすべての場所が地図上に収まるように一度自動調整（各場所の bounds を範囲に追加し、すべての場所が一度に地図に表示されるよう調整）
             map.fitBounds(bounds);
             // 特定の拡大率で地図が表示されるようにする
-            map.setZoom(12);
+            map.setZoom(14);
         });
 
         // ⭐️⭐️⭐️マーカーを追加（Postの情報からマーカーを追加する）

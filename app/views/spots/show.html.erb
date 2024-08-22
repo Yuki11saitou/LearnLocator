@@ -16,6 +16,10 @@
                 <p class="text-white font-bold badge badge-primary mt-4">
                     <%= @spot.category.name %>
                 </p>
+                <%# レーティング %>
+                <p class="text-white font-bold badge badge-primary mt-4">
+                    ⭐️ <%= @spot.rating %>
+                </p>
             </div>
         </div>
     </div>
@@ -72,14 +76,16 @@
                 <%# Spot営業時間 %>
                 <div class="card">
                     <div class="text-center text-sm">
-                        <div class="p-4">
+                        <div class="p-2">
                             <div class="border border-base-300">
-                                <p class="font-bold mb-2">営業時間</p>
-                                <% if @spot.opening_hours.nil? %>
-                                    <p>データがありません</p>
-                                <% else %>
-                                    <p><%= simple_format(@spot.opening_hours) %></p>
-                                <% end %>
+                                <div class="p-2">
+                                    <p class="font-bold mb-2">営業時間</p>
+                                    <% if @spot.opening_hours.nil? %>
+                                        <p>データがありません</p>
+                                    <% else %>
+                                        <%= simple_format(@spot.opening_hours) %>
+                                    <% end %>
+                                </div>
                             </div>
                         </div>
                     </div>

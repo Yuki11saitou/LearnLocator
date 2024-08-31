@@ -81,6 +81,7 @@ namespace :Spot do
         puts "----------"
       else
         puts "Spotの保存に失敗しました: #{row['スポット名']}"
+        puts "----------"
       end
     end
 

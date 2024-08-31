@@ -7,8 +7,10 @@ module.exports = {
   ],
   plugins: [require("daisyui")],
 
-  // 使用テーマの設定
   daisyui: {
+    // 使用テーマの設定
     themes: ["cmyk"],
+    // ダークモードの無効化
+    darkTheme: false,
   }
 }

@@ -2,27 +2,27 @@
 
     <%= link_to spots_map_path, class: "hover:bg-gray-300" do %>
         <%= image_tag 'location_search.svg', class: "h-4 w-4" %>
-        <span class="text-[0.5rem] btm-nav-label">場所検索</span>
+        <span class="text-[0.5rem] btm-nav-label"><%= t('footer.spot_search') %></span>
     <% end %>
 
     <%= link_to root_path, class: "hover:bg-gray-300" do %>
         <%= image_tag 'list_search.svg', class: "h-4 w-4" %>
-        <span class="text-[0.5rem] btm-nav-label">一覧検索</span>
+        <span class="text-[0.5rem] btm-nav-label"><%= t('footer.index_search') %></span>
     <% end %>
 
     <%= link_to root_path, class: "hover:bg-gray-300" do %>
         <%= image_tag 'facility_differences.svg', class: "h-4 w-4" %>
-        <span class="text-[0.5rem] btm-nav-label">施設の違い</span>
+        <span class="text-[0.5rem] btm-nav-label"><%= t('footer.spot_differences') %></span>
     <% end %>
 
     <%= link_to root_path, class: "hover:bg-gray-300" do %>
         <%= image_tag 'bookmark.svg', class: "h-4 w-4" %>
-        <span class="text-[0.5rem] btm-nav-label">ブックマーク</span>
+        <span class="text-[0.5rem] btm-nav-label"><%= t('footer.spot_bookmarks') %></span>
     <% end %>
 
     <%= link_to root_path, class: "hover:bg-gray-300" do %>
         <%= image_tag 'mypage.svg', class: "h-4 w-4" %>
-        <span class="text-[0.5rem] btm-nav-label">マイページ</span>
+        <span class="text-[0.5rem] btm-nav-label"><%= t('footer.my_page') %></span>
     <% end %>
 
 </div>

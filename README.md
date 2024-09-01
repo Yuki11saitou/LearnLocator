@@ -1,6 +1,7 @@
 # ■　サービス名：LearnLocator
 
 ## ■　サービスのURL
+https://www.learn-locator.com
 
 ## ■　サービス概要
 - 家以外で勉強できる場所(候補は「自習室」と「コワーキングスペース」)を検索できる。

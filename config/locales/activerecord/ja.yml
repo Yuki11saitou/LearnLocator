@@ -1,0 +1,12 @@
+# モデルに関する日本語を記述する
+ja:
+  # 今のところ不使用
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        email: メールアドレス
+        name: 名前
+        password: パスワード
+        password_confirmation: パスワード確認

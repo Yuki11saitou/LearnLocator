@@ -1,7 +1,7 @@
 <div class="navbar bg-gray-100">
     <div class="flex-1">
         <%= image_tag 'LearnLocator_logo.png', class: "h-10 ml-2" %>
-        <%= link_to 'LearnLocater', root_path, class: "btn btn-ghost text-xl" %>
+        <%= link_to t('header.title'), root_path, class: "btn btn-ghost text-xl" %>
     </div>
     <div class="flex-none">
         <div class="dropdown dropdown-end">
@@ -13,18 +13,18 @@
             <ul tabindex="0" class="menu dropdown-content bg-base-100 rounded-box z-[1] mt-4 w-52 p-2 shadow">
 
                 <%# 未ログインユーザー向け %>
-                <li><%= link_to 'ログイン', login_path, class: "text-base hover:text-secondary" %></li>
-                <li><%= link_to '新規登録', new_user_path, class: "text-base hover:text-secondary" %></li>
+                <li><%= link_to t('header.login'), login_path, class: "text-base hover:text-secondary" %></li>
+                <li><%= link_to t('header.new_register'), new_user_path, class: "text-base hover:text-secondary" %></li>
 
                 <%# 以降共通 %>
-                <li><%= link_to '場所検索', spots_map_path, class: "text-base hover:text-secondary" %></li>
-                <li><%= link_to '一覧検索', root_path, class: "text-base hover:text-secondary" %></li>
-                <li><%= link_to '施設の違い', root_path, class: "text-base hover:text-secondary" %></li>
-                <li><%= link_to 'ブックマークした場所', root_path, class: "text-base hover:text-secondary" %></li>
-                <li><%= link_to '利用規約', root_path, class: "text-base hover:text-secondary" %></li>
-                <li><%= link_to 'プライバシーポリシー', root_path, class: "text-base hover:text-secondary" %></li>
-                <li><%= link_to 'お問い合わせ', root_path, class: "text-base hover:text-secondary" %></li>
-                <div class="text-sm text-center m-3">2024 - LearnLocater</div>
+                <li><%= link_to t('header.spot_search'), spots_map_path, class: "text-base hover:text-secondary" %></li>
+                <li><%= link_to t('header.index_search'), root_path, class: "text-base hover:text-secondary" %></li>
+                <li><%= link_to t('header.spot_differences'), root_path, class: "text-base hover:text-secondary" %></li>
+                <li><%= link_to t('header.spot_bookmarks'), root_path, class: "text-base hover:text-secondary" %></li>
+                <li><%= link_to t('header.terms_of_use'), root_path, class: "text-base hover:text-secondary" %></li>
+                <li><%= link_to t('header.privacy_policy'), root_path, class: "text-base hover:text-secondary" %></li>
+                <li><%= link_to t('header.contact'), root_path, class: "text-base hover:text-secondary" %></li>
+                <div class="text-sm text-center m-3"><%= t('header.copy_right') %></div>
             </ul>
         </div>
     </div>

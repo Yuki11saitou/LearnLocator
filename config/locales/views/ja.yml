@@ -1,0 +1,58 @@
+# ビューに関する日本語を記述する
+ja:
+  header:
+    title: LearnLocator
+    login: ログイン
+    logout: ログアウト
+    new_register: 新規登録
+    my_page: マイページ
+    spot_search: 場所検索
+    index_search: 一覧検索
+    spot_differences: 施設の違い
+    spot_bookmarks: ブックマークした場所
+    terms_of_use: 利用規約
+    privacy_policy: プライバシーポリシー
+    contact: お問い合わせ
+    copy_right: © 2024 - LearnLocater
+  footer:
+    my_page: マイページ
+    spot_search: 場所検索
+    index_search: 一覧検索
+    spot_differences: 施設の違い
+    spot_bookmarks: ブックマーク
+  static_pages:
+    top:
+      spot_search: 探してみる
+  user_sessions:
+    new:
+      title: ログイン
+      email: メール
+      password: パスワード
+      placeholder:
+        password: 4文字以上
+      login: ログイン
+      new_register: 登録ページへ
+      password_forget: パスワードをお忘れの方はこちら
+  users:
+    new:
+      title: 新規登録
+      name: 名前
+      email: メール
+      password: パスワード
+      password_confirmation: パスワード確認
+      submit: 登録
+      placeholder:
+        password: 4文字以上
+        password_confirmation: 4文字以上
+      to_login_page: ログインページへ
+      password_forget: パスワードをお忘れの方はこちら
+  spots:
+    map:
+      title: 場所検索
+      placeholder:
+        search: エリアを検索
+      to_spot_show: 詳細
+    show:
+      no_data: データがありません
+      opening_hours: 営業時間
+      to_spot: ここへ行く

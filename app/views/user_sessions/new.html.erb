@@ -1,23 +1,23 @@
 <div class="flex flex-col justify-center items-center min-h-screen">
 
-        <h1 class="text-lg font-bold">ログイン</h1>
+        <h1 class="text-lg font-bold"><%= t('.title') %></h1>
         <%= form_with url: login_path do |f| %>
             <div class="mb-3">
-                <%= f.label 'メール' %>
+                <%= f.label t('.email') %>
                 <%= f.email_field :email, class: "form-control" %>
             </div>
             <div class="mb-3">
-                <%= f.label 'パスワード' %>
-                <%= f.password_field :password, placeholder: '4文字以上', class: "form-control" %>
+                <%= f.label t('.password') %>
+                <%= f.password_field :password, placeholder: t('.placeholder.password'), class: "form-control" %>
             </div>
             <div class="flex justify-center">
-                <%= f.submit 'ログイン', class: "btn btn-primary" %>
+                <%= f.submit t('.login'), class: "btn btn-primary" %>
             </div>
         <% end %>
         <div class="text-center my-6">
-            <%= link_to '新規登録', new_user_path %>
+            <%= link_to t('.new_register'), new_user_path %>
             |
-            <%= link_to 'パスワードをお忘れの方はこちら', '#' %>
+            <%= link_to t('.password_forget'), '#' %>
         </div>
 
 </div>

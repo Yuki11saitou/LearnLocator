@@ -1,31 +1,31 @@
 <div class="flex flex-col justify-center items-center min-h-screen">
 
-        <h1 class="text-lg font-bold">新規登録</h1>
+        <h1 class="text-lg font-bold"><%= t('.title') %></h1>
         <%= form_with model: @user do |f| %>
             <div class="mb-3">
-                <%= f.label '名前', class: "form-label" %>
+                <%= f.label t('.name'), class: "form-label" %>
                 <%= f.text_field :name, class: "form-control" %>
             </div>
             <div class="mb-3">
-                <%= f.label 'メール', class: "form-label" %>
+                <%= f.label t('.email'), class: "form-label" %>
                 <%= f.email_field :email, class: "form-control" %>
             </div>
             <div class="mb-3">
-                <%= f.label 'パスワード', class: "form-label" %>
-                <%= f.password_field :password, placeholder: '4文字以上', class: "form-control" %>
+                <%= f.label t('.password'), class: "form-label" %>
+                <%= f.password_field :password, placeholder: t('.placeholder.password'), class: "form-control" %>
             </div>
             <div class="mb-3">
-                <%= f.label 'パスワード確認', class: "form-label" %>
-                <%= f.password_field :password_confirmation, placeholder: '4文字以上', class: "form-control" %>
+                <%= f.label t('.password_confirmation'), class: "form-label" %>
+                <%= f.password_field :password_confirmation, placeholder: t('.placeholder.password_confirmation'), class: "form-control" %>
             </div>
             <div class="flex justify-center">
-                <%= f.submit '登録', class: "btn btn-primary" %>
+                <%= f.submit t('.submit'), class: "btn btn-primary" %>
             </div>
         <% end %>
         <div class='text-center my-6'>
-            <%= link_to 'ログインページへ', login_path %>
+            <%= link_to t('.to_login_page'), login_path %>
             |
-            <%= link_to 'パスワードをお忘れの方はこちら', '#' %>
+            <%= link_to t('.password_forget'), '#' %>
         </div>
 
 </div>

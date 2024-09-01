@@ -1,12 +1,54 @@
 # モデルに関する日本語を記述する
 ja:
-  # 今のところ不使用
   activerecord:
     models:
       user: ユーザー
+      spot: スポット
+      review: レビュー
+      like: いいね
+      category: カテゴリー
+      spot_bookmark: スポットブックマーク
     attributes:
       user:
         email: メールアドレス
         name: 名前
         password: パスワード
         password_confirmation: パスワード確認
+        avatar: アバター
+        role: 権限
+        created_at: 作成日時
+        updated_at: 更新日時
+      spot:
+        name: スポット名
+        postal_code: 郵便番号
+        address: 住所
+        phone_number: 電話番号
+        opening_hours: 営業時間
+        web_site: 公式HP
+        rating: Googleレビューの★数
+        latitude: 緯度
+        longitude: 経度
+        place_id: プレイスID
+        photo_reference: 写真リファレンス
+        created_at: 作成日時
+        updated_at: 更新日時
+      review:
+        user_id: ユーザーID
+        spot_id: スポットID
+        body: コメント
+        created_at: 作成日時
+        updated_at: 更新日時
+      like:
+        user_id: ユーザーID
+        review_id: レビューID
+        created_at: 作成日時
+        updated_at: 更新日時
+      category:
+        name: カテゴリー名
+        created_at: 作成日時
+        updated_at: 更新日時
+      spot_bookmark:
+        spot_id: スポットID
+        user_id: ユーザーID
+        created_at: 作成日時
+        updated_at: 更新日時

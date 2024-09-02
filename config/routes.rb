@@ -8,8 +8,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "static_pages#top"
 
-  # 施設の違い説明ページのルーティング
-  get 'difference', to:'static_pages#difference'
+
 
   # ユーザー登録用のルーティング
   resources :users, only: %i[new create]

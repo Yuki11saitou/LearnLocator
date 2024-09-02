@@ -1,32 +1,45 @@
+<% content_for(:title, t('.title')) %>
 <div class="flex flex-col justify-center items-center min-h-screen">
 
+    <div class="mb-10">
         <h1 class="text-lg font-bold"><%= t('.title') %></h1>
-        <%= form_with model: @user do |f| %>
-            <div class="mb-3">
-                <%= f.label t('.name'), class: "form-label" %>
-                <%= f.text_field :name, class: "form-control" %>
+    </div>
+
+    <%= form_with model: @user do |f| %>
+        <div class="mb-3">
+            <div class="input input-bordered flex items-center gap-2">
+                <%= image_tag 'user_name.svg', class: "h-4 w-4 opacity-70" %>
+                <%= f.text_field :name, placeholder: t('.name') %>
             </div>
-            <div class="mb-3">
-                <%= f.label t('.email'), class: "form-label" %>
-                <%= f.email_field :email, class: "form-control" %>
-            </div>
-            <div class="mb-3">
-                <%= f.label t('.password'), class: "form-label" %>
-                <%= f.password_field :password, placeholder: t('.placeholder.password'), class: "form-control" %>
-            </div>
-            <div class="mb-3">
-                <%= f.label t('.password_confirmation'), class: "form-label" %>
-                <%= f.password_field :password_confirmation, placeholder: t('.placeholder.password_confirmation'), class: "form-control" %>
-            </div>
-            <div class="flex justify-center">
-                <%= f.submit t('.submit'), class: "btn btn-primary" %>
-            </div>
-        <% end %>
-        <div class='text-center my-6'>
-            <%= link_to t('.to_login_page'), login_path %>
-            |
-            <%= link_to t('.password_forget'), '#' %>
         </div>
+        <div class="mb-3">
+            <div class="input input-bordered flex items-center gap-2">
+                <%= image_tag 'email.svg', class: "h-4 w-4 opacity-70" %>
+                <%= f.email_field :email, placeholder: t('.email') %>
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="input input-bordered flex items-center gap-2">
+                <%= image_tag 'key_mark.svg', class: "h-4 w-4 opacity-70" %>
+                <%= f.password_field :password, placeholder: t('.password') %>
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="input input-bordered flex items-center gap-2">
+                <%= image_tag 'key_mark.svg', class: "h-4 w-4 opacity-70" %>
+                <%= f.password_field :password_confirmation, placeholder: t('.password_confirmation') %>
+            </div>
+        </div>
+        <div class="flex justify-center">
+            <%= f.submit t('.submit'), class: "btn btn-primary" %>
+        </div>
+    <% end %>
+
+    <div class='text-center my-6'>
+        <%= link_to t('.to_login_page'), login_path %>
+        |
+        <%= link_to t('.password_forget'), '#' %>
+    </div>
 
 </div>
 

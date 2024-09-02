@@ -29,9 +29,7 @@ ja:
     new:
       title: ログイン
       email: メール
-      password: パスワード
-      placeholder:
-        password: 4文字以上
+      password: パスワード(4文字以上)
       login: ログイン
       new_register: 登録ページへ
       password_forget: パスワードをお忘れの方はこちら
@@ -40,12 +38,9 @@ ja:
       title: 新規登録
       name: 名前
       email: メール
-      password: パスワード
+      password: パスワード(4文字以上)
       password_confirmation: パスワード確認
       submit: 登録
-      placeholder:
-        password: 4文字以上
-        password_confirmation: 4文字以上
       to_login_page: ログインページへ
       password_forget: パスワードをお忘れの方はこちら
   spots:

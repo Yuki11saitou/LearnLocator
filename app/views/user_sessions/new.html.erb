@@ -1,25 +1,33 @@
 <% content_for(:title, t('.title')) %>
 <div class="flex flex-col justify-center items-center min-h-screen">
 
+    <div class="mb-10">
         <h1 class="text-lg font-bold"><%= t('.title') %></h1>
-        <%= form_with url: login_path do |f| %>
-            <div class="mb-3">
-                <%= f.label t('.email') %>
-                <%= f.email_field :email, class: "form-control" %>
+    </div>
+
+    <%= form_with url: login_path do |f| %>
+        <div class="mb-3">
+            <div class="input input-bordered flex items-center gap-2">
+                <%= image_tag 'email.svg', class: "h-4 w-4 opacity-70" %>
+                <%= f.email_field :email, class: "form-control", placeholder: t('.email') %>
             </div>
-            <div class="mb-3">
-                <%= f.label t('.password') %>
-                <%= f.password_field :password, placeholder: t('.placeholder.password'), class: "form-control" %>
-            </div>
-            <div class="flex justify-center">
-                <%= f.submit t('.login'), class: "btn btn-primary" %>
-            </div>
-        <% end %>
-        <div class="text-center my-6">
-            <%= link_to t('.new_register'), new_user_path %>
-            |
-            <%= link_to t('.password_forget'), '#' %>
         </div>
+        <div class="mb-3">
+            <div class="input input-bordered flex items-center gap-2">
+                <%= image_tag 'key_mark.svg', class: "h-4 w-4 opacity-70" %>
+                <%= f.password_field :password, class: "form-control", placeholder: t('.password') %>
+            </div>
+        </div>
+        <div class="flex justify-center">
+            <%= f.submit t('.login'), class: "btn btn-primary" %>
+        </div>
+    <% end %>
+
+    <div class="text-center my-6">
+        <%= link_to t('.new_register'), new_user_path %>
+        |
+        <%= link_to t('.password_forget'), '#' %>
+    </div>
 
 </div>
 

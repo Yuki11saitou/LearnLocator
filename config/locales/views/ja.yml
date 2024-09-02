@@ -23,6 +23,8 @@ ja:
   static_pages:
     top:
       spot_search: 探してみる
+    difference:
+      title: 施設の違い説明
   user_sessions:
     new:
       title: ログイン

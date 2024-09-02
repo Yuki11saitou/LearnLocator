@@ -4,19 +4,19 @@
         <h1 class="text-lg font-bold"><%= t('.title') %></h1>
         <%= form_with model: @user do |f| %>
             <div class="mb-3">
-                <%= f.label t('.name'), class: "form-label" %>
+                <%= f.label t('.name'), class: "" %>
                 <%= f.text_field :name, class: "form-control" %>
             </div>
             <div class="mb-3">
-                <%= f.label t('.email'), class: "form-label" %>
+                <%= f.label t('.email'), class: "" %>
                 <%= f.email_field :email, class: "form-control" %>
             </div>
             <div class="mb-3">
-                <%= f.label t('.password'), class: "form-label" %>
+                <%= f.label t('.password'), class: "" %>
                 <%= f.password_field :password, placeholder: t('.placeholder.password'), class: "form-control" %>
             </div>
             <div class="mb-3">
-                <%= f.label t('.password_confirmation'), class: "form-label" %>
+                <%= f.label t('.password_confirmation'), class: "" %>
                 <%= f.password_field :password_confirmation, placeholder: t('.placeholder.password_confirmation'), class: "form-control" %>
             </div>
             <div class="flex justify-center">

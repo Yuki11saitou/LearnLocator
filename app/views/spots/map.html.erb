@@ -1,10 +1,19 @@
 <% content_for(:title, t('.title')) %>
-<div class="my-4 w-5/6 mx-auto max-w-screen-xl">
-    <div class="w-full"><input id="pac-input" class="controls input input-bordered w-full mb-3" type="text" placeholder="<%= t('.placeholder.search') %>"></div>
-    <div id="map" class="relative" style="height: 500px;">
-        <%# マップ読み込み中のローディングリング %>
-        <div class="absolute inset-0 flex items-center justify-center">
-            <span class="loading loading-ring loading-lg"></span>
+
+<%# 検索窓表示 %>
+<div class="mt-3">
+    <div class="w-5/6 mx-auto max-w-screen-xl">
+        <div class="w-full"><input id="pac-input" class="controls input input-bordered w-full" type="text" placeholder="<%= t('.placeholder.search') %>"></div>
+    </div>
+</div>
+<%# Map表示 %>
+<div class="mt-3 mx-3">
+    <div class="mx-auto max-w-screen-xl">
+        <div id="map" class="relative rounded-xl" style="height: 500px;">
+            <%# マップ読み込み中のローディングリング %>
+            <div class="absolute inset-0 flex items-center justify-center">
+                <span class="loading loading-ring loading-lg"></span>
+            </div>
         </div>
     </div>
 </div>

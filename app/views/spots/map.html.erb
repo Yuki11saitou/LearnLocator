@@ -1,10 +1,29 @@
 <% content_for(:title, t('.title')) %>
-<div class="my-4 w-5/6 mx-auto max-w-screen-xl">
-    <div class="w-full"><input id="pac-input" class="controls input input-bordered w-full mb-3" type="text" placeholder="<%= t('.placeholder.search') %>"></div>
-    <div id="map" class="relative" style="height: 500px;">
-        <%# マップ読み込み中のローディングリング %>
-        <div class="absolute inset-0 flex items-center justify-center">
-            <span class="loading loading-ring loading-lg"></span>
+
+<%# 検索窓表示 %>
+<div class="mt-3">
+    <div class="w-5/6 mx-auto max-w-screen-xl">
+        <div class="w-full"><input id="pac-input" class="controls input input-bordered w-full" type="text" placeholder="<%= t('.placeholder.search') %>"></div>
+    </div>
+</div>
+<%# Map表示・マーカー説明エリア %>
+<div class="mt-3 mx-3">
+    <div class="mx-auto max-w-screen-xl">
+        <%# Map表示 %>
+        <div id="map" class="relative rounded-xl" style="height: 500px;">
+            <%# マップ読み込み中のローディングリング %>
+            <div class="absolute inset-0 flex items-center justify-center">
+                <span class="loading loading-ring loading-lg"></span>
+            </div>
+        </div>
+        <%# マーカー説明 %>
+        <div class="mt-1">
+            <div class="flex justify-end items-center">
+                <img src="https://maps.google.com/mapfiles/ms/micons/red-dot.png" class="h-4 skeleton">
+                <div class="text-xs">自習室</div>
+                <img src="https://maps.google.com/mapfiles/ms/micons/blue-dot.png" class="h-4 ml-4 skeleton">
+                <div class="text-xs">コワーキングスペース</div>
+            </div>
         </div>
     </div>
 </div>
@@ -25,102 +44,118 @@
 
         // 地図のオプション（デフォルト位置：東京）
         const defaultMapOptions = {
-        center: { lat: 35.6803997, lng: 139.7690174 },
-        zoom: 12
+            center: { lat: 35.6803997, lng: 139.7690174 },
+            zoom: 12
         };
 
         // ⭐️⭐️指定した要素・オプションで地図を表示（const displayMap は mapOptions のみを引数として持つ）
         const displayMap = (mapOptions) => {
-        // Mapインスタンスを作成（地図要素：mapElement, 地図のオプション：mapOptions）
-        const map = new google.maps.Map(mapElement, mapOptions);
+            // Mapインスタンスを作成（地図要素：mapElement, 地図のオプション：mapOptions）
+            const map = new google.maps.Map(mapElement, mapOptions);
 
-        // 検索ボックスに入力された値を取得
-        const input = document.getElementById('pac-input');
-        const searchBox = new google.maps.places.SearchBox(input);
+            // 検索ボックスに入力された値を取得
+            const input = document.getElementById('pac-input');
+            const searchBox = new google.maps.places.SearchBox(input);
 
-        // ⭐️⭐️⭐️ユーザーが SearchBox にテキスト入力し検索した際に発生
-        searchBox.addListener('places_changed', function() {
-            // SearchBox に入力したテキストに基づき、選択された場所の詳細情報を取得（返されるのは、PlaceResult オブジェクトの配列）
-            const places = searchBox.getPlaces();
+            // ⭐️⭐️⭐️ユーザーが SearchBox にテキスト入力し検索した際に発生
+            searchBox.addListener('places_changed', function() {
+                // SearchBox に入力したテキストに基づき、選択された場所の詳細情報を取得（返されるのは、PlaceResult オブジェクトの配列）
+                const places = searchBox.getPlaces();
 
-            // スポットの境界（緯度経度ではなくスポットの範囲）
-            const bounds = new google.maps.LatLngBounds();
+                // スポットの境界（緯度経度ではなくスポットの範囲）
+                const bounds = new google.maps.LatLngBounds();
 
-            // 検索結果がない場合は何もしない
-            if (places.length === 0) {
-            return;
-            }
-
-            // 検索結果がある場合
-            places.forEach(function(place) {
-            // 検索結果の中にジオメトリ情報（ビューポート(範囲)・緯度経度(点)）or （緯度経度）がない場合は何もしない
-            if (!place.geometry || !place.geometry.location) {
-                console.log("Returned place contains no geometry");
+                // 検索結果がない場合は何もしない
+                if (places.length === 0) {
                 return;
-            }
+                }
 
-            // ジオメトリ情報があれば、マップをその地点に移動
-            if (place.geometry.viewport) {
-                // viewport がある場合は bounds.union を使い、その場所全体が含まれるように境界を調整
-                bounds.union(place.geometry.viewport);
-            } else {
-                // viewport がない場合は bounds.extend を使い、場所の中心点を表示範囲に含めるように境界を調整
-                bounds.extend(place.geometry.location);
-            }
+                // 検索結果がある場合
+                places.forEach(function(place) {
+                // 検索結果の中にジオメトリ情報（ビューポート(範囲)・緯度経度(点)）or （緯度経度）がない場合は何もしない
+                if (!place.geometry || !place.geometry.location) {
+                    console.log("Returned place contains no geometry");
+                    return;
+                }
+
+                // ジオメトリ情報があれば、マップをその地点に移動
+                if (place.geometry.viewport) {
+                    // viewport がある場合は bounds.union を使い、その場所全体が含まれるように境界を調整
+                    bounds.union(place.geometry.viewport);
+                } else {
+                    // viewport がない場合は bounds.extend を使い、場所の中心点を表示範囲に含めるように境界を調整
+                    bounds.extend(place.geometry.location);
+                }
+                });
+
+                // bounds 内のすべての場所が地図上に収まるように一度自動調整（各場所の bounds を範囲に追加し、すべての場所が一度に地図に表示されるよう調整）
+                map.fitBounds(bounds);
+                // 特定の拡大率で地図が表示されるようにする
+                map.setZoom(16);
             });
 
-            // bounds 内のすべての場所が地図上に収まるように一度自動調整（各場所の bounds を範囲に追加し、すべての場所が一度に地図に表示されるよう調整）
-            map.fitBounds(bounds);
-            // 特定の拡大率で地図が表示されるようにする
-            map.setZoom(16);
-        });
+            // ⭐️⭐️⭐️マーカーを追加（Postの情報からマーカーを追加する）
+            <% @spots.each do |spot| %>
+                (() => {
+                    // アイコンURLを格納する変数を定義
+                    let iconUrl;
 
-        // ⭐️⭐️⭐️マーカーを追加（Postの情報からマーカーを追加する）
-        <% @spots.each do |spot| %>
-            (() => {
-            // Markerインスタンスを作成（繰り返しの時はconstではなく、ループ外の変数と衝突しないletで定義）
-            let marker = new google.maps.Marker({
-                position: {lat: <%= spot.latitude %>, lng: <%= spot.longitude %>},
-                map: map,
-                title: '<%= j spot.name %>'
-            });
+                    // spot.category.id に応じてアイコンのURLを切り替える
+                    switch (<%= spot.category.id %>) {
+                        case 1:
+                            iconUrl = "https://maps.google.com/mapfiles/ms/micons/red-dot.png";
+                            break;
+                        case 2:
+                            iconUrl = "https://maps.google.com/mapfiles/ms/micons/blue-dot.png";
+                            break;
+                        default:
+                            iconUrl = "https://maps.google.com/mapfiles/ms/micons/green-dot.png"; // デフォルトのアイコン
+                    }
 
-            // マーカーをクリックするとSpot詳細に遷移 → spot_path(spot)
-            marker.addListener('click', function() {
-                // モーダルの内容
-                const modalContent = `
-                <div class="mx-auto flex justify-start">
-                    <div class="mr-4">
-                        <%= image_tag 'LearnLocator_logo.png', width: 160 %>
-                    </div>
-                    <div class="m-auto w-full text-center">
-                        <p class="text-lg font-bold"><%= j spot.name %></p>
-                    </div>
-                </div>
-                <div class="mx-auto flex justify-start mt-4">
-                    <div class="mr-4">
-                        <p class="text-xs text-white font-bold badge badge-primary"><%= j spot.category.name %></p>
-                    </div>
-                    <div class="mr-4">
-                        <% if spot.rating.present? %>
-                            <p class="text-xs text-white font-bold badge badge-primary">⭐️ <%= j spot.rating %></p>
-                        <% end %>
-                    </div>
-                </div>
-                <div class="mt-4 text-right">
-                    <%= link_to t('.to_spot_show'), spot_path(spot), data: { turbo: false }, class: "btn btn-outline btn-primary" %>
-                </div>
-                `;
+                    // Markerインスタンスを作成（繰り返しの時はconstではなく、ループ外の変数と衝突しないletで定義）
+                    let marker = new google.maps.Marker({
+                        position: {lat: <%= spot.latitude %>, lng: <%= spot.longitude %>},
+                        map: map,
+                        title: '<%= j spot.name %>',
+                        icon: iconUrl // 切り替えたアイコンを使用
+                    });
 
-                // モーダル内容をclass="spot_show"の要素に追加
-                document.querySelector('.spot_show').innerHTML = modalContent;
+                    // マーカーをクリックするとSpot詳細に遷移 → spot_path(spot)
+                    marker.addListener('click', function() {
+                        // モーダルの内容
+                        const modalContent = `
+                        <div class="mx-auto flex justify-start">
+                            <div class="mr-4">
+                                <%= image_tag 'LearnLocator_logo.png', width: 160 %>
+                            </div>
+                            <div class="m-auto w-full text-center">
+                                <p class="text-lg font-bold"><%= j spot.name %></p>
+                            </div>
+                        </div>
+                        <div class="mx-auto flex justify-start mt-4">
+                            <div class="mr-4">
+                                <p class="text-xs text-white font-bold badge badge-primary"><%= j spot.category.name %></p>
+                            </div>
+                            <div class="mr-4">
+                                <% if spot.rating.present? %>
+                                    <p class="text-xs text-white font-bold badge badge-primary">⭐️ <%= j spot.rating %></p>
+                                <% end %>
+                            </div>
+                        </div>
+                        <div class="mt-4 text-right">
+                            <%= link_to t('.to_spot_show'), spot_path(spot), data: { turbo: false }, class: "btn btn-outline btn-primary" %>
+                        </div>
+                        `;
 
-                // モーダルを表示
-                const modal= document.getElementById('spot_modal');
-                modal.showModal();
-            });
-            })();
-        <% end %>
+                        // モーダル内容をclass="spot_show"の要素に追加
+                        document.querySelector('.spot_show').innerHTML = modalContent;
+
+                        // モーダルを表示
+                        const modal= document.getElementById('spot_modal');
+                        modal.showModal();
+                    });
+                })();
+            <% end %>
         };
 
 
@@ -143,7 +178,7 @@
             // Geolocation APIが利用不可能な場合もデフォルトの地図を表示
             displayMap(defaultMapOptions);
         }
-        }
+    }
 
     // ⭐️画面のどこを押してもモーダルを閉じる
     document.addEventListener('click', function(event) {

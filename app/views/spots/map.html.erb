@@ -34,8 +34,8 @@
 
         // 地図のオプション（デフォルト位置：東京）
         const defaultMapOptions = {
-        center: { lat: 35.6803997, lng: 139.7690174 },
-        zoom: 12
+            center: { lat: 35.6803997, lng: 139.7690174 },
+            zoom: 12
         };
 
         // ⭐️⭐️指定した要素・オプションで地図を表示（const displayMap は mapOptions のみを引数として持つ）
@@ -87,47 +87,63 @@
             // ⭐️⭐️⭐️マーカーを追加（Postの情報からマーカーを追加する）
             <% @spots.each do |spot| %>
                 (() => {
-                // Markerインスタンスを作成（繰り返しの時はconstではなく、ループ外の変数と衝突しないletで定義）
-                let marker = new google.maps.Marker({
-                    position: {lat: <%= spot.latitude %>, lng: <%= spot.longitude %>},
-                    map: map,
-                    title: '<%= j spot.name %>'
-                });
+                    // アイコンURLを格納する変数を定義
+                    let iconUrl;
 
-                // マーカーをクリックするとSpot詳細に遷移 → spot_path(spot)
-                marker.addListener('click', function() {
-                    // モーダルの内容
-                    const modalContent = `
-                    <div class="mx-auto flex justify-start">
-                        <div class="mr-4">
-                            <%= image_tag 'LearnLocator_logo.png', width: 160 %>
-                        </div>
-                        <div class="m-auto w-full text-center">
-                            <p class="text-lg font-bold"><%= j spot.name %></p>
-                        </div>
-                    </div>
-                    <div class="mx-auto flex justify-start mt-4">
-                        <div class="mr-4">
-                            <p class="text-xs text-white font-bold badge badge-primary"><%= j spot.category.name %></p>
-                        </div>
-                        <div class="mr-4">
-                            <% if spot.rating.present? %>
-                                <p class="text-xs text-white font-bold badge badge-primary">⭐️ <%= j spot.rating %></p>
-                            <% end %>
-                        </div>
-                    </div>
-                    <div class="mt-4 text-right">
-                        <%= link_to t('.to_spot_show'), spot_path(spot), data: { turbo: false }, class: "btn btn-outline btn-primary" %>
-                    </div>
-                    `;
+                    // spot.category.id に応じてアイコンのURLを切り替える
+                    switch (<%= spot.category.id %>) {
+                        case 1:
+                            iconUrl = "https://maps.google.com/mapfiles/ms/micons/red-dot.png";
+                            break;
+                        case 2:
+                            iconUrl = "https://maps.google.com/mapfiles/ms/micons/blue-dot.png";
+                            break;
+                        default:
+                            iconUrl = "https://maps.google.com/mapfiles/ms/micons/green-dot.png"; // デフォルトのアイコン
+                    }
 
-                    // モーダル内容をclass="spot_show"の要素に追加
-                    document.querySelector('.spot_show').innerHTML = modalContent;
+                    // Markerインスタンスを作成（繰り返しの時はconstではなく、ループ外の変数と衝突しないletで定義）
+                    let marker = new google.maps.Marker({
+                        position: {lat: <%= spot.latitude %>, lng: <%= spot.longitude %>},
+                        map: map,
+                        title: '<%= j spot.name %>',
+                        icon: iconUrl // 切り替えたアイコンを使用
+                    });
 
-                    // モーダルを表示
-                    const modal= document.getElementById('spot_modal');
-                    modal.showModal();
-                });
+                    // マーカーをクリックするとSpot詳細に遷移 → spot_path(spot)
+                    marker.addListener('click', function() {
+                        // モーダルの内容
+                        const modalContent = `
+                        <div class="mx-auto flex justify-start">
+                            <div class="mr-4">
+                                <%= image_tag 'LearnLocator_logo.png', width: 160 %>
+                            </div>
+                            <div class="m-auto w-full text-center">
+                                <p class="text-lg font-bold"><%= j spot.name %></p>
+                            </div>
+                        </div>
+                        <div class="mx-auto flex justify-start mt-4">
+                            <div class="mr-4">
+                                <p class="text-xs text-white font-bold badge badge-primary"><%= j spot.category.name %></p>
+                            </div>
+                            <div class="mr-4">
+                                <% if spot.rating.present? %>
+                                    <p class="text-xs text-white font-bold badge badge-primary">⭐️ <%= j spot.rating %></p>
+                                <% end %>
+                            </div>
+                        </div>
+                        <div class="mt-4 text-right">
+                            <%= link_to t('.to_spot_show'), spot_path(spot), data: { turbo: false }, class: "btn btn-outline btn-primary" %>
+                        </div>
+                        `;
+
+                        // モーダル内容をclass="spot_show"の要素に追加
+                        document.querySelector('.spot_show').innerHTML = modalContent;
+
+                        // モーダルを表示
+                        const modal= document.getElementById('spot_modal');
+                        modal.showModal();
+                    });
                 })();
             <% end %>
         };

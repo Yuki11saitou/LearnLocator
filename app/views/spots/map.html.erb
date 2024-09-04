@@ -87,20 +87,7 @@
             // ⭐️⭐️⭐️マーカーを追加（Postの情報からマーカーを追加する）
             <% @spots.each do |spot| %>
                 (() => {
-                    // アイコンURLを格納する変数を定義
-                    let iconUrl;
 
-                    // spot.category.id に応じてアイコンのURLを切り替える
-                    switch (<%= spot.category.id %>) {
-                        case 1:
-                            iconUrl = "https://maps.google.com/mapfiles/ms/micons/red-dot.png";
-                            break;
-                        case 2:
-                            iconUrl = "https://maps.google.com/mapfiles/ms/micons/blue-dot.png";
-                            break;
-                        default:
-                            iconUrl = "https://maps.google.com/mapfiles/ms/micons/green-dot.png"; // デフォルトのアイコン
-                    }
 
                     // Markerインスタンスを作成（繰り返しの時はconstではなく、ループ外の変数と衝突しないletで定義）
                     let marker = new google.maps.Marker({

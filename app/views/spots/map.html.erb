@@ -6,13 +6,23 @@
         <div class="w-full"><input id="pac-input" class="controls input input-bordered w-full" type="text" placeholder="<%= t('.placeholder.search') %>"></div>
     </div>
 </div>
-<%# Map表示 %>
+<%# Map表示・マーカー説明エリア %>
 <div class="mt-3 mx-3">
     <div class="mx-auto max-w-screen-xl">
+        <%# Map表示 %>
         <div id="map" class="relative rounded-xl" style="height: 500px;">
             <%# マップ読み込み中のローディングリング %>
             <div class="absolute inset-0 flex items-center justify-center">
                 <span class="loading loading-ring loading-lg"></span>
+            </div>
+        </div>
+        <%# マーカー説明 %>
+        <div class="mt-1">
+            <div class="flex justify-end items-center">
+                <img src="https://maps.google.com/mapfiles/ms/micons/red-dot.png" class="h-4">
+                <div class="text-xs">自習室</div>
+                <img src="https://maps.google.com/mapfiles/ms/micons/blue-dot.png" class="h-4 ml-4">
+                <div class="text-xs">コワーキング</div>
             </div>
         </div>
     </div>

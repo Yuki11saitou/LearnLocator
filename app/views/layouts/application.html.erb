@@ -5,6 +5,12 @@
     <%# ページタイトルを読み込む %>
     <title><%= page_title(yield(:title)) %></title>
 
+    <%# Googleアナリティクス導入 %>
+    <% if Rails.env.production? %>
+      <%= render 'layouts/google_analytics' %>
+    <% end %>
+
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 

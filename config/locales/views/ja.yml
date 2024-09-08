@@ -46,6 +46,9 @@ ja:
   spots:
     map:
       title: 場所検索
+      marker:
+        study_room: 自習室
+        co_working_space: コワーキングスペース
       placeholder:
         search: エリアを検索
       to_spot_show: 詳細

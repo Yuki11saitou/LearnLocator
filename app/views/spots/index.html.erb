@@ -1,0 +1,42 @@
+<% content_for(:title, t('.title')) %>
+
+
+<%# todo : あとで検索フォームを実装 %>
+<div class="container pt-3">
+    <div class="row">
+        <div class="col-lg-10 offset-lg-1">
+        <!-- 古い 検索フォーム -->
+        <%# <form>
+            <div class="input-group mb-3"><input class="form-control" placeholder="検索ワード" type="search"/>
+            <div class="input-group-append"><input type="submit" value="検索" class="btn btn-primary"/></div>
+            </div>
+        </form> %>
+        <!-- 新しい 検索フォーム -->
+        <%# <form>
+            <div class="input-group mb-3"> %>
+            <%# <%= render 'search', q: @q, url: boards_path %>
+            <%# </div>
+        </form> %>
+        </div>
+    </div>
+</div>
+
+<%# spotデータ(一覧表示) %>
+<div class="w-5/6 mx-auto max-w-sm md:max-w-4xl">
+    <div class="mt-10 mb-28">
+
+                <% if @spots.present? %>
+                    <%= render @spots %>
+
+                    <%# todo : あとでページネーション実装 %>
+                    <%# <%= paginate @spots, theme: 'bootstrap-5' %>
+
+                <% else %>
+                    <%= t('.no_spot_data') %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+
+

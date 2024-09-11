@@ -1,24 +1,26 @@
-<div class="flex flex-col justify-center items-center min-h-screen">
-    <div>
-        <h1 class="text-4xl font-bold mb-2">LearnLocater</h1>
-        <p class="text-lg mb-6">勉強場所、探してみませんか？</p>
-    </div>
-    <div class="card bg-base-100 w-96 shadow-xl">
-        <div class="card-body">
-            <h2 class="card-title">アプリ説明</h2>
-            <p>このアプリは「自習室」「コワーキングスペース」の検索サービスです。</p>
+<div class="mt-6">
+    <div class="flex flex-col justify-center items-center">
+        <div>
+            <h1 class="text-4xl font-bold mb-2">LearnLocater</h1>
+            <p class="text-lg mb-6">勉強場所、探してみませんか？</p>
         </div>
-        <div class="card-body">
-            <h2 class="card-title">こんな人におすすめ</h2>
-            <li>家以外で勉強してみたい方</li>
-            <li>自分に合った勉強場所を探している方</li>
-            <li>自習室やコワーキングスペースを<br>　 探している方</li>
+        <div class="card bg-base-100 w-96 shadow-xl">
+            <div class="card-body">
+                <h2 class="card-title">アプリ説明</h2>
+                <p>このアプリは「自習室」「コワーキングスペース」の検索サービスです。</p>
+            </div>
+            <div class="card-body">
+                <h2 class="card-title">こんな人におすすめ</h2>
+                <li>家以外で勉強してみたい方</li>
+                <li>自分に合った勉強場所を探している方</li>
+                <li>自習室やコワーキングスペースを<br>　 探している方</li>
+            </div>
         </div>
-    </div>
-    <div class="mt-6">
-        <%= link_to spots_map_path, class: "btn btn-primary rounded hover:bg-base-100 hover:text-secondary" do %>
-            <%= image_tag 'location_search.svg', class: "h-4 w-4" %>
-            <%= t('.spot_search') %>
-        <% end %>
+        <div class="mt-6">
+            <%= link_to spots_map_path, class: "btn btn-primary rounded hover:bg-base-100 hover:text-secondary" do %>
+                <%= image_tag 'location_search.svg', class: "h-4 w-4" %>
+                <%= t('.spot_search') %>
+            <% end %>
+        </div>
     </div>
 </div>

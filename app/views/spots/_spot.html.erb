@@ -1,0 +1,86 @@
+
+<div id="board-id-<%= spot.id %>">
+    <div class="card shadow-xl">
+        <div class="m-4">
+
+
+            <%# todo : あとで画像を入れるかどうか考える（API利用してしまう x ページネーションでなんとかなるかも） %>
+            <%# Spot画像 %>
+            <%# <%= image_tag board.board_image.url, class: "card-img-top", width: "300", height:"200" %>
+
+
+            <%# Spot名 %>
+            <div class="mt-4">
+                <div class="font-bold text-md">
+                    <%= link_to spot.name, spot_path(spot), class: "link" %>
+                </div>
+            </div>
+
+            <%# Spotカテゴリ名・レーティング %>
+            <div class="mb-4">
+                <%# カテゴリ名 %>
+                <p class="text-white font-bold badge badge-primary mt-4">
+                    <%= spot.category.name %>
+                </p>
+                <%# レーティング %>
+                <% if spot.rating.present? %>
+                    <p class="text-sm text-white font-bold badge badge-primary mt-4">
+                        ⭐️ <%= spot.rating %>
+                    </p>
+                <% end %>
+            </div>
+
+            <%# Spot住所 %>
+            <div class="mb-2">
+                <div class="flex justify-start">
+                    <div class="mr-2">
+                        <%= image_tag 'address.svg', class: "h-4 w-4" %>
+                    </div>
+                    <div class="text-sm">
+                        <%= spot.address %>
+                    </div>
+                </div>
+            </div>
+
+            <%# Spot公式HP %>
+            <div class="mb-2">
+                <div class="flex justify-start">
+                    <div class="mr-2">
+                        <%= image_tag 'web_site.svg', class: "h-4 w-4" %>
+                    </div>
+                    <div class="text-sm">
+                        <% if spot.web_site.present? %>
+                            <%= link_to "公式HPリンク", "#{spot.web_site}", target: :_blank, rel: "noopener noreferrer", class: "link" %>
+                        <% else %>
+                            <p><%= t('.no_data') %></p>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+
+
+            <%# todo : あとで編集ボタン、ブクマボタンなどを実装 %>
+            <%# <% if current_user.own?(board) %>
+                <%# <div class='ms-auto'> %>
+                <%# <%= link_to edit_board_path(board), id: "button-edit-#{board.id}" do %> 
+                    <%# <i class="bi bi-pencil-fill"></i> %>
+                <%# <% end %>
+                <%# <%= link_to board_path(board), id: "button-delete-#{board.id}", data: { turbo_method: :delete, turbo_confirm: '削除しますか' } do %>  
+                    <%# <i class="bi bi-trash-fill"></i> %>
+                <%# <% end %> 
+                <%# </div> %>
+            <%# <% else %> 
+                <%# <div class='ms-auto'> %>
+                <%# <%= render 'bookmark_button', board: board %> 
+                <%# </div> %>
+            <%# <% end %>  
+
+            <%# <ul class="list-inline">
+            <li><i class="bi bi-person"></i><%= board.user.decorate.full_name %></li>
+            <%# <li><i class="bi bi-calendar"></i><%= l board.created_at, format: :long %></li>
+            <%# </ul>
+            <%# <p class="card-text"><%= board.body %></p>
+
+        </div>
+    </div>
+</div>

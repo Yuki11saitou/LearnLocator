@@ -7,28 +7,30 @@
     paginator:     the paginator that renders the pagination tags inside
 -%>
 
-<%= paginator.render do -%>
-  <nav class="pagination" role="navigation" aria-label="pager">
-    <%# 現在のページが最初のページでない場合のみ「最初のページ」と「前のページ」へのリンクを表示 %>
-    <%= first_page_tag unless current_page.first? %>
-    <%= prev_page_tag unless current_page.first? %>
+<div class="join text-xs">
+  <%= paginator.render do -%>
+    <nav class="pagination" role="navigation" aria-label="pager">
+      <%# 現在のページが最初のページでない場合のみ「最初のページ」と「前のページ」へのリンクを表示 %>
+      <%= first_page_tag unless current_page.first? %>
+      <%# <%= prev_page_tag unless current_page.first? %>
 
-    <% each_page do |page| -%>
-      <%# 表示すべきページ番号の場合true %>
-      <% if page.display_tag? -%>
-        <%# page_tagメソッドでそのページへのリンクを生成 %>
-        <%= page_tag page %>
-      <%# 表示すべきページ番号ではない場合 → 複数ページが連続して省略されている場合（省略記号 “…” などを表示する必要がある場合）にtrue %>
-      <% elsif !page.was_truncated? -%>
-        <%# ページ番号の間に省略記号（”…”, “…“など）を表示するためのタグ %>
-        <%= gap_tag %>
+      <% each_page do |page| -%>
+        <%# 表示すべきページ番号の場合true %>
+        <% if page.display_tag? -%>
+          <%# page_tagメソッドでそのページへのリンクを生成 %>
+          <%= page_tag page %>
+        <%# 表示すべきページ番号ではない場合 → 複数ページが連続して省略されている場合（省略記号 “…” などを表示する必要がある場合）にtrue %>
+        <% elsif !page.was_truncated? -%>
+          <%# ページ番号の間に省略記号（”…”, “…“など）を表示するためのタグ %>
+          <%= gap_tag %>
+        <% end -%>
       <% end -%>
-    <% end -%>
 
-    <%# 現在のページが最後のページでない場合のみ「次のページ」と「最後のページ」へのリンクを表示 %>
-    <% unless current_page.out_of_range? %>
-      <%= next_page_tag unless current_page.last? %>
-      <%= last_page_tag unless current_page.last? %>
-    <% end %>
-  </nav>
-<% end -%>
+      <%# 現在のページが最後のページでない場合のみ「次のページ」と「最後のページ」へのリンクを表示 %>
+      <% unless current_page.out_of_range? %>
+        <%= next_page_tag unless current_page.last? %>
+        <%# <%= last_page_tag unless current_page.last? %>
+      <% end %>
+    </nav>
+  <% end -%>
+</div>

@@ -8,10 +8,8 @@
     remote:        data-remote
 -%>
 
-<%# trueである場合（つまり現在のページである場合）、currentというクラスが追加される。これにより、現在のページをCSSで特別なスタイルにすることが可能。 %>
-<span class="page<%= ' current' if page.current? %>">
-  <%# page.current?がfalse（現在のページではない）場合、リンクを生成し、他のページに遷移できるようにする。 %>
-  <%# pageはページ番号を保持しており、link_to_unlessの中でリンクテキストとして使用される。 %>
-  <%# rel: page.rel: rel属性は、リンクの関連性を示す。page.relはそのページに適したrel属性（例えば、“next” や “prev”）を動的に設定するために使用される。 %>
-  <%= link_to_unless page.current?, page, url, {remote: true, rel: page.rel} %>
-</span>
+<%# page.current?がfalse（現在のページではない）場合、リンクを生成し、他のページに遷移できるようにする。 %>
+<%# pageはページ番号を保持しており、link_to_unlessの中でリンクテキストとして使用される。 %>
+<%# rel: page.rel: rel属性は、リンクの関連性を示す。page.relはそのページに適したrel属性（例えば、“next” や “prev”）を動的に設定するために使用される。 %>
+<%# remote: trueを指定すると、このリンクはAjaxリクエストとして動作し、ページ全体をリロードせずに部分的にコンテンツを更新できる %>
+<%= link_to page, url, class: "join-item btn #{'current' if page.current?}", remote: true, rel: page.rel %>

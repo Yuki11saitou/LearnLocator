@@ -6,6 +6,10 @@
     per_page:      number of items to fetch per page
     remote:        data-remote
 -%>
+
 <span class="first">
-  <%= link_to_unless current_page.first?, t('views.pagination.first').html_safe, url, remote: remote %>
+  <%# link_to_unlessは、条件がtrueの時にはリンクを生成せず、falseの時にはリンクを生成するRailsのヘルパーメソッド %>
+  <%# urlはリンクのURL → URLが動的に変わる必要がある場合や異なるパスにリンクする必要がある場合は、url_for や path ヘルパーを使って適切にURLを生成する必要がある %>
+  <%# remote: trueを指定すると、このリンクはAjaxリクエストとして動作し、ページ全体をリロードせずに部分的にコンテンツを更新できる %>
+  <%= link_to_unless current_page.first?, t('views.pagination.first').html_safe, url, remote: true %>
 </span>

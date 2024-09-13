@@ -12,5 +12,5 @@
   <%# urlはリンクのURL → URLが動的に変わる必要がある場合や異なるパスにリンクする必要がある場合は、url_for や path ヘルパーを使って適切にURLを生成する必要がある %>
   <%# rel属性は、リンクの関連性を示すために使われる。rel: 'next'は、このリンクが「次のページ」であることを示す。SEOやアクセシビリティの観点で重要な役割を果たす。 %>
   <%# remote: trueを指定すると、このリンクはAjaxリクエストとして動作し、ページ全体をリロードせずに部分的にコンテンツを更新できる %>
-  <%= link_to_unless current_page.last?, t('views.pagination.next').html_safe, url, class: "join-item btn", rel: 'next', remote: true %>
+  <%= link_to_unless current_page.last?, t('pagination.next').html_safe, url, class: "join-item btn", rel: 'next', remote: true %>
 </span>

@@ -60,3 +60,7 @@ ja:
       no_data: データがありません
       opening_hours: 営業時間
       to_spot: ここへ行く
+  # ページネーション
+  pagination:
+    previous: "«"
+    next: "»"

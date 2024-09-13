@@ -7,7 +7,7 @@
     paginator:     the paginator that renders the pagination tags inside
 -%>
 
-<div class="join text-xs">
+<div class="join text-xs ">
   <%= paginator.render do %>
     <nav class="pagination" role="navigation" aria-label="pager">
       <%# 現在のページが最初のページでない場合のみ「最初のページ」と「前のページ」へのリンクを表示 %>
@@ -23,8 +23,8 @@
         <% elsif !page.was_truncated? %>
           <%# ページ番号の間に省略記号（”…”, “…“など）を表示するためのタグ %>
           <%# <%= gap_tag %>
-        <% end -%>
-      <% end -%>
+        <% end %>
+      <% end %>
 
       <%# 現在のページが最後のページでない場合のみ「次のページ」と「最後のページ」へのリンクを表示 %>
       <% unless current_page.out_of_range? %>

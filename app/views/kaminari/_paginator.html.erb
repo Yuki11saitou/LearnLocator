@@ -11,8 +11,8 @@
   <%= paginator.render do %>
     <nav class="pagination" role="navigation" aria-label="pager">
       <%# 現在のページが最初のページでない場合のみ「最初のページ」と「前のページ」へのリンクを表示 %>
-      <%= first_page_tag unless current_page.first? %>
-      <%# <%= prev_page_tag unless current_page.first? %>
+      <%# <%= first_page_tag unless current_page.first? %>
+      <%= prev_page_tag unless current_page.first? %>
 
       <% each_page do |page| %>
         <%# 表示すべきページ番号の場合true %>

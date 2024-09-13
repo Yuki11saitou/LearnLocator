@@ -27,11 +27,8 @@
 
                 <% if @spots.present? %>
                     <%= render @spots %>
-
-                    <%# todo : あとでページネーション実装 %>
-                    <%# <%= paginate @spots, theme: 'bootstrap-5' %>
+                    <%# ページネーション %>
                     <%= paginate @spots %>
-
                 <% else %>
                     <%= t('.no_spot_data') %>
                 <% end %>

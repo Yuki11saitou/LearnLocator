@@ -24,6 +24,7 @@ AllCops:
     - 'Rakefile'
     - 'Gemfile'
     - 'spec/**/*'
+    - 'lib/tasks/get_spot_details.rake'
 
 ## Rails特有のファイルやタスクファイルに対する設定
 Rails:

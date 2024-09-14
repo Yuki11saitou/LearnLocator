@@ -1,1 +1,117 @@
 inherit_from: .rubocop_todo.yml
+
+## rubocop 関連の gem を require する
+require:
+  - rubocop-rails # 拡張機能
+
+## 全体に適応する項目を定義
+AllCops:
+  # 新ルールを有効化
+  NewCops: enable
+  # rubyバージョン指定
+  TargetRubyVersion: 3.2
+  # railsバージョン指定
+  TargetRailsVersion: 7.1
+  # 除外するディレクトリ
+  Exclude:
+    - "vendor/**/*"
+    - "db/**/*"
+    - "config/**/*"
+    - 'config.ru'
+    - "bin/*"
+    - 'tmp/**/*'
+    - 'node_modules/**/*'
+    - 'Rakefile'
+    - 'Gemfile'
+    - 'spec/**/*'
+
+## Rails特有のファイルやタスクファイルに対する設定
+Rails:
+  Enabled: true
+
+Rails/FilePath:
+  # 除外するディレクトリ
+  Exclude:
+    - 'lib/tasks/get_spot_details.rake'
+
+# 1行あたりの文字数をチェックする
+Layout/LineLength:
+  Max: 130
+  # 下記ファイルはチェックの対象から外す
+  Exclude:
+    - "Rakefile"
+    - "spec/rails_helper.rb"
+    - "spec/spec_helper.rb"
+
+# ブロック内の行数をチェックする
+Metrics/BlockLength:
+  Exclude:
+    - 'Gemfile'
+    - 'config/**/*'
+    - "spec/**/*" # RSpecは1つのブロックあたりの行数が多くなるため、チェックの除外から外す
+
+# 下記項目をRubocopが計算して基準値を超えると警告を出す（上記頭文字をとって'Abc'）
+  # Assignment: 変数への代入
+  # Branch: メソッド呼び出し
+  # Condition: 条件文
+Metrics/AbcSize:
+  Max: 50
+
+# メソッドの中身が複雑になっていないか、Rubocopが計算して基準値を超えると警告を出す
+Metrics/PerceivedComplexity:
+  Max: 8
+
+# 循環的複雑度が高すぎないかをチェック（ifやforなどを1メソッド内で使いすぎている）
+Metrics/CyclomaticComplexity:
+  Max: 30
+
+# メソッドの行数が多すぎないかをチェック
+Metrics/MethodLength:
+  Max: 30
+
+# ネストが深すぎないかをチェック（if文のネストもチェック）
+Metrics/BlockNesting:
+  Max: 5
+
+# クラスの行数をチェック
+Metrics/ClassLength:
+  CountComments: false
+  Max: 300
+
+# 空メソッドの場合に、1行のスタイルにしない ( NG例：def style1; end )（無効）
+Style/EmptyMethod:
+  Enabled: false
+
+# クラス内にクラスが定義されていないかチェック（無効）
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+## `and return` の形式を利用できるよう設定。基本的には、&& と || を使う。
+Style/AndOr:
+  Enabled: false
+
+## 日本語コメントを許可。
+Style/AsciiComments:
+  Enabled: false
+
+# クラスやモジュール定義前に、それらの説明書きがあるかをチェック（無効）
+Style/Documentation:
+  Enabled: false
+
+# ％i（）構文を使用していないシンボルで構成される配列リテラルをチェック（無効）
+Style/SymbolArray:
+  Enabled: false
+
+# 文字列に値が代入されて変わっていないかチェック（無効）
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# メソッドパラメータ名の最小文字数を設定
+Naming/MethodParameterName:
+  MinNameLength: 1
+
+# アクセサーメソッド（ゲッターやセッター）の命名規則チェック。通常rubyではアクセサーメソッドは「get_」や「set_」というプレフィックスを使わない。
+Naming/AccessorMethodName:
+  # 下記ファイルはチェックの対象から外す
+  Exclude:
+    - 'app/controllers/**/*'

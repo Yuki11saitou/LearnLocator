@@ -26,15 +26,6 @@ AllCops:
     - 'spec/**/*'
     - 'lib/tasks/get_spot_details.rake'
 
-## Rails特有のファイルやタスクファイルに対する設定
-Rails:
-  Enabled: true
-
-Rails/FilePath:
-  # 除外するディレクトリ
-  Exclude:
-    - 'lib/tasks/get_spot_details.rake'
-
 # 1行あたりの文字数をチェックする
 Layout/LineLength:
   Max: 130

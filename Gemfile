@@ -83,6 +83,16 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+
+  # rubocopの導入
+  gem 'rubocop', require: false
+  gem 'rubocop-rails', require: false # railsアプリケーション特化のRuboCop
+  # todo : 必要に応じて導入予定
+  # gem 'rubocop-performance', require: false # パフォーマンス改善に特化したルールを追加する拡張機能
+  # gem 'rubocop-rspec', require: false # rspec用のRuboCop
+  # gem 'rubocop-rake', require: false # Rakeタスク用のRuboCop
+  # gem 'overcommit', require: false # コミット前にRuboCopを実行するツール
 end
 
 group :test do

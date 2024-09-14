@@ -6,7 +6,7 @@ class SpotsController < ApplicationController
   end
 
   def index
-    @spots = Spot.all.order(created_at: :desc).page(params[:page])
+    @spots = Spot.all.page(params[:page])
   end
 
   def show

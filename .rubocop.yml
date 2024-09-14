@@ -26,6 +26,12 @@ AllCops:
     - 'spec/**/*'
     - 'lib/tasks/get_spot_details.rake'
 
+# モデルの `uniqueness` バリデーションに対して、データベースにuniqueインデックスがない場合に警告。
+Rails/UniqueValidationWithoutIndex:
+  # 下記ファイルはチェックの対象から外す
+  Exclude:
+    - 'app/models/spot.rb' # spotsテーブルへのuniqueインデックス適用が確認できているのに警告が出るため、チェックの除外から外す
+
 # 1行あたりの文字数をチェックする
 Layout/LineLength:
   Max: 130

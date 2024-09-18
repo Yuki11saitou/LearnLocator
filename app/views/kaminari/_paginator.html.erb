@@ -17,7 +17,7 @@
       <% each_page do |page| %>
         <%# 表示すべきページ番号の場合true %>
         <% if page.display_tag? %>
-          <%# page_tagメソッドでそのページへのリンクを生成 %>
+          <%# page_tagヘルパーでそのページへのリンクを生成 %>
           <%= page_tag page %>
         <%# 表示すべきページ番号ではない場合 → 複数ページが連続して省略されている場合（省略記号 “…” などを表示する必要がある場合）にtrue %>
         <% elsif !page.was_truncated? %>

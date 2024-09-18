@@ -11,5 +11,5 @@
   <%# link_to_unlessは、条件がtrueの時にはリンクを生成せず、falseの時にはリンクを生成するRailsのヘルパーメソッド %>
   <%# urlはリンクのURL → URLが動的に変わる必要がある場合や異なるパスにリンクする必要がある場合は、url_for や path ヘルパーを使って適切にURLを生成する必要がある %>
   <%# remote: trueを指定すると、このリンクはAjaxリクエストとして動作し、ページ全体をリロードせずに部分的にコンテンツを更新できる %>
-  <%= link_to_unless current_page.last?, t('views.pagination.last').html_safe, url, class: "join-item btn", remote: true %>
+  <%= link_to_unless current_page.last?, t('views.pagination.last').html_safe, url, class: "join-item btn btn-sm", remote: true %>
 </span>

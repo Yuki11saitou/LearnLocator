@@ -6,9 +6,8 @@ class SpotsController < ApplicationController
   end
 
   def index
-    # @q = Spot.ransack(params[:q])
-    # @spots = @q.result(distinct: true).includes(:category).order(created_at: :desc).page(params[:page])
-    @spots = Spot.includes(:category).all.page(params[:page])
+    @q = Spot.ransack(params[:q])
+    @spots = @q.result(distinct: true).includes(:category).order(created_at: :desc).page(params[:page])
   end
 
   def show

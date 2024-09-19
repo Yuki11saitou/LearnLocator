@@ -4,13 +4,16 @@ class Spot < ApplicationRecord
   after_validation :geocode
   validates :name, :latitude, :longitude, :place_id, presence: true, uniqueness: true
 
-  # ransackの許可リスト(Spotモデルの検索条件に使用するカラム名を設定)
-  def self.ransackable_attributes(auth_object = nil)
-    ["address", "category_id", "created_at", "id", "id_value", "latitude", "longitude", "name", "opening_hours", "phone_number", "photo_reference", "place_id", "postal_code", "rating", "updated_at", "web_site"]
+  # Ransackの許可リスト（Spotモデルの検索条件に使用するカラム名を設定）
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[
+      id category_id name postal_code address phone_number opening_hours web_site
+      rating latitude longitude place_id photo_reference created_at updated_at
+    ]
   end
 
-  # ransackの許可リスト(Spotモデルの関連モデルの検索条件に使用するカラム名を設定)
-  def self.ransackable_associations(auth_object = nil)
-    ["address"]
+  # Ransackの許可リスト（Spotモデルの関連モデルの検索条件に使用するカラム名を設定）
+  def self.ransackable_associations(_auth_object = nil)
+    %w[address]
   end
 end

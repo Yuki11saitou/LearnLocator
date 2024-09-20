@@ -1,9 +1,17 @@
 <%= search_form_for q, url: url do |f| %>
-    <div class="input-group mb-3">
-        <%= f.search_field :name_or_address_cont, class: 'form-control', placeholder: "" %>
-        <%# <%= f.search_field :title_or_body_cont, class: 'form-control', placeholder: t('defaults.search_word') %>
-        <div class="input-group-append">
-        <%= f.submit class: 'btn btn-primary' %>
+    <div class="m-3">
+        <div class="mx-auto flex justify-center">
+            <div class="join">
+                <%= f.search_field :name_or_address_cont, class: 'input input-bordered join-item text-sm', placeholder: t('search_form.placeholder') %>
+                <select class="select select-bordered join-item text-xs">
+                    <option disabled selected><%= t('search_form.facility_type') %></option>
+                    <option><%= t('search_form.study_room') %></option>
+                    <option><%= t('search_form.co_working_space') %></option>
+                </select>
+                <div class="indicator">
+                    <%= f.submit class: 'btn join-item' %>
+                </div>
+            </div>
         </div>
     </div>
 <% end %>

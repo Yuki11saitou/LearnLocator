@@ -54,12 +54,15 @@ ja:
       to_spot_show: 詳細
     index:
       title: 一覧検索
-      search: 検索
       no_spot_data: データがありません
     show:
       no_data: データがありません
       opening_hours: 営業時間
       to_spot: ここへ行く
+  # 検索フォーム
+  search_form:
+    placeholder: 施設名/エリア名を入力
+    facility_type: 施設種別
   # ページネーション
   pagination:
     previous: "«"

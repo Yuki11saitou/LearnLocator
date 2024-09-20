@@ -12,5 +12,5 @@
   <%# urlはリンクのURL → URLが動的に変わる必要がある場合や異なるパスにリンクする必要がある場合は、url_for や path ヘルパーを使って適切にURLを生成する必要がある %>
   <%# rel属性は、リンクの関連性を示すために使われる。rel: 'prev'は、このリンクが「前のページ」であることを示す。SEOやアクセシビリティの観点で重要な役割を果たす。 %>
   <%# remote: trueを指定すると、このリンクはAjaxリクエストとして動作し、ページ全体をリロードせずに部分的にコンテンツを更新できる %>
-  <%= link_to_unless current_page.first?, t('pagination.previous').html_safe, url, class: "join-item btn", rel: 'prev', remote: true %>
+  <%= link_to_unless current_page.first?, t('pagination.previous').html_safe, url, class: "join-item btn btn-sm", rel: 'prev', remote: true %>
 </span>

@@ -3,7 +3,7 @@
 Kaminari.configure do |config|
   config.default_per_page = 5 # 1ページあたりの表示件数
   # config.max_per_page = nil
-  config.window = 1 # 現在のページの前後に表示するページ数
+  config.window = 2 # 現在のページの前後に表示するページ数
   # config.outer_window = 0 # 最初と最後に表示するページ数
   # config.left = 0
   # config.right = 0

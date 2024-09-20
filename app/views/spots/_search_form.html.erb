@@ -3,11 +3,7 @@
         <div class="mx-auto flex justify-center">
             <div class="join">
                 <%= f.search_field :name_or_address_cont, class: 'input input-bordered join-item text-sm', placeholder: t('search_form.placeholder') %>
-                <select class="select select-bordered join-item text-xs">
-                    <option disabled selected><%= t('search_form.facility_type') %></option>
-                    <option><%= t('search_form.study_room') %></option>
-                    <option><%= t('search_form.co_working_space') %></option>
-                </select>
+                <%= f.select :category_id_eq, options_from_collection_for_select(@categories, :id, :name, params.dig(:q, :category_id_eq)), { include_blank: t('search_form.facility_type') }, class: 'select select-bordered join-item text-xs' %>
                 <div class="indicator">
                     <%= button_tag(type: 'submit', class: 'btn join-item rounded-r-full') do %>
                         <%= image_tag 'search_mark.svg', class: "h-4 w-4" %>

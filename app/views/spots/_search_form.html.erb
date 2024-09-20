@@ -9,7 +9,9 @@
                     <option><%= t('search_form.co_working_space') %></option>
                 </select>
                 <div class="indicator">
-                    <%= f.submit class: 'btn join-item' %>
+                    <%= button_tag(type: 'submit', class: 'btn join-item rounded-r-full') do %>
+                        <%= image_tag 'search_mark.svg', class: "h-4 w-4" %>
+                    <% end %>
                 </div>
             </div>
         </div>

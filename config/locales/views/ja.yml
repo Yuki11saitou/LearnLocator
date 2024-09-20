@@ -55,6 +55,7 @@ ja:
     index:
       title: 一覧検索
       no_spot_data: データがありません
+      no_data: データがありません
     show:
       no_data: データがありません
       opening_hours: 営業時間

@@ -63,8 +63,6 @@ ja:
   search_form:
     placeholder: 施設名/エリア名を入力
     facility_type: 施設種別
-    study_room: 自習室
-    co_working_space: コワーキング
   # ページネーション
   pagination:
     previous: "«"

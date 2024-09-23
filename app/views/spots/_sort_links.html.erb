@@ -1,0 +1,24 @@
+<%# todo : 後ほど口コミの並べ替え機能実装 %>
+<%# <%= sort_link(@q, :name, "口コミ数") %>
+
+<div class="w-5/6 mx-auto max-w-sm md:max-w-4xl">
+    <div class="dropdown">
+        <div tabindex="0" role="button" class="btn btn-sm m-1 text-xs">
+            <%= t('sort_link.title') %>
+            <svg class="inline-block h-2 w-2 fill-current opacity-60", xmlns="http://www.w3.org/2000/svg", viewBox="0 0 2048 2048">
+                <path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path>
+            </svg>
+        </div>
+        <ul tabindex="0" class="dropdown-content bg-base-300 rounded-box z-[1] w-52 p-2 shadow-2xl">
+        <li>
+            <%= sort_link(q, '#', "口コミ数", class: "btn btn-sm btn-block btn-ghost justify-start text-xs") %>
+        </li>
+        <li>
+            <%= sort_link(q, :name, "名前順", class: "btn btn-sm btn-block btn-ghost justify-start text-xs") %>
+        </li>
+        <li>
+            <%= sort_link(q, :rating, t('sort_link.sorted_by_rating'), class: "btn btn-sm btn-block btn-ghost justify-start text-xs") %>
+        </li>
+        </ul>
+    </div>
+</div>

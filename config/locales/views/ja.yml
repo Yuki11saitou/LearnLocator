@@ -64,6 +64,10 @@ ja:
   search_form:
     placeholder: 施設名/エリア名を入力
     facility_type: 施設種別
+  # 並べ替え
+  sort_link:
+    title: 並べ替え
+    sorted_by_rating: 評価順(googleレビュー)
   # ページネーション
   pagination:
     previous: "«"

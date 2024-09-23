@@ -10,15 +10,15 @@
             </svg>
         </div>
         <ul tabindex="0" class="dropdown-content bg-base-300 rounded-box z-[1] w-52 p-2 shadow-2xl">
-        <li>
-            <%= sort_link(q, '#', "口コミ数", class: "btn btn-sm btn-block btn-ghost justify-start text-xs") %>
-        </li>
-        <li>
-            <%= sort_link(q, :name, "名前順", class: "btn btn-sm btn-block btn-ghost justify-start text-xs") %>
-        </li>
-        <li>
-            <%= sort_link(q, :rating, t('sort_link.sorted_by_rating'), class: "btn btn-sm btn-block btn-ghost justify-start text-xs") %>
-        </li>
+            <li>
+                <%= sort_link(q, '#', "口コミ数", class: "btn btn-sm btn-block btn-ghost justify-start text-xs") %>
+            </li>
+            <li>
+                <%= sort_link(q, :name, "名前順", class: "btn btn-sm btn-block btn-ghost justify-start text-xs") %>
+            </li>
+            <li>
+                <%= sort_link(q, :rating, t('sort_link.sorted_by_rating'), class: "btn btn-sm btn-block btn-ghost justify-start text-xs") %>
+            </li>
         </ul>
     </div>
 </div>

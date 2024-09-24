@@ -55,6 +55,7 @@ ja:
     index:
       title: 一覧検索
       no_spot_data: データがありません
+      no_data: データがありません
     show:
       no_data: データがありません
       opening_hours: 営業時間
@@ -62,7 +63,17 @@ ja:
   # 検索フォーム
   search_form:
     placeholder: 施設名/エリア名を入力
-    facility_type: 施設種別
+    select_form:
+      facility_type: 種類
+      study_room: (自)
+      co_working_space: (コ)
+    description:
+      study_room: 自習室
+      co_working_space: コワーキングスペース
+  # 並べ替え
+  sort_link:
+    title: 並べ替え
+    sorted_by_rating: 評価順(googleレビュー)
   # ページネーション
   pagination:
     previous: "«"

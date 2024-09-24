@@ -5,10 +5,11 @@
     <form>
         <%= render 'search_form', q: @q, url: spots_path %>
     </form>
+</div>
 
-    <%# todo : 後ほど並べ替え機能実装 %>
-    <%# <%= sort_link(@q, :name, "施設名でソート") %> |
-    <%# <%= sort_link(@q, :created_at, "作成日でソート") %>
+<%# 並べ替え機能 %>
+<div class="mb-3">
+    <%= render 'sort_links', q: @q %>
 </div>
 
 <%# spotデータ(一覧表示) %>

@@ -63,7 +63,13 @@ ja:
   # 検索フォーム
   search_form:
     placeholder: 施設名/エリア名を入力
-    facility_type: 施設種別
+    select_form:
+      facility_type: 種類
+      study_room: (自)
+      co_working_space: (コ)
+    description:
+      study_room: 自習室
+      co_working_space: コワーキングスペース
   # 並べ替え
   sort_link:
     title: 並べ替え

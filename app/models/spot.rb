@@ -1,6 +1,9 @@
 class Spot < ApplicationRecord
-  belongs_to :category
   geocoded_by :address
+
+  belongs_to :category
+  has_many :reviews, dependent: :destroy
+
   after_validation :geocode
   validates :name, :latitude, :longitude, :place_id, presence: true, uniqueness: true
 

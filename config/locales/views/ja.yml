@@ -50,7 +50,7 @@ ja:
         study_room: 自習室
         co_working_space: コワーキングスペース
       placeholder:
-        search: エリアを検索
+        search: 施設名/エリア名を入力
       to_spot_show: 詳細
     index:
       title: 一覧検索

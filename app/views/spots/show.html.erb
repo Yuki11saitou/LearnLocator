@@ -27,94 +27,111 @@
     </div>
 </div>
 
-<div class="w-5/6 mx-auto max-w-sm md:max-w-4xl">
-    <div class="mt-10 mb-28">
-        <div class="card shadow-xl">
-            <div class="m-4">
-                <%# Spot郵便番号 %>
-                <div class="mb-2">
-                    <div class="flex justify-start">
-                        <div class="mr-2">
-                            <%= image_tag 'postal_code.svg', class: "h-4 w-4" %>
-                        </div>
-                        <div class="text-sm">
-                            <%= @spot.postal_code %>
-                        </div>
-                    </div>
-                </div>
+<div class="mt-4 mb-24">
+    <div class="w-5/6 mx-auto max-w-sm md:max-w-4xl">
 
-                <%# Spot住所 %>
-                <div class="mb-2">
-                    <div class="flex justify-start">
-                        <div class="mr-2">
-                            <%= image_tag 'address.svg', class: "h-4 w-4" %>
-                        </div>
-                        <div class="text-sm">
-                            <%= @spot.address %>
-                        </div>
-                    </div>
-                </div>
+        <%# タブの出しわけ領域 %>
+        <div role="tablist" class="tabs tabs-lifted grid grid-cols-2 w-full">
+            <%# 施設詳細情報タブ %>
+            <input type="radio" name="my_tabs_2" role="tab" class="tab" aria-label="<%= t('.tab.facility_details') %>" checked="checked" />
+            <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-b-lg p-2 shadow-xl">
 
-                <%# Spot電話番号 %>
-                <div class="mb-2">
-                    <div class="flex justify-start">
-                        <div class="mr-2">
-                            <%= image_tag 'phone.svg', class: "h-4 w-4" %>
+                <div class="mt-4">
+                    <div class="m-4">
+                        <%# Spot郵便番号 %>
+                        <div class="mb-2">
+                            <div class="flex justify-start">
+                                <div class="mr-2">
+                                    <%= image_tag 'postal_code.svg', class: "h-4 w-4" %>
+                                </div>
+                                <div class="text-sm">
+                                    <%= @spot.postal_code %>
+                                </div>
+                            </div>
                         </div>
-                        <div class="text-sm">
-                            <% if @spot.phone_number.present? %>
-                                <%= link_to @spot.phone_number, "tel:#{@spot.phone_number}", class: "link" %>
-                            <% else %>
-                                <p><%= t('.no_data') %></p>
-                            <% end %>
-                        </div>
-                    </div>
-                </div>
 
-                <%# Spot公式HP %>
-                <div class="mb-2">
-                    <div class="flex justify-start">
-                        <div class="mr-2">
-                            <%= image_tag 'web_site.svg', class: "h-4 w-4" %>
+                        <%# Spot住所 %>
+                        <div class="mb-2">
+                            <div class="flex justify-start">
+                                <div class="mr-2">
+                                    <%= image_tag 'address.svg', class: "h-4 w-4" %>
+                                </div>
+                                <div class="text-sm">
+                                    <%= @spot.address %>
+                                </div>
+                            </div>
                         </div>
-                        <div class="text-sm">
-                            <% if @spot.web_site.present? %>
-                                <%= link_to "公式HPリンク", "#{@spot.web_site}", target: :_blank, rel: "noopener noreferrer", class: "link" %>
-                            <% else %>
-                                <p><%= t('.no_data') %></p>
-                            <% end %>
-                        </div>
-                    </div>
-                </div>
 
-                <%# Spot営業時間 %>
-                <div class="card">
-                    <div class="text-center text-sm">
-                        <div class="p-2">
-                            <div class="border border-base-300">
-                                <div class="p-2">
-                                    <p class="font-bold mb-2"><%= t('.opening_hours') %></p>
-                                    <% if @spot.opening_hours.nil? %>
-                                        <p><%= t('.no_data') %></p>
+                        <%# Spot電話番号 %>
+                        <div class="mb-2">
+                            <div class="flex justify-start">
+                                <div class="mr-2">
+                                    <%= image_tag 'phone.svg', class: "h-4 w-4" %>
+                                </div>
+                                <div class="text-sm">
+                                    <% if @spot.phone_number.present? %>
+                                        <%= link_to @spot.phone_number, "tel:#{@spot.phone_number}", class: "link" %>
                                     <% else %>
-                                        <%= simple_format(@spot.opening_hours) %>
+                                        <p><%= t('.no_data') %></p>
                                     <% end %>
                                 </div>
                             </div>
                         </div>
+
+                        <%# Spot公式HP %>
+                        <div class="mb-2">
+                            <div class="flex justify-start">
+                                <div class="mr-2">
+                                    <%= image_tag 'web_site.svg', class: "h-4 w-4" %>
+                                </div>
+                                <div class="text-sm">
+                                    <% if @spot.web_site.present? %>
+                                        <%= link_to "公式HPリンク", "#{@spot.web_site}", target: :_blank, rel: "noopener noreferrer", class: "link" %>
+                                    <% else %>
+                                        <p><%= t('.no_data') %></p>
+                                    <% end %>
+                                </div>
+                            </div>
+                        </div>
+
+                        <%# Spot営業時間 %>
+                        <div class="card">
+                            <div class="text-center text-sm">
+                                <div class="p-2">
+                                    <div class="border rounded-lg border-base-300">
+                                        <div class="p-2">
+                                            <p class="font-bold mb-2"><%= t('.opening_hours') %></p>
+                                            <% if @spot.opening_hours.nil? %>
+                                                <p><%= t('.no_data') %></p>
+                                            <% else %>
+                                                <%= simple_format(@spot.opening_hours) %>
+                                            <% end %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <%# 「ここへ行く」で Google Map の経路情報へ %>
+                        <div class="flex flex-col justify-center items-center">
+                            <div class="mt-6">
+                                <%= link_to "https://www.google.com/maps/dir/?api=1&destination=#{@spot.latitude},#{@spot.longitude}", target: :_blank, class: "btn btn-outline btn-primary" do %>
+                                    <p><%= t('.to_spot') %></p>
+                                <% end %>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-
-                <%# 「ここへ行く」で Google Map の経路情報へ %>
-                <div class="flex flex-col justify-center items-center">
-                    <div class="mt-6">
-                        <%= link_to "https://www.google.com/maps/dir/?api=1&destination=#{@spot.latitude},#{@spot.longitude}", target: :_blank, class: "btn btn-outline btn-primary" do %>
-                            <p><%= t('.to_spot') %></p>
-                        <% end %>
-                    </div>
-                </div>
-
             </div>
+
+            <%# 口コミタブ %>
+            <input type="radio" name="my_tabs_2" role="tab" class="tab" aria-label="<%= t('.tab.reviews') %>" />
+            <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-b-lg p-2 shadow-xl">
+                Tab content 2
+            </div>
+
         </div>
+
     </div>
 </div>

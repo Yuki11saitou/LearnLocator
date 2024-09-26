@@ -60,6 +60,9 @@ ja:
       no_data: データがありません
       opening_hours: 営業時間
       to_spot: ここへ行く
+      tab:
+        facility_details: 施設詳細
+        reviews: 口コミ
   # 検索フォーム
   search_form:
     placeholder: 施設名/エリア名を入力

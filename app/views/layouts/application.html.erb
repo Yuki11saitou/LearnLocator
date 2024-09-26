@@ -15,7 +15,8 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module", defer: true %>
+
   </head>
 
   <body>
@@ -35,5 +36,7 @@
       <%# フッター %>
       <%= render 'shared/footer' %>
     </div>
+    <%# <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script> %>
   </body>
 </html>

@@ -6,7 +6,7 @@
                 <%= f.search_field :name_or_address_cont, class: 'input input-bordered join-item text-sm', placeholder: t('search_form.placeholder') %>
 
                 <%# 施設選択 %>
-                <div class="tooltip text-xs" data-tip="<%= t('search_form.select_form.study_room') %>:<%= t('search_form.description.study_room') %>, <%= t('search_form.select_form.co_working_space') %>:<%= t('search_form.description.co_working_space') %>">
+                <div class="tooltip" data-tip="<%= t('search_form.select_form.study_room') %>:<%= t('search_form.description.study_room') %>, <%= t('search_form.select_form.co_working_space') %>:<%= t('search_form.description.co_working_space') %>">
                     <%= f.select :category_id_eq, options_for_select([
                         # 施設種別を設定
                         [t('search_form.select_form.study_room'), 1],

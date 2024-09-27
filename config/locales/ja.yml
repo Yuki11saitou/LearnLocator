@@ -7,3 +7,5 @@ ja:
   alerts:
     login_failure: "ログインに失敗しました"
     user_registration_failure: "ユーザー登録に失敗しました"
+    require_login: "ログインが必要です"
+  errors:

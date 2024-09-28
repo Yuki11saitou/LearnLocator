@@ -112,9 +112,19 @@
                             </div>
                         </div>
 
+                        <%# Google Map 表示エリア %>
+                        <div class="mt-6">
+                            <div id="map" class="relative rounded-xl" style="height: 200px;">
+                                <%# マップ読み込み中のローディングリング %>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <span class="loading loading-ring loading-lg"></span>
+                                </div>
+                            </div>
+                        </div>
+
                         <%# 「ここへ行く」で Google Map の経路情報へ %>
                         <div class="flex flex-col justify-center items-center">
-                            <div class="mt-6">
+                            <div class="mt-4">
                                 <%= link_to "https://www.google.com/maps/dir/?api=1&destination=#{@spot.latitude},#{@spot.longitude}", target: :_blank, class: "btn btn-outline btn-primary" do %>
                                     <p><%= t('.to_spot') %></p>
                                 <% end %>
@@ -159,3 +169,52 @@
 
     </div>
 </div>
+
+<%# 地図表示のためのscriptタグ %>
+<script>
+    // ⭐️地図を初期化
+    function initMap() {
+        // 地図要素：HTMLの要素 id="map" を持つ div 要素を取得し、その中に地図を表示
+        const mapElement = document.getElementById('map');
+
+        // 地図のオプション
+        const defaultMapOptions = {
+            center: {lat: <%= @spot.latitude %>, lng: <%= @spot.longitude %>},
+            zoom: 12
+        };
+
+        // ⭐️⭐️指定した要素・オプションで地図を表示するための設定（const displayMap は mapOptions のみを引数として持つ）
+        const displayMap = (mapOptions) => {
+            // Mapインスタンスを作成（地図要素：mapElement, 地図のオプション：mapOptions）
+            const map = new google.maps.Map(mapElement, mapOptions);
+
+            // ⭐️⭐️⭐️マーカーを追加（spotの情報からマーカーを追加する）
+
+            // アイコンURLを格納する変数を定義
+            let iconUrl;
+            // spot.category.id に応じてアイコンのURLを切り替える
+            switch (<%= @spot.category.id %>) {
+                case 1:
+                    iconUrl = "https://maps.google.com/mapfiles/ms/micons/red-dot.png";
+                    break;
+                case 2:
+                    iconUrl = "https://maps.google.com/mapfiles/ms/micons/blue-dot.png";
+                    break;
+                default:
+                    iconUrl = "https://maps.google.com/mapfiles/ms/micons/green-dot.png"; // デフォルトのアイコン
+            }
+            // Markerインスタンスを作成
+            let marker = new google.maps.Marker({
+                position: {lat: <%= @spot.latitude %>, lng: <%= @spot.longitude %>},
+                map: map,
+                title: '<%= j @spot.name %>',
+                icon: iconUrl // 切り替えたアイコンを使用
+            });
+        };
+
+        // ⭐️⭐️地図を表示
+        displayMap(defaultMapOptions);
+
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_MAPS_API_KEY"] %>&callback=initMap" data-turbo-track="reload"></script>

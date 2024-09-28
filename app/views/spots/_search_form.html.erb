@@ -6,11 +6,13 @@
                 <%= f.search_field :name_or_address_cont, class: 'input input-bordered join-item text-sm', placeholder: t('search_form.placeholder') %>
 
                 <%# 施設選択 %>
-                <%= f.select :category_id_eq, options_for_select([
-                    # 施設種別を設定
-                    [t('search_form.select_form.study_room'), 1],
-                    [t('search_form.select_form.co_working_space'), 2]
-                ], params.dig(:q, :category_id_eq)), { include_blank: t('search_form.select_form.facility_type') }, class: 'select select-bordered join-item text-xs' %>
+                <div class="tooltip" data-tip="<%= t('search_form.select_form.study_room') %>:<%= t('search_form.description.study_room') %>, <%= t('search_form.select_form.co_working_space') %>:<%= t('search_form.description.co_working_space') %>">
+                    <%= f.select :category_id_eq, options_for_select([
+                        # 施設種別を設定
+                        [t('search_form.select_form.study_room'), 1],
+                        [t('search_form.select_form.co_working_space'), 2]
+                    ], params.dig(:q, :category_id_eq)), { include_blank: t('search_form.select_form.facility_type') }, class: 'select select-bordered join-item text-xs' %>
+                </div>
 
                 <%# 検索ボタン %>
                 <div class="indicator">
@@ -18,17 +20,6 @@
                         <%= image_tag 'search_mark.svg', class: "h-4 w-4" %>
                     <% end %>
                 </div>
-            </div>
-        </div>
-
-        <%# マーカー説明 %>
-        <div class="mt-1">
-            <div class="flex justify-center items-center">
-                <div class="text-xs font-bold"><%= t('search_form.select_form.study_room') %></div>
-                <div class="text-xs"><%= t('search_form.description.study_room') %></div>
-                <div class="text-xs mx-2"></div>
-                <div class="text-xs font-bold"><%= t('search_form.select_form.co_working_space') %></div>
-                <div class="text-xs"><%= t('search_form.description.co_working_space') %></div>
             </div>
         </div>
 

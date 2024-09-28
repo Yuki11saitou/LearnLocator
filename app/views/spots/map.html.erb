@@ -10,7 +10,8 @@
 <div class="mt-3 mx-3">
     <div class="mx-auto max-w-screen-xl">
         <%# Map表示 %>
-        <div id="map" class="relative rounded-xl" style="height: calc(100vh - 220px);">
+        <%# 100vhと100dvhの両方を使って、アドレスバーやブラウザの仕様に依存しない形で地図の高さを調整 %>
+        <div id="map" class="relative rounded-xl" style="height: calc(min(100vh, 100dvh) - 220px);">
             <%# マップ読み込み中のローディングリング %>
             <div class="absolute inset-0 flex items-center justify-center">
                 <span class="loading loading-ring loading-lg"></span>

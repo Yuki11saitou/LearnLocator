@@ -4,8 +4,10 @@ ja:
     login_success: "ログインしました"
     logout_success: "ログアウトしました"
     user_registration_success: "ユーザー登録が完了しました"
+    review_creation_success: "口コミが投稿されました"
   alerts:
     login_failure: "ログインに失敗しました"
     user_registration_failure: "ユーザー登録に失敗しました"
     require_login: "ログインが必要です"
+    review_creation_failure: "口コミを投稿できませんでした"
   errors:

@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
   private
 
   def not_authenticated
-    redirect_to login_path, flash: { danger: t('alerts.require_login') }
+    redirect_to login_path, alert: t('alerts.require_login')
   end
 end

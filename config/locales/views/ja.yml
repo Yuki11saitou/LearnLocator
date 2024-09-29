@@ -47,6 +47,7 @@ ja:
     map:
       title: 場所検索
       marker:
+        current_location: 現在地
         study_room: 自習室
         co_working_space: コワーキングスペース
       placeholder:

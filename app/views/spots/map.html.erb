@@ -20,9 +20,13 @@
         <%# マーカー説明 %>
         <div class="mt-1">
             <div class="flex justify-end items-center">
+                <img src="https://maps.google.com/mapfiles/ms/micons/yellow-dot.png" class="h-4 ml-4 skeleton">
+                <div class="text-xs"><%= t('.marker.current_location') %></div>
+                <div class="mx-2"></div>
                 <img src="https://maps.google.com/mapfiles/ms/micons/red-dot.png" class="h-4 skeleton">
                 <div class="text-xs"><%= t('.marker.study_room') %></div>
-                <img src="https://maps.google.com/mapfiles/ms/micons/blue-dot.png" class="h-4 ml-4 skeleton">
+                <div class="mx-2"></div>
+                <img src="https://maps.google.com/mapfiles/ms/micons/blue-dot.png" class="h-4 skeleton">
                 <div class="text-xs"><%= t('.marker.co_working_space') %></div>
             </div>
         </div>

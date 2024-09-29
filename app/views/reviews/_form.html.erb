@@ -1,0 +1,20 @@
+<div class="" id="review-form">
+    <div class="">
+        <%= form_with model: review, url: spot_reviews_path(spot) do |f| %>
+            <%# ラベルとして、施設名を表示 %>
+            <%= f.label @spot.name, class: "text-sm" %>
+            <%# テキストエリア %>
+            <div class="mt-1">
+                <div class="card shadow-xl">
+                    <%= f.text_area :body, class: "textarea textarea-bordered h-48", placeholder: "300文字以内" %>
+                </div>
+            </div>
+            <%# 送信ボタン %>
+            <div class="flex flex-col justify-center items-center">
+                <div class="mt-4">
+                    <%= f.submit "送信", class: "btn btn-outline btn-primary" %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>

@@ -43,6 +43,11 @@
     function initMap() {
         // 地図要素：HTMLの要素 id="map" を持つ div 要素を取得し、その中に地図を表示
         const mapElement = document.getElementById('map');
+        // mapElementが正常に取得できない場合はエラー
+        if (!mapElement) {
+            console.error('Map element not found');
+            return;
+        }
 
         // 地図のオプション（デフォルト位置：東京）
         const defaultMapOptions = {

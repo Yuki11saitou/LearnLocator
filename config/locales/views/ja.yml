@@ -68,6 +68,7 @@ ja:
   reviews:
     new:
       title: "【口コミ投稿】%{name}"
+      back: 戻る
   # 検索フォーム
   search_form:
     placeholder: 施設名/エリア名を入力

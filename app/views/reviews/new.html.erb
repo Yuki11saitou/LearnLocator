@@ -2,8 +2,16 @@
 
 <div class="mt-4 mb-24">
     <div class="w-5/6 mx-auto max-w-sm md:max-w-4xl">
-        <label class="form-control">
-            <%= render 'reviews/form', review: @review, spot: @spot %>
-        </label>
+        <%# 戻るボタン %>
+        <%= link_to spot_path(@spot), class: "btn btn-sm text-xs" do %>
+            <%= image_tag 'page_back_mark.svg', class: "h-3 w-3" %>
+            <%= t('.back') %>
+        <% end %>
+        <%# 口コミ投稿フォーム（呼び出し） %>
+        <div class="mt-6">
+            <label class="form-control">
+                <%= render 'reviews/form', review: @review, spot: @spot %>
+            </label>
+        </div>
     </div>
 </div>

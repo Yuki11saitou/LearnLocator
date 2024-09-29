@@ -69,6 +69,8 @@ ja:
     new:
       title: "【口コミ投稿】%{name}"
       back: 戻る
+      placeholder: 300文字以内で入力してください
+      submit: 投稿
   # 検索フォーム
   search_form:
     placeholder: 施設名/エリア名を入力

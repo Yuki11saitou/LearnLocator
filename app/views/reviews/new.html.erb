@@ -1,1 +1,19 @@
-aaa
+<% content_for(:title, t('reviews.new.title', name: @spot.name)) %>
+
+<div class="mt-4 mb-24">
+    <div class="w-5/6 mx-auto max-w-sm md:max-w-4xl">
+        <div class="card shadow-xl">
+            <label class="form-control">
+                <div class="label">
+                    <span class="label-text">Your bio</span>
+                    <span class="label-text-alt">Alt label</span>
+                </div>
+                <textarea class="textarea textarea-bordered h-24" placeholder="Bio"></textarea>
+                <div class="label">
+                    <span class="label-text-alt">Your bio</span>
+                    <span class="label-text-alt">Alt label</span>
+                </div>
+            </label>
+        </div>
+    </div>
+</div>

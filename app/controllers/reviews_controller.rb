@@ -12,6 +12,7 @@ class ReviewsController < ApplicationController
   def new
     # @review = @spot.reviews.build
     @review = Review.new # こちらでもいいかも
+    @spot = Spot.find(params[:spot_id])
   end
 
 

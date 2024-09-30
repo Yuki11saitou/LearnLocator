@@ -33,7 +33,7 @@
         <%# タブの出しわけ領域 %>
         <div role="tablist" class="tabs tabs-bordered grid grid-cols-2 w-full">
             <%# 施設詳細情報タブ %>
-            <input type="radio" name="my_tabs_1" role="tab" class="tab" aria-label="<%= t('.tab.facility_details') %>" checked="checked" />
+            <input type="radio" name="my_tabs_1" role="tab" class="tab" aria-label="<%= t('.tab.facility_details') %>" />
             <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-b-lg p-2 shadow-xl">
 
                 <div class="mt-4">
@@ -136,20 +136,20 @@
             </div>
 
             <%# 口コミタブ %>
-            <input type="radio" name="my_tabs_1" role="tab" class="tab" aria-label="<%= t('.tab.reviews') %>" />
+            <input type="radio" name="my_tabs_1" role="tab" class="tab" aria-label="<%= t('.tab.reviews') %>" checked="checked"/> <%# checked="checked"でデフォルトの選択タブを設定 %>
             <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-b-lg p-2 shadow-xl relative">
+
                 <%# 口コミ %>
-                <div class="">
-                    Tab content 2<br>
-                    Tab content 2<br>
-                    Tab content 2<br>
-                    Tab content 2<br>
-                    Tab content 2<br>
-                    Tab content 2<br>
-                    Tab content 2<br>
-                    Tab content 2<br>
-                    Tab content 2<br>
-                    Tab content 2<br>
+                <div class="w-5/6 mx-auto max-w-sm md:max-w-4xl">
+                    <div class="mt-4 mb-20">
+                        <% if @reviews.present? %>
+                            <%= render @reviews %>
+                            <%# ページネーション %>
+                            <%= paginate @reviews %>
+                        <% else %>
+                            <%= t('.no_review_data') %>
+                        <% end %>
+                    </div>
                 </div>
 
                 <%# 口コミ投稿ボタン %>

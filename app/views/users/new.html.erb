@@ -6,6 +6,10 @@
     </div>
 
     <%= form_with model: @user do |f| %>
+
+        <%# エラーメッセージ %>
+        <%= render 'shared/error_messages', object: f.object %>
+
         <div class="mb-3">
             <div class="input input-bordered flex items-center gap-2">
                 <%= image_tag 'user_name.svg', class: "h-4 w-4 opacity-70" %>

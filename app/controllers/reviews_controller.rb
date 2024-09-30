@@ -19,6 +19,7 @@ class ReviewsController < ApplicationController
   # todo : 後で内容精査
   def create
     review = current_user.reviews.build(review_params)
+    @spot = review.spot
     if review.save
       redirect_to spot_path(review.spot), notice: t('notices.review_creation_success')
     else

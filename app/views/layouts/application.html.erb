@@ -24,8 +24,6 @@
 
   <body>
     <div class="font-body-jp">
-      <%# フラッシュメッセージ %>
-      <%= render 'layouts/flash_messages' %>
 
       <%# ヘッダー（ログイン有無で出しわけ） %>
       <% if logged_in? %>
@@ -33,7 +31,10 @@
       <% else %>
         <%= render 'shared/before_login_header' %>
       <% end %>
+      <%# フラッシュメッセージ %>
+      <%= render 'layouts/flash_messages' %>
 
+      <%# 中身 %>
       <%= yield %>
 
       <%# フッター %>

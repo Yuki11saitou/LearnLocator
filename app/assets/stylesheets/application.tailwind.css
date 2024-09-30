@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* カスタムスタイル */
+.field_with_errors {
+    @apply border-none bg-transparent; /* Tailwindのユーティリティクラスを使う */
+    display: contents; /* レイアウトへの影響を最小限に抑える */
+}

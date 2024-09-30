@@ -13,7 +13,7 @@
                 <%# <%= render 'reviews/form', review: @review, spot: @spot %>
 
                 <div class="" id="review-form">
-                    <%= form_with model: review, url: spot_reviews_path(spot) do |f| %>
+                    <%= form_with model: @review, url: spot_reviews_path(@spot) do |f| %>
                         <%# ラベルとして、施設名を表示 %>
                         <%= f.label spot.name, class: "text-sm" %>
                         <%# テキストエリア %>

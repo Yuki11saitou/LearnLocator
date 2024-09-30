@@ -18,10 +18,10 @@ class ReviewsController < ApplicationController
 
   # todo : 後で内容精査
   def create
-    review = current_user.reviews.build(review_params)
-    @spot = review.spot
-    if review.save
-      redirect_to spot_path(review.spot), notice: t('notices.review_creation_success')
+    @review = current_user.reviews.build(review_params)
+    @spot = @review.spot
+    if @review.save
+      redirect_to spot_path(@review.spot), notice: t('notices.review_creation_success')
     else
       # render spot_path(review.spot), alert: '口コミの投稿に失敗しました。' # ここはrender :newの方がいいかも
       flash.now[:alert] = t('alerts.review_creation_failure')

@@ -65,6 +65,7 @@ ja:
         facility_details: 施設詳細
         reviews: 口コミ
       post_review: 口コミを投稿する
+      no_review_data: 口コミはまだありません
   reviews:
     new:
       title: "【口コミ投稿】%{name}"

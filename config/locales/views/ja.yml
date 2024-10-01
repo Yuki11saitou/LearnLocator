@@ -72,6 +72,9 @@ ja:
       back: 戻る
       placeholder: 300文字以内で入力してください
       submit: 投稿
+    show:
+      back: 戻る
+      x_share: Xでシェア
   # 検索フォーム
   search_form:
     placeholder: 施設名/エリア名を入力

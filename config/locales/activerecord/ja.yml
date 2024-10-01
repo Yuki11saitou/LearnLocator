@@ -52,3 +52,24 @@ ja:
         user_id: ユーザーID
         created_at: 作成日時
         updated_at: 更新日時
+    # エラーメッセージ
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: を入力してください
+              taken: はすでに存在します
+            name:
+              blank: を入力してください
+            password:
+              blank: を入力してください
+              too_short: は4文字以上で入力してください
+            password_confirmation:
+              blank: を入力してください
+              confirmation: パスワードとパスワード確認が一致しません
+        review:
+          attributes:
+            body:
+              blank: を入力してください
+              too_long: は300文字以内で入力してください

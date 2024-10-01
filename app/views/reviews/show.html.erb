@@ -1,0 +1,32 @@
+<% content_for(:title, t('.title', name: @spot.name)) %>
+
+<div class="mt-4 mb-24">
+    <div class="w-5/6 mx-auto max-w-sm md:max-w-4xl">
+        <%# 戻るボタン %>
+        <%= link_to spot_path(@spot), class: "btn btn-sm text-xs" do %>
+            <%= image_tag 'page_back_mark.svg', class: "h-3 w-3" %>
+            <%= t('.back') %>
+        <% end %>
+        <%# 作成した口コミ %>
+        <div class="mt-6">
+            <div class="text-sm">
+                <%= @spot.name %>
+            </div>
+            <div class="mt-1">
+                <div class="card shadow-xl border-2">
+                    <div class="m-4">
+                        <%= simple_format(@review.body) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%# Xシェアボタン %>
+        <div class="flex flex-col justify-center items-center">
+            <div class="mt-6">
+                <%= link_to "#", target: :_blank, class: "btn btn-outline btn-primary" do %>
+                    <p><%= t('.x_share') %></p>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

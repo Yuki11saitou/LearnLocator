@@ -1,0 +1,27 @@
+<%# 口コミ表示 %>
+<div class="review-item">
+    <div class="mt-3">
+        <div class="card border-2  rounded-md">
+            <div class="mx-3 my-2">
+                <%# 名前 %>
+                <div class="text-sm font-bold">
+                    <%= current_user.name %>
+                </div>
+                <div class="mt-1"></div>
+                <%# 作成日時 %>
+                <div class="text-xs">
+                    <%= l(review.created_at, format: :long) %>
+                </div>
+                <div class="mt-1"></div>
+                <%# 区切り線 %>
+                <hr>
+                <div class="mt-1"></div>
+                <%# 口コミ内容 %>
+                <div class="text-sm">
+                    <%# simple_formatで改行を有効化 %>
+                    <%= simple_format(review.body) %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

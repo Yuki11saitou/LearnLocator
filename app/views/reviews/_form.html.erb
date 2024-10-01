@@ -1,0 +1,25 @@
+<div id="review-form">
+    <%= form_with model: review, url: spot_reviews_path(spot) do |f| %>
+
+        <%# エラーメッセージ %>
+        <%= render 'shared/error_messages', object: f.object %>
+
+        <%# ラベルとして、施設名を表示 %>
+        <%= f.label spot.name, class: "text-sm" %>
+
+        <%# テキストエリア %>
+        <div class="mt-1">
+            <div class="card shadow-xl">
+                <%= f.text_area :body, class: "textarea textarea-bordered h-48", placeholder: t('reviews.new.placeholder') %>
+            </div>
+        </div>
+
+        <%# 送信ボタン %>
+        <div class="flex flex-col justify-center items-center">
+            <div class="mt-6">
+                <%= f.submit t('reviews.new.submit'), class: "btn btn-outline btn-primary" %>
+            </div>
+        </div>
+
+    <% end %>
+</div>

@@ -24,8 +24,8 @@ Rails.application.routes.draw do
 
   # 一覧検索ページのルーティング
   resources :spots, only: %i[index show] do
-    # 口コミ投稿用のルーティング
-    resources :reviews, only: %i[new create edit destroy], shallow: true
+    # 口コミ用のルーティング
+    resources :reviews, only: %i[new create show edit destroy], shallow: true
   end
 
 end

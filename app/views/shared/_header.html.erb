@@ -23,30 +23,8 @@
                     <li><%= link_to t('header.my_page'), root_path, class: "text-base hover:text-secondary" %></li>
                     <li><%= link_to t('header.logout'), logout_path, class: "text-base hover:text-secondary", data: { turbo_method: :delete } %></li>
 
-                    <%# 以降共通 %>
-                    <li><%= link_to t('header.spot_search'), spots_map_path, data: { turbo: false }, class: "text-base hover:text-secondary" %></li>
-                    <li><%= link_to t('header.index_search'), spots_path, class: "text-base hover:text-secondary" %></li>
-                    <li><%= link_to t('header.spot_differences'), difference_path, class: "text-base hover:text-secondary" %></li>
-                    <li><%= link_to t('header.spot_bookmarks'), root_path, class: "text-base hover:text-secondary" %></li>
-                    <li><%= link_to t('header.terms_of_use'), root_path, class: "text-base hover:text-secondary" %></li>
-                    <li><%= link_to t('header.privacy_policy'), root_path, class: "text-base hover:text-secondary" %></li>
-                    <li><%= link_to t('header.contact'), "https://forms.gle/bo4KiVDo8nYDwM4Y7", target: "_blank", rel: "noopener noreferrer", class: "text-base hover:text-secondary" %></li>
-                    <li>
-                        <%# コピーライト %>
-                        <div class="text-sm text-center m-3"><%= t('header.copy_right') %></div>
-                    </li>
-                    <li>
-                        <div class="flex justify-center items-center my-3">
-                            <%# GitHubリンク %>
-                            <%= link_to "https://github.com/Yuki11saitou/LearnLocator?tab=readme-ov-file", target: "_blank", rel: "noopener noreferrer" , class: "mr-3" do %>
-                                <%= image_tag 'github_mark.svg', class: "h-6" %>
-                            <% end %>
-                            <%# Xリンク %>
-                            <%= link_to "https://x.com/tripletsuper11", target: "_blank", rel: "noopener noreferrer", class: "ml-3" do %>
-                                <%= image_tag 'x_mark.svg', class: "h-6" %>
-                            <% end %>
-                        </div>
-                    </li>
+                    <%# 以降共通のリンクリスト %>
+                    <%= render 'shared/header_link_list' %>
                 </ul>
             </div>
         </div>

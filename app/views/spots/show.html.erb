@@ -1,7 +1,27 @@
 <% content_for(:title, @spot.name) %>
 
+<div class="mt-4">
+    <div class="w-5/6 mx-auto max-w-sm md:max-w-4xl">
+        <%# 戻るボタン %>
+        <div class="dropdown dropdown-right">
+            <div tabindex="0" role="button" class="btn btn-sm text-xs">
+                <%= image_tag 'page_back_mark.svg', class: "h-3 w-3" %>
+                <%= t('.back') %>
+            </div>
+            <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                <li>
+                    <%= link_to t('.to_spot_search'), spots_map_path, data: { turbo: false }, class: "text-xs" %>
+                </li>
+                <li>
+                    <%= link_to t('.to_index_search'), spots_path, class: "text-xs" %>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
 <div class="w-5/6 mx-auto max-w-md">
-    <div class="mt-8">
+    <div class="mt-2">
         <div class="card">
             <div class="m-4">
                 <%# Spot画像 %>
@@ -114,7 +134,7 @@
 
                         <%# Google Map 表示エリア %>
                         <div class="mt-6">
-                            <div id="map" class="relative rounded-xl" style="height: 200px;">
+                            <div id="map" class="relative rounded-xl" style="height: 400px;">
                                 <%# マップ読み込み中のローディングリング %>
                                 <div class="absolute inset-0 flex items-center justify-center">
                                     <span class="loading loading-ring loading-lg"></span>

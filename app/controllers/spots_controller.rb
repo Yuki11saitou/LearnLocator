@@ -19,10 +19,8 @@ class SpotsController < ApplicationController
     @categories = Category.where(id: [1, 2])
   end
 
-  # todo : 後で内容精査
   def show
     @spot = Spot.find(params[:id])
-    # @review = Review.new # 口コミ投稿フォーム用なので、ここでは多分不要
     @reviews = @spot.reviews.includes(:user).order(created_at: :desc).page(params[:page]).per(3)
   end
 

@@ -19,7 +19,7 @@
                 <li><%= link_to t('header.logout'), logout_path, class: "text-base hover:text-secondary", data: { turbo_method: :delete } %></li>
 
                 <%# 以降共通 %>
-                <li><%= link_to t('header.spot_search'), spots_map_path, class: "text-base hover:text-secondary" %></li>
+                <li><%= link_to t('header.spot_search'), spots_map_path, data: { turbo: false }, class: "text-base hover:text-secondary" %></li>
                 <li><%= link_to t('header.index_search'), spots_path, class: "text-base hover:text-secondary" %></li>
                 <li><%= link_to t('header.spot_differences'), difference_path, class: "text-base hover:text-secondary" %></li>
                 <li><%= link_to t('header.spot_bookmarks'), root_path, class: "text-base hover:text-secondary" %></li>

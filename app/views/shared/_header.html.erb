@@ -1,46 +1,54 @@
-<div class="navbar bg-gray-100">
+<div class="navbar bg-gray-100 sticky top-0 left-0 w-full z-50">
     <div class="flex-1">
         <%= image_tag 'LearnLocator_logo.png', class: "h-10 ml-2" %>
         <%= link_to t('header.title'), root_path, class: "btn btn-ghost text-xl" %>
     </div>
     <div class="flex-none">
-        <div class="dropdown dropdown-end">
-            <div tabindex="0" role="button" class="btn btn-ghost rounded-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block h-5 w-5 stroke-current">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
+        <div class="drawer drawer-end">
+            <input id="my-drawer-4" type="checkbox" class="drawer-toggle" />
+            <div class="drawer-content">
+                <label for="my-drawer-4" class="drawer-button btn btn-ghost">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block h-5 w-5 stroke-current">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </label>
             </div>
-            <ul tabindex="0" class="menu dropdown-content bg-base-100 rounded-box z-[1] mt-4 w-52 p-2 shadow">
+            <div class="drawer-side">
+                <label for="my-drawer-4" aria-label="close sidebar" class="drawer-overlay"></label>
+                <ul class="menu bg-base-200 bg-opacity-95 text-base-content min-h-full w-80 p-4">
 
-                <%# todo: リンク先を修正する %>
+                    <%# todo: リンク先を修正する %>
 
-                <%# ログイン済みユーザー向け %>
-                <li><%= link_to t('header.my_page'), root_path, class: "text-base hover:text-secondary" %></li>
-                <li><%= link_to t('header.logout'), logout_path, class: "text-base hover:text-secondary", data: { turbo_method: :delete } %></li>
+                    <%# ログイン済みユーザー向け %>
+                    <li><%= link_to t('header.my_page'), root_path, class: "text-base hover:text-secondary" %></li>
+                    <li><%= link_to t('header.logout'), logout_path, class: "text-base hover:text-secondary", data: { turbo_method: :delete } %></li>
 
-                <%# 以降共通 %>
-                <li><%= link_to t('header.spot_search'), spots_map_path, data: { turbo: false }, class: "text-base hover:text-secondary" %></li>
-                <li><%= link_to t('header.index_search'), spots_path, class: "text-base hover:text-secondary" %></li>
-                <li><%= link_to t('header.spot_differences'), difference_path, class: "text-base hover:text-secondary" %></li>
-                <li><%= link_to t('header.spot_bookmarks'), root_path, class: "text-base hover:text-secondary" %></li>
-                <li><%= link_to t('header.terms_of_use'), root_path, class: "text-base hover:text-secondary" %></li>
-                <li><%= link_to t('header.privacy_policy'), root_path, class: "text-base hover:text-secondary" %></li>
-                <li><%= link_to t('header.contact'), "https://forms.gle/bo4KiVDo8nYDwM4Y7", target: "_blank", rel: "noopener noreferrer", class: "text-base hover:text-secondary" %></li>
-                <div class="text-sm text-center m-3"><%= t('header.copy_right') %></div>
-
-                <div class="flex justify-center items-center my-3">
-                    <%# GitHubリンク %>
-                    <%= link_to "https://github.com/Yuki11saitou/LearnLocator?tab=readme-ov-file", target: "_blank", rel: "noopener noreferrer" , class: "mr-3" do %>
-                        <%= image_tag 'github_mark.svg', class: "h-6" %>
-                    <% end %>
-
-                    <%# Xリンク %>
-                    <%= link_to "https://x.com/tripletsuper11", target: "_blank", rel: "noopener noreferrer", class: "ml-3" do %>
-                        <%= image_tag 'x_mark.svg', class: "h-6" %>
-                    <% end %>
-                </div>
-
-            </ul>
+                    <%# 以降共通 %>
+                    <li><%= link_to t('header.spot_search'), spots_map_path, data: { turbo: false }, class: "text-base hover:text-secondary" %></li>
+                    <li><%= link_to t('header.index_search'), spots_path, class: "text-base hover:text-secondary" %></li>
+                    <li><%= link_to t('header.spot_differences'), difference_path, class: "text-base hover:text-secondary" %></li>
+                    <li><%= link_to t('header.spot_bookmarks'), root_path, class: "text-base hover:text-secondary" %></li>
+                    <li><%= link_to t('header.terms_of_use'), root_path, class: "text-base hover:text-secondary" %></li>
+                    <li><%= link_to t('header.privacy_policy'), root_path, class: "text-base hover:text-secondary" %></li>
+                    <li><%= link_to t('header.contact'), "https://forms.gle/bo4KiVDo8nYDwM4Y7", target: "_blank", rel: "noopener noreferrer", class: "text-base hover:text-secondary" %></li>
+                    <li>
+                        <%# コピーライト %>
+                        <div class="text-sm text-center m-3"><%= t('header.copy_right') %></div>
+                    </li>
+                    <li>
+                        <div class="flex justify-center items-center my-3">
+                            <%# GitHubリンク %>
+                            <%= link_to "https://github.com/Yuki11saitou/LearnLocator?tab=readme-ov-file", target: "_blank", rel: "noopener noreferrer" , class: "mr-3" do %>
+                                <%= image_tag 'github_mark.svg', class: "h-6" %>
+                            <% end %>
+                            <%# Xリンク %>
+                            <%= link_to "https://x.com/tripletsuper11", target: "_blank", rel: "noopener noreferrer", class: "ml-3" do %>
+                                <%= image_tag 'x_mark.svg', class: "h-6" %>
+                            <% end %>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>

@@ -1,5 +1,5 @@
 <%# 口コミ表示 %>
-<div class="review-item">
+<div id="review-<%= review.id %>" class="review-item">
     <div class="mt-3">
         <div class="card border-2  rounded-md">
             <div class="mx-3 my-2">
@@ -21,6 +21,42 @@
                     <%# simple_formatで改行を有効化 %>
                     <%= simple_format(review.body) %>
                 </div>
+
+                <div class="mt-3"></div>
+                <%# 編集、削除、Xシェア、いいねリンク %>
+                <div>
+                <% if current_user.own?(review) %>
+                    <ul class="flex justify-between w-full">
+                        <%# 左寄せ %>
+                        <div class="flex space-x-4 ml-2">
+                            <li>
+                                <%= link_to edit_review_path(review) do %>
+                                    <%= image_tag 'edit_pen_mark.svg', class: "h-4 w-4" %>
+                                <% end %>
+                            </li>
+                            <li>
+                                <%= link_to review_path(review), data: { turbo_method: :delete, turbo_confirm: "本当に消しますか？" } do %>
+                                    <%= image_tag 'destroy_trash_mark.svg', class: "h-4 w-4" %>
+                                <% end %>
+                            </li>
+                        </div>
+                        <%# 右寄せ %>
+                        <div class="flex space-x-4 mr-2">
+                            <li>
+                                <%= link_to '#', class: 'edit-review-link' do %>
+                                    <%= image_tag 'edit_pen_mark.svg', class: "h-4 w-4" %>
+                                <% end %>
+                            </li>
+                            <li>
+                                <%= link_to '#', class: "delete-review-link", data: { turbo_method: :delete, turbo_confirm: "本当に消しますか？" } do %>
+                                    <%= image_tag 'destroy_trash_mark.svg', class: "h-4 w-4" %>
+                                <% end %>
+                            </li>
+                        </div>
+                    </ul>
+                <% end %>
+                </div>
+
             </div>
         </div>
     </div>

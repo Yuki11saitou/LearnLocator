@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   # todo : 後で内容精査
   # before_action :require_login, only: %i[new create destroy bookmarks]
-  before_action :require_login, only: %i[new create show]
+  before_action :require_login, only: %i[new create show edit update destroy]
 
 
   # todo : 必要かどうかから、後で内容精査
@@ -28,6 +28,21 @@ class ReviewsController < ApplicationController
     @spot = @review.spot
   end
 
+  def edit
+    @review = current_user.reviews.find(params[:id])
+    @spot = @review.spot
+  end
+
+  def update
+    @review = current_user.reviews.find(params[:id])
+    @spot = @review.spot
+    if @review.update(review_params)
+      redirect_to review_path(@review), notice: t('notices.review_update_success')
+    else
+      flash.now[:alert] = t('alerts.review_update_failure')
+      render :edit, status: :unprocessable_entity
+    end
+  end
 
   def destroy
     @review = current_user.reviews.find(params[:id])

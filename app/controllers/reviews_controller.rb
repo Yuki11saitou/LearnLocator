@@ -34,6 +34,7 @@ class ReviewsController < ApplicationController
   end
 
   def update
+    @spot = @review.spot
     if @review.update(review_params)
       redirect_to review_path(@review), notice: t('notices.review_update_success')
     else

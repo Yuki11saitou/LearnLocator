@@ -75,6 +75,11 @@ ja:
       back: 戻る
       placeholder: 300文字以内で入力してください
       submit: 投稿
+    edit:
+      title: "【口コミ編集】%{name}"
+      back: 戻る
+      placeholder: 300文字以内で入力してください
+      update: 更新
     show:
       back: 戻る
       x_share: Xでシェア

@@ -12,9 +12,8 @@ class User < ApplicationRecord
 
   enum :role, { general: 0, admin: 1 }
 
-  # todo : reviewの編集削除機能に使用
   # ユーザー自身かどうかを判定するメソッド
-  # def own?(object)
-  #   id == object&.user_id
-  # end
+  def own?(object)
+    id == object&.user_id
+  end
 end

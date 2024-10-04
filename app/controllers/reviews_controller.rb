@@ -29,12 +29,10 @@ class ReviewsController < ApplicationController
   end
 
 
-  # def destroy
-  #   @review = current_user.reviews.find(params[:id])
-  #   @spot = @comment.spot
-  #   @reviews = @spot.reviews.includes(:user).order(created_at: :desc)
-  #   @review.destroy!
-  # end
+  def destroy
+    @review = current_user.reviews.find(params[:id])
+    @review.destroy!
+  end
 
 
   # def bookmarks

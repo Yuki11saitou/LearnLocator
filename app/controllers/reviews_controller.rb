@@ -44,6 +44,7 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+    @spot = @review.spot # 口コミ数をturboでリアルタイム更新するために使用
     @review.destroy!
   end
 

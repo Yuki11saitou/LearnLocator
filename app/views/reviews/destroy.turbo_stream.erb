@@ -1,2 +1,8 @@
 <%= turbo_stream.remove "review-#{@review.id}" do %>
 <% end %>
+
+<%# 口コミ数を同時に更新 %>
+<%= turbo_stream.update "review_count-#{@spot.id}" do %>
+    <%= image_tag 'review_mark.svg', class: "h-3 w-3 mr-1" %>
+    <%= @spot.reviews.count %>
+<% end %>

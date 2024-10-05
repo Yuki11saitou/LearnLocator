@@ -151,6 +151,10 @@
                                     <div class="text-xs text-white font-bold badge badge-primary"><%= image_tag 'rating_mark.svg', class: "h-3 w-3 mr-1" %><%= j spot.rating %></div>
                                 <% end %>
                                 <div class="mr-2"></div>
+                                <div id="review_count" class="text-white font-bold badge badge-primary">
+                                    <%= image_tag 'review_mark.svg', class: "h-3 w-3 mr-1" %>
+                                    <%= spot.reviews.count %>
+                                </div>
                             </div>
                         </div>
                         <div class="mt-4 text-right">

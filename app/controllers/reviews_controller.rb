@@ -1,7 +1,8 @@
 class ReviewsController < ApplicationController
   # todo : 後で内容精査
   # before_action :require_login, only: %i[new create destroy bookmarks]
-  before_action :require_login, only: %i[new create show]
+  before_action :require_login, only: %i[new create show edit update destroy]
+  before_action :set_review, only: %i[edit update destroy]
 
 
   # todo : 必要かどうかから、後で内容精査
@@ -28,13 +29,23 @@ class ReviewsController < ApplicationController
     @spot = @review.spot
   end
 
+  def edit
+    @spot = @review.spot
+  end
 
-  # def destroy
-  #   @review = current_user.reviews.find(params[:id])
-  #   @spot = @comment.spot
-  #   @reviews = @spot.reviews.includes(:user).order(created_at: :desc)
-  #   @review.destroy!
-  # end
+  def update
+    @spot = @review.spot
+    if @review.update(review_params)
+      redirect_to review_path(@review), notice: t('notices.review_update_success')
+    else
+      flash.now[:alert] = t('alerts.review_update_failure')
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @review.destroy!
+  end
 
 
   # def bookmarks
@@ -44,7 +55,15 @@ class ReviewsController < ApplicationController
 
   private
 
+  def set_review
+    @review = current_user.reviews.find(params[:id])
+  end
+
   def review_params
-    params.require(:review).permit(:body).merge(spot_id: params[:spot_id])
+    if params[:action] == 'update'
+      params.require(:review).permit(:body, :spot_id)
+    else
+      params.require(:review).permit(:body).merge(spot_id: params[:spot_id])
+    end
   end
 end

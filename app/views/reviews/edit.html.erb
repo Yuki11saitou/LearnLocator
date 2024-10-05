@@ -11,7 +11,7 @@
         <div class="mt-6">
             <label class="form-control">
                 <div id="review-form">
-                    <%= form_with model: @review, url: spot_reviews_path(@spot) do |f| %>
+                    <%= form_with model: @review, url: review_path(@review) do |f| %>
 
                         <%# エラーメッセージ %>
                         <%= render 'shared/error_messages', object: f.object %>
@@ -29,7 +29,7 @@
                         <%# 送信ボタン %>
                         <div class="flex flex-col justify-center items-center">
                             <div class="mt-6">
-                                <%= f.submit t('.submit'), class: "btn btn-outline btn-primary" %>
+                                <%= f.submit t('.update'), class: "btn btn-outline btn-primary" %>
                             </div>
                         </div>
                     <% end %>

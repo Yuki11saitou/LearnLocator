@@ -18,8 +18,7 @@
                 <div class="mt-1"></div>
                 <%# 口コミ内容 %>
                 <div class="text-sm">
-                    <%# simple_formatで改行を有効化 %>
-                    <%= simple_format(review.body) %>
+                    <%= simple_format(h(review.body)) %>
                 </div>
 
                 <div class="mt-3"></div>

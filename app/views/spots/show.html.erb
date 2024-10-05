@@ -124,7 +124,7 @@
                                             <% if @spot.opening_hours.nil? %>
                                                 <p><%= t('.no_data') %></p>
                                             <% else %>
-                                                <%= simple_format(@spot.opening_hours) %>
+                                                <%= simple_format(h(@spot.opening_hours)) %>
                                             <% end %>
                                         </div>
                                     </div>

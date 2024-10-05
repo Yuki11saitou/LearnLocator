@@ -10,10 +10,16 @@
             </div>
             <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
                 <li>
-                    <%= link_to t('.to_spot_search'), spots_map_path, data: { turbo: false }, class: "text-xs" %>
+                    <%= link_to spots_map_path, data: { turbo: false }, class: "text-xs" do %>
+                        <%= image_tag 'location_search.svg', class: "h-3 w-3" %>
+                        <%= t('.to_spot_search') %>
+                    <% end %>
                 </li>
                 <li>
-                    <%= link_to t('.to_index_search'), spots_path, class: "text-xs" %>
+                    <%= link_to spots_path, class: "text-xs" do %>
+                        <%= image_tag 'list_search.svg', class: "h-3 w-3" %>
+                        <%= t('.to_index_search') %>
+                    <% end %>
                 </li>
             </ul>
         </div>

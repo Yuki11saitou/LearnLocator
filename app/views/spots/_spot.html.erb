@@ -17,17 +17,21 @@
             </div>
 
             <%# Spotカテゴリ名・レーティング %>
-            <div class="mb-4">
-                <%# カテゴリ名 %>
-                <p class="text-white font-bold badge badge-primary mt-4">
-                    <%= spot.category.name %>
-                </p>
-                <%# レーティング %>
-                <% if spot.rating.present? %>
-                    <p class="text-sm text-white font-bold badge badge-primary mt-4">
-                        ⭐️ <%= spot.rating %>
-                    </p>
-                <% end %>
+            <div class="mb-4 mt-4">
+                <div class="flex justify-start items-center">
+                    <%# カテゴリ名 %>
+                    <div class="text-white font-bold badge badge-primary">
+                        <%= spot.category.name %>
+                    </div>
+                    <%# レーティング %>
+                    <div class="mr-2"></div>
+                    <% if spot.rating.present? %>
+                        <div class="text-sm text-white font-bold badge badge-primary">
+                            <%= image_tag 'rating_mark.svg', class: "h-3 w-3 mr-1" %>
+                            <%= spot.rating %>
+                        </div>
+                    <% end %>
+                </div>
             </div>
 
             <%# Spot住所 %>

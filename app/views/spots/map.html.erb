@@ -149,7 +149,7 @@
                             </div>
                             <div class="mr-4">
                                 <% if spot.rating.present? %>
-                                    <p class="text-xs text-white font-bold badge badge-primary">⭐️ <%= j spot.rating %></p>
+                                    <p class="text-xs text-white font-bold badge badge-primary"><%= image_tag 'rating_mark.svg', class: "h-3 w-3 mr-1" %><%= j spot.rating %></p>
                                 <% end %>
                             </div>
                         </div>

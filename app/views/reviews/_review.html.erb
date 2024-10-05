@@ -34,7 +34,7 @@
                                 <% end %>
                             </li>
                             <li>
-                                <%= link_to review_path(review), data: { turbo_method: :delete, turbo_confirm: "本当に消しますか？" } do %>
+                                <%= link_to review_path(review), data: { turbo_method: :delete, turbo_confirm: t('turbo_stream.delete.confirm') } do %>
                                     <%= image_tag 'destroy_trash_mark.svg', class: "h-4 w-4" %>
                                 <% end %>
                             </li>

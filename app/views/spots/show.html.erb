@@ -10,10 +10,16 @@
             </div>
             <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
                 <li>
-                    <%= link_to t('.to_spot_search'), spots_map_path, data: { turbo: false }, class: "text-xs" %>
+                    <%= link_to spots_map_path, data: { turbo: false }, class: "text-xs" do %>
+                        <%= image_tag 'location_search.svg', class: "h-3 w-3" %>
+                        <%= t('.to_spot_search') %>
+                    <% end %>
                 </li>
                 <li>
-                    <%= link_to t('.to_index_search'), spots_path, class: "text-xs" %>
+                    <%= link_to spots_path, class: "text-xs" do %>
+                        <%= image_tag 'list_search.svg', class: "h-3 w-3" %>
+                        <%= t('.to_index_search') %>
+                    <% end %>
                 </li>
             </ul>
         </div>
@@ -32,16 +38,29 @@
                 <h1 class="font-bold text-xl mt-4">
                     <%= @spot.name %>
                 </h1>
-                <%# カテゴリ名 %>
-                <p class="text-white font-bold badge badge-primary mt-4">
-                    <%= @spot.category.name %>
-                </p>
-                <%# レーティング %>
-                <% if @spot.rating.present? %>
-                    <p class="text-white font-bold badge badge-primary mt-4">
-                        ⭐️ <%= @spot.rating %>
-                    </p>
-                <% end %>
+                <%# バッジ表示エリア %>
+                <div class="mt-4">
+                    <div class="flex justify-start items-center">
+                        <%# カテゴリ名 %>
+                        <div class="text-xs text-white font-bold badge badge-primary">
+                            <%= @spot.category.name %>
+                        </div>
+                        <%# レーティング %>
+                        <div class="mr-2"></div>
+                        <% if @spot.rating.present? %>
+                            <div class="text-xs text-white font-bold badge badge-primary">
+                                <%= image_tag 'rating_mark.svg', class: "h-3 w-3 mr-1" %>
+                                <%= @spot.rating %>
+                            </div>
+                        <% end %>
+                        <%# いいね数 %>
+                        <div class="mr-2"></div>
+                        <div id="review_count-<%= @spot.id %>" class="text-xs text-white font-bold badge badge-primary">
+                            <%= image_tag 'review_mark.svg', class: "h-3 w-3 mr-1" %>
+                            <%= @spot.reviews.count %>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -124,7 +143,7 @@
                                             <% if @spot.opening_hours.nil? %>
                                                 <p><%= t('.no_data') %></p>
                                             <% else %>
-                                                <%= simple_format(@spot.opening_hours) %>
+                                                <%= simple_format(h(@spot.opening_hours)) %>
                                             <% end %>
                                         </div>
                                     </div>

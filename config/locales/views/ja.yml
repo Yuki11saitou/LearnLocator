@@ -92,11 +92,12 @@ ja:
       co_working_space: (コ)
     description:
       study_room: 自習室
-      co_working_space: コワーキングスペース
+      co_working_space: コワーキング
   # 並べ替え
   sort_link:
     title: 並べ替え
-    sorted_by_rating: 評価順(googleレビュー)
+    sorted_by_reviews_count: 口コミ数
+    sorted_by_rating: 評価(googleレビュー)
   # ページネーション
   pagination:
     previous: "«"

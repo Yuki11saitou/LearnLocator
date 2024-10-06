@@ -2,20 +2,35 @@ class SpotsController < ApplicationController
   skip_before_action :require_login
 
   def map
-    @spots = Spot.includes(:category).all
+    @spots = Spot.includes(:category, :reviews).all
   end
 
   def index
-    @q = Spot.ransack(params[:q])
+    # 口コミ数でのソートを考慮し、LEFT JOIN でレビュー数を取得しておく
+    @q = Spot.left_joins(:reviews).select('spots.*, COUNT(reviews.id) AS reviews_count').group('spots.id').ransack(params[:q])
 
-    # 並べ替えが"rating"の場合のみ、ratingがnilのレコードを除外する
-    if params[:q] && params[:q][:s] && params[:q][:s].include?('rating')
-      @spots = @q.result(distinct: true).includes(:category).where.not(rating: nil).order(created_at: :desc).page(params[:page])
+    if params.dig(:q, :s)&.include?('reviews_count')
+      # 口コミ数で並べ替える場合
+      @spots = @q.result(distinct: true)
+                .includes(:category, :reviews)
+                .order("reviews_count #{params.dig(:q, :s).split.last.upcase}") # ここで reviews_count を明示的に並べ替え
+                .page(params[:page])
+    elsif params.dig(:q, :s)&.include?('rating')
+      # 評価順で並べ替える場合
+      @spots = @q.result(distinct: true)
+                .includes(:category, :reviews)
+                .where.not(rating: nil)
+                .order(created_at: :desc)
+                .page(params[:page])
     else
-      @spots = @q.result(distinct: true).includes(:category).order(created_at: :desc).page(params[:page])
+      # 並べ替えリンクを使用しない場合
+      @spots = @q.result(distinct: true)
+                .includes(:category, :reviews)
+                .order(created_at: :desc)
+                .page(params[:page])
     end
 
-    # ソート機能のため、カテゴリを取得(現状、カテゴリID:1(自習室), 2(コワーキング)のみ)
+    # ソート機能のため、カテゴリを取得(自習室とコワーキングのみ)
     @categories = Category.where(id: [1, 2])
   end
 

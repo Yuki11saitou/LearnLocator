@@ -143,14 +143,18 @@
                                 <p class="text-lg font-bold"><%= j spot.name %></p>
                             </div>
                         </div>
-                        <div class="mx-auto flex justify-start mt-4">
-                            <div class="mr-4">
-                                <p class="text-xs text-white font-bold badge badge-primary"><%= j spot.category.name %></p>
-                            </div>
-                            <div class="mr-4">
+                        <div class="mt-4">
+                            <div class="mx-auto flex justify-start items-center">
+                                <div class="text-xs text-white font-bold badge badge-primary"><%= j spot.category.name %></div>
+                                <div class="mr-2"></div>
                                 <% if spot.rating.present? %>
-                                    <p class="text-xs text-white font-bold badge badge-primary">⭐️ <%= j spot.rating %></p>
+                                    <div class="text-xs text-white font-bold badge badge-primary"><%= image_tag 'rating_mark.svg', class: "h-3 w-3 mr-1" %><%= j spot.rating %></div>
                                 <% end %>
+                                <div class="mr-2"></div>
+                                <div id="review_count" class="text-xs text-white font-bold badge badge-primary">
+                                    <%= image_tag 'review_mark.svg', class: "h-3 w-3 mr-1" %>
+                                    <%= spot.reviews.count %>
+                                </div>
                             </div>
                         </div>
                         <div class="mt-4 text-right">

@@ -15,7 +15,7 @@
             <div class="mt-1">
                 <div class="card shadow-xl border-2">
                     <div class="m-4">
-                        <%= simple_format(@review.body) %>
+                        <%= simple_format(h(@review.body)) %>
                     </div>
                 </div>
             </div>

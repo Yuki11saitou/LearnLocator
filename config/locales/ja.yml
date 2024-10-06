@@ -14,3 +14,7 @@ ja:
     review_creation_failure: "口コミを投稿できませんでした"
     review_update_failure: "口コミを更新できませんでした"
   errors:
+  # turbo_streamのエラーメッセージ
+  turbo_stream:
+    delete:
+      confirm: "本当に削除しますか？"

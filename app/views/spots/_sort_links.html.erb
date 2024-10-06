@@ -1,6 +1,3 @@
-<%# todo : 後ほど口コミの並べ替え機能実装 %>
-<%# <%= sort_link(@q, :name, "口コミ数") %>
-
 <div class="w-5/6 mx-auto max-w-sm md:max-w-4xl">
     <div class="dropdown">
         <div tabindex="0" role="button" class="btn btn-sm m-1 text-xs">
@@ -11,7 +8,7 @@
         </div>
         <ul tabindex="0" class="dropdown-content bg-base-300 rounded-box z-[1] w-52 p-2 shadow-2xl">
             <li>
-                <%= sort_link(q, '#', "口コミ数", class: "btn btn-sm btn-block btn-ghost justify-start text-xs") %>
+                <%= sort_link(q, :reviews_count, t('sort_link.sorted_by_reviews_count'), class: "btn btn-sm btn-block btn-ghost justify-start text-xs") %>
             </li>
             <li>
                 <%= sort_link(q, :name, "名前順", class: "btn btn-sm btn-block btn-ghost justify-start text-xs") %>

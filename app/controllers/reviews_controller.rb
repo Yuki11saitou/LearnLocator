@@ -1,6 +1,4 @@
 class ReviewsController < ApplicationController
-  # todo : 後で内容精査
-  # before_action :require_login, only: %i[new create destroy bookmarks]
   before_action :require_login, only: %i[new create show edit update destroy]
   before_action :set_review, only: %i[edit update destroy]
 
@@ -47,12 +45,6 @@ class ReviewsController < ApplicationController
     @spot = @review.spot # 口コミ数をturboでリアルタイム更新するために使用
     @review.destroy!
   end
-
-
-  # def bookmarks
-  #   @q = current_user.bookmark_boards.ransack(params[:q])
-  #   @boards = @q.result(distinct: true).includes(:user).page(params[:page]).order(created_at: :desc)
-  # end
 
   private
 

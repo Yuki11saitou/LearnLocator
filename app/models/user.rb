@@ -16,4 +16,34 @@ class User < ApplicationRecord
   def own?(object)
     id == object&.user_id
   end
+
+  # いいね機能
+  # レビューを「いいね」しているか確認するメソッド
+  def like?(review)
+    likes.exists?(review_id: review.id)
+  end
+
+  # レビューに「いいね」を付けるメソッド
+  def like(review)
+    likes.create(review: review) unless like?(review)
+  end
+
+  # レビューの「いいね」を外すメソッド
+  def unlike(review)
+    likes.find_by(review: review)&.destroy
+  end
+
+
+  # todo : 後でbookmark機能実装時に内容精査
+  # def bookmark(board)
+  #   bookmark_boards << board
+  # end
+
+  # def unbookmark(board)
+  #   bookmark_boards.destroy(board)
+  # end
+
+  # def bookmark?(board)
+  #   bookmark_boards.include?(board)
+  # end
 end

@@ -2,3 +2,7 @@
     <%= render 'reviews/to_like', review: @review %>
 <% end %>
 
+<%# いいね数 %>
+<%= turbo_stream.update "like-count-#{@review.id}" do %>
+    <%= @review.likes.count %>
+<% end %>

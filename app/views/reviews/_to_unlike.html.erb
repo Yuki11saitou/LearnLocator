@@ -1,0 +1,4 @@
+<%# like_pathにlike.idを、review_idから検索して入れている。そしてdestroyアクション実行 %>
+<%= link_to like_path(current_user.likes.find_by(review_id: review.id)), id: "unlike-button-for-review-#{review.id}", data: { turbo_method: :delete } do %>
+    <%= image_tag 'to_unlike_mark.svg', class: "h-4 w-4" %>
+<% end %>

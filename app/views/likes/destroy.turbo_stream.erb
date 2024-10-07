@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "unlike-button-for-review-#{@review.id}" do %>
+    <%= render 'reviews/to_like', review: @review %>
+<% end %>

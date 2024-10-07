@@ -58,7 +58,10 @@
                                     <div class="mr-1">
                                         <%= render 'reviews/like_buttons', { review: review } %>
                                     </div>
-
+                                    <%# いいね数 %>
+                                    <div class="text-xs text-gray-500 w-[2ch] text-left" id="like-count-<%= review.id %>"> <%# w-[2ch]の設定により2桁分の幅を確保。text-leftで左揃え %>
+                                        <%= review.likes.count %>
+                                    </div>
                                 </li>
                             <% end %>
                         </div>

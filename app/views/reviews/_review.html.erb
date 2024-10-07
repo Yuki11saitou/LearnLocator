@@ -24,36 +24,42 @@
                 <div class="mt-3"></div>
                 <%# 編集、削除、Xシェア、いいねリンク %>
                 <div>
-                <% if current_user.own?(review) %>
                     <ul class="flex justify-between w-full">
                         <%# 左寄せ %>
                         <div class="flex space-x-4 ml-2">
-                            <li>
-                                <%= link_to edit_review_path(review) do %>
-                                    <%= image_tag 'edit_pen_mark.svg', class: "h-4 w-4" %>
-                                <% end %>
-                            </li>
-                            <li>
-                                <%= link_to review_path(review), data: { turbo_method: :delete, turbo_confirm: t('turbo_stream.delete.confirm') } do %>
-                                    <%= image_tag 'destroy_trash_mark.svg', class: "h-4 w-4" %>
-                                <% end %>
-                            </li>
+                            <% if current_user.own?(review) %>
+                                <%# 編集リンク %>
+                                <li>
+                                    <%= link_to edit_review_path(review) do %>
+                                        <%= image_tag 'edit_pen_mark.svg', class: "h-4 w-4" %>
+                                    <% end %>
+                                </li>
+                                <%# 削除リンク %>
+                                <li>
+                                    <%= link_to review_path(review), data: { turbo_method: :delete, turbo_confirm: t('turbo_stream.delete.confirm') } do %>
+                                        <%= image_tag 'destroy_trash_mark.svg', class: "h-4 w-4" %>
+                                    <% end %>
+                                </li>
+                            <% end %>
                         </div>
                         <%# 右寄せ %>
                         <div class="flex space-x-4 mr-2">
-                            <li>
-                                <%= link_to '#', class: 'edit-review-link' do %>
-                                    <%= image_tag 'edit_pen_mark.svg', class: "h-4 w-4" %>
-                                <% end %>
-                            </li>
-                            <li>
-                                <%= link_to '#', class: "delete-review-link", data: { turbo_method: :delete, turbo_confirm: "本当に消しますか？" } do %>
-                                    <%= image_tag 'destroy_trash_mark.svg', class: "h-4 w-4" %>
-                                <% end %>
-                            </li>
+                            <% if current_user.own?(review) %>
+                                <%# Xシェアボタン %>
+                                <li>
+                                    <%= link_to '#' do %>
+                                        <%= image_tag 'x_mark.svg', class: "h-4 w-4" %>
+                                    <% end %>
+                                </li>
+                            <% end %>
+                            <% if logged_in? %>
+                                <%# いいねボタン %>
+                                <li>
+                                    <%= render 'reviews/like_buttons', { review: review } %>
+                                </li>
+                            <% end %>
                         </div>
                     </ul>
-                <% end %>
                 </div>
 
             </div>

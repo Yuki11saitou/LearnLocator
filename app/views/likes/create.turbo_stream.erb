@@ -1,3 +1,8 @@
 <%= turbo_stream.replace "like-button-for-review-#{@review.id}" do %>
     <%= render 'reviews/to_unlike', review: @review %>
 <% end %>
+
+<%# いいね数 %>
+<%= turbo_stream.update "like-count-#{@review.id}" do %>
+    <%= @review.likes.count %>
+<% end %>

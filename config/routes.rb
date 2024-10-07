@@ -28,4 +28,7 @@ Rails.application.routes.draw do
     resources :reviews, only: %i[new create show edit update destroy], shallow: true
   end
 
+  # いいね機能用のルーティング
+  resources :likes, only: %i[create destroy]
+
 end

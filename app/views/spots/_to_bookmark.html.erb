@@ -1,0 +1,4 @@
+<%# bookmarks_pathにspot_idを入れてcreateアクション実行(routesとcontrollerの記述に起因) %>
+<%= link_to bookmarks_path(spot_id: spot.id), id: "bookmark-button-for-spot-#{spot.id}", data: { turbo_method: :post } do %>
+    <%= image_tag 'to_bookmark.svg', class: "h-4 w-4" %>
+<% end %>

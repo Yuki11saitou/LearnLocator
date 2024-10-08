@@ -75,6 +75,30 @@
             <input type="radio" name="my_tabs_1" role="tab" class="tab" aria-label="<%= t('.tab.facility_details') %>" />
             <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-b-lg p-2 shadow-xl">
 
+                <%# Xシェア、ブックマークリンク表示エリア %>
+                <div class="mt-3">
+                    <div>
+                        <ul class="flex justify-end w-full">
+                            <%# 右寄せ %>
+                            <div class="flex space-x-4 mr-2">
+                                <%# Xシェアボタン %>
+                                <li>
+                                    <%= link_to '#' do %>
+                                        <%= image_tag 'x_mark.svg', class: "h-4 w-4" %>
+                                    <% end %>
+                                </li>
+                                <% if logged_in? %>
+                                    <%# ブックマークボタン %>
+                                    <li>
+                                        <%= render 'spots/bookmark_buttons', { spot: @spot } %>
+                                    </li>
+                                <% end %>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+
+                <%# 施設詳細情報表示エリア %>
                 <div class="mt-4">
                     <div class="m-4">
                         <%# Spot郵便番号 %>

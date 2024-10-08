@@ -9,7 +9,7 @@ ja:
     spot_search: 場所検索
     index_search: 一覧検索
     spot_differences: 施設の違い
-    spot_bookmarks: ブックマークした場所
+    bookmarks: ブックマークした場所
     terms_of_use: 利用規約
     privacy_policy: プライバシーポリシー
     contact: お問い合わせ
@@ -19,7 +19,7 @@ ja:
     spot_search: 場所検索
     index_search: 一覧検索
     spot_differences: 施設の違い
-    spot_bookmarks: ブックマーク
+    bookmarks: ブックマーク
   static_pages:
     top:
       spot_search: 探してみる

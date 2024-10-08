@@ -31,4 +31,7 @@ Rails.application.routes.draw do
   # いいね機能用のルーティング
   resources :likes, only: %i[create destroy]
 
+  # ブックマーク機能用のルーティング
+  resources :bookmarks, only: %i[create destroy]
+
 end

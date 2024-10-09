@@ -3,17 +3,22 @@
     <div class="card shadow-xl">
         <div class="m-4">
 
-
-            <%# todo : あとで画像を入れるかどうか考える（API利用してしまう x ページネーションでなんとかなるかも） %>
-            <%# Spot画像 %>
-            <%# <%= image_tag board.board_image.url, class: "card-img-top", width: "300", height:"200" %>
-
-
-            <%# Spot名 %>
-            <div class="mt-4">
-                <div class="font-bold text-md">
-                    <%= link_to spot.name, spot_path(spot), class: "link" %>
-                </div>
+            <%# Xシェア、ブックマークリンク表示エリア %>
+            <div class="mt-5">
+                <ul class="flex justify-between w-full">
+                    <%# 左寄せ %>
+                    <div class="font-bold text-md">
+                        <%# Spot名 %>
+                        <%= link_to spot.name, spot_path(spot), class: "link" %>
+                    </div>
+                    <%# 右寄せ %>
+                    <div class="flex-shrink-0 ml-4 mr-1"> <%# flex-shrink-0 でボタンが縮小されぬよう制御 %>
+                        <% if logged_in? %>
+                            <%# ブックマークボタン %>
+                            <%= render 'spots/bookmark_buttons', { spot: spot } %>
+                        <% end %>
+                    </div>
+                </ul>
             </div>
 
             <%# バッジ表示エリア %>
@@ -67,29 +72,6 @@
                     </div>
                 </div>
             </div>
-
-
-            <%# todo : あとで編集ボタン、ブクマボタンなどを実装 %>
-            <%# <% if current_user.own?(board) %>
-                <%# <div class='ms-auto'> %>
-                <%# <%= link_to edit_board_path(board), id: "button-edit-#{board.id}" do %> 
-                    <%# <i class="bi bi-pencil-fill"></i> %>
-                <%# <% end %>
-                <%# <%= link_to board_path(board), id: "button-delete-#{board.id}", data: { turbo_method: :delete, turbo_confirm: '削除しますか' } do %>  
-                    <%# <i class="bi bi-trash-fill"></i> %>
-                <%# <% end %> 
-                <%# </div> %>
-            <%# <% else %> 
-                <%# <div class='ms-auto'> %>
-                <%# <%= render 'bookmark_button', board: board %> 
-                <%# </div> %>
-            <%# <% end %>  
-
-            <%# <ul class="list-inline">
-            <li><i class="bi bi-person"></i><%= board.user.decorate.full_name %></li>
-            <%# <li><i class="bi bi-calendar"></i><%= l board.created_at, format: :long %></li>
-            <%# </ul>
-            <%# <p class="card-text"><%= board.body %></p>
 
         </div>
     </div>

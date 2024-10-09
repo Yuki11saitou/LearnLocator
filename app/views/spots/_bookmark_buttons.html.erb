@@ -1,0 +1,5 @@
+<% if current_user.bookmark?(spot) %>
+    <%= render 'spots/to_unbookmark', { spot: spot } %>
+<% else %>
+    <%= render 'spots/to_bookmark', { spot: spot } %>
+<% end %>

@@ -1,0 +1,4 @@
+<%# bookmark_pathにbookmark.idを、spot_idから検索して入れている。そしてdestroyアクション実行 %>
+<%= link_to bookmark_path(current_user.bookmarks.find_by(spot_id: spot.id)), id: "unbookmark-button-for-spot-#{spot.id}", data: { turbo_method: :delete } do %>
+    <%= image_tag 'to_unbookmark.svg', class: "h-5 w-5" %>
+<% end %>

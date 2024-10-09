@@ -4,6 +4,15 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :likes, dependent: :destroy
 
+
+  # todo : マイページ作成の際に精査必要
+  has_many :liked_spots, through: :likes, source: :review
+  has_many :bookmarks, dependent: :destroy
+
+
+  # todo : マイページ作成の際に精査必要
+  has_many :bookmarked_spots, through: :bookmarks, source: :spot
+
   validates :password, length: { minimum: 4 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
@@ -23,27 +32,25 @@ class User < ApplicationRecord
     likes.exists?(review_id: review.id)
   end
 
-  # レビューに「いいね」を付けるメソッド
   def like(review)
     likes.create(review: review) unless like?(review)
   end
 
-  # レビューの「いいね」を外すメソッド
   def unlike(review)
     likes.find_by(review: review)&.destroy
   end
 
+  # ブックマーク機能
+  # 施設をブックマークしているか確認するメソッド
+  def bookmark?(spot)
+    bookmarks.exists?(spot_id: spot.id)
+  end
 
-  # todo : 後でbookmark機能実装時に内容精査
-  # def bookmark(board)
-  #   bookmark_boards << board
-  # end
+  def bookmark(spot)
+    bookmarks.create(spot: spot) unless bookmark?(spot)
+  end
 
-  # def unbookmark(board)
-  #   bookmark_boards.destroy(board)
-  # end
-
-  # def bookmark?(board)
-  #   bookmark_boards.include?(board)
-  # end
+  def unbookmark(spot)
+    bookmarks.find_by(spot: spot)&.destroy
+  end
 end

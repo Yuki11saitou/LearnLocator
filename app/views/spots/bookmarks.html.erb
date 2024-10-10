@@ -1,0 +1,26 @@
+<% content_for(:title, t('.title')) %>
+
+<%# 検索フォーム %>
+<div class="mt-4">
+    <form>
+        <%= render 'search_form', q: @q, url: bookmarks_spots_path %>
+    </form>
+</div>
+
+<%# 並べ替え機能 %>
+<div class="mb-3">
+    <%= render 'sort_links', q: @q %>
+</div>
+
+<%# spotデータ(一覧表示) %>
+<div class="w-5/6 mx-auto max-w-sm md:max-w-4xl">
+    <div class="mt-4 mb-28">
+        <% if @bookmark_spots.present? %>
+            <%= render @bookmark_spots %>
+            <%# ページネーション %>
+            <%= paginate @bookmark_spots %>
+        <% else %>
+            <%= t('.no_spot_data') %>
+        <% end %>
+    </div>
+</div>

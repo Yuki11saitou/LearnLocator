@@ -26,6 +26,10 @@ Rails.application.routes.draw do
   resources :spots, only: %i[index show] do
     # 口コミ用のルーティング
     resources :reviews, only: %i[new create show edit update destroy], shallow: true
+    # ブックマーク一覧表示用のルーティング
+    collection do
+      get :bookmarks
+    end
   end
 
   # いいね機能用のルーティング

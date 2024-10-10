@@ -69,6 +69,10 @@ ja:
         reviews: 口コミ
       post_review: 口コミを投稿する
       no_review_data: 口コミはまだありません
+    bookmarks:
+      title: ブックマークした場所
+      no_spot_data: データがありません
+      no_data: データがありません
   reviews:
     new:
       title: "【口コミ投稿】%{name}"

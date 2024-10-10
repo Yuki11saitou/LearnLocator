@@ -22,8 +22,13 @@
                         <%# テキストエリア %>
                         <div class="mt-1">
                             <div class="card shadow-xl">
-                                <%= f.text_area :body, class: "textarea textarea-bordered h-48", placeholder: t('.placeholder') %>
+                                <%= f.text_area :body, class: "textarea textarea-bordered h-48", placeholder: t('.placeholder'), id: 'review_body' %>
                             </div>
+                        </div>
+
+                        <%# 文字数カウントを表示するエリア %>
+                        <div class="text-gray-500 text-sm text-right mt-1">
+                            <span id="char-count">0</span>/300
                         </div>
 
                         <%# 送信ボタン %>
@@ -38,3 +43,29 @@
         </div>
     </div>
 </div>
+
+<script>
+    // 文字数カウント
+    // "turbo:load"：ページが完全に読み込まれた後や、部分的に更新された後にもJavaScriptを確実に動作させるために必要
+    document.addEventListener("turbo:load", function() {
+    const textArea = document.getElementById('review_body');
+    const charCount = document.getElementById('char-count');
+    const maxChars = 300;
+
+    if (textArea) {
+        textArea.addEventListener('input', function() {
+        const currentLength = textArea.value.length;
+
+        // id="char-count"内のテキストを書き換える
+        charCount.textContent = currentLength;
+
+        // 色を変える例（オプション）：300文字を超えると赤色になる
+        if (currentLength > maxChars) {
+            charCount.style.color = 'red';
+        } else {
+            charCount.style.color = 'black';
+        }
+        });
+    }
+    });
+</script>

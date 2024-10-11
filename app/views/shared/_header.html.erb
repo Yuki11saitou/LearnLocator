@@ -20,7 +20,7 @@
                     <%# todo: リンク先を修正する %>
 
                     <%# ログイン済みユーザー向け %>
-                    <li><%= link_to t('header.my_page'), root_path, class: "text-base hover:text-secondary" %></li>
+                    <li><%= link_to t('header.my_page'), profile_path, class: "text-base hover:text-secondary" %></li>
                     <li><%= link_to t('header.logout'), logout_path, class: "text-base hover:text-secondary", data: { turbo_method: :delete } %></li>
 
                     <%# 以降共通のリンクリスト %>

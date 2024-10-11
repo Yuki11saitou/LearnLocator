@@ -38,4 +38,7 @@ Rails.application.routes.draw do
   # ブックマーク機能用のルーティング
   resources :bookmarks, only: %i[create destroy]
 
+  # マイページ用のルーティング
+  resource :profile, only: [:show, :edit, :update]
+
 end

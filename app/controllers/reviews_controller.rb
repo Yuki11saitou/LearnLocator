@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
-  before_action :require_login, only: %i[new create show edit update destroy]
+  # todo : 必要かどうかから、後で内容精査
+  skip_before_action :require_login, only: %i[index]
   before_action :set_review, only: %i[edit update destroy]
 
 

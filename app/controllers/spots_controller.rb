@@ -14,20 +14,20 @@ class SpotsController < ApplicationController
       @spots = @q.result(distinct: true)
                 .includes(:category, :reviews)
                 .order("reviews_count #{params.dig(:q, :s).split.last.upcase}") # ここで reviews_count を明示的に並べ替え
-                .page(params[:page])
+                .page(params[:page]).per(5)
     elsif params.dig(:q, :s)&.include?('rating')
       # 評価順で並べ替える場合
       @spots = @q.result(distinct: true)
                 .includes(:category, :reviews)
                 .where.not(rating: nil)
                 .order(created_at: :desc)
-                .page(params[:page])
+                .page(params[:page]).per(5)
     else
       # 並べ替えリンクを使用しない場合
       @spots = @q.result(distinct: true)
                 .includes(:category, :reviews)
                 .order(created_at: :desc)
-                .page(params[:page])
+                .page(params[:page]).per(5)
     end
 
     # ソート機能のため、カテゴリを取得(自習室とコワーキングのみ)
@@ -48,20 +48,20 @@ class SpotsController < ApplicationController
       @bookmark_spots = @q.result(distinct: true)
                           .includes(:category, :reviews)
                           .order("reviews_count #{params.dig(:q, :s).split.last.upcase}") # ここで reviews_count を明示的に並べ替え
-                          .page(params[:page])
+                          .page(params[:page]).per(5)
     elsif params.dig(:q, :s)&.include?('rating')
       # 評価順で並べ替える場合
       @bookmark_spots = @q.result(distinct: true)
                           .includes(:category, :reviews)
                           .where.not(rating: nil)
                           .order(created_at: :desc)
-                          .page(params[:page])
+                          .page(params[:page]).per(5)
     else
       # 並べ替えリンクを使用しない場合
       @bookmark_spots = @q.result(distinct: true)
                           .includes(:category, :reviews)
                           .order(created_at: :desc)
-                          .page(params[:page])
+                          .page(params[:page]).per(5)
     end
 
     # ソート機能のため、カテゴリを取得(自習室とコワーキングのみ)

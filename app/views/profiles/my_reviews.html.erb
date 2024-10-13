@@ -1,0 +1,26 @@
+<% content_for(:title, t('.title')) %>
+
+<%= render 'shared/title', title: t('.title') %>
+
+<div class="w-5/6 mx-auto max-w-sm md:max-w-4xl">
+    <div class="mt-4 mb-28">
+        <%# 戻るボタン %>
+        <%= link_to profile_path, class: "btn btn-sm text-xs" do %>
+            <%= image_tag 'page_back_mark.svg', class: "h-3 w-3" %>
+            <%= t('.back') %>
+        <% end %>
+
+        <div class="mt-6">
+            <% if @my_reviews.present? %>
+                <%# 投稿した口コミ %>
+                <%= render partial: 'reviews/review', collection: @my_reviews, as: :review, locals: { show_spot_name: true } %>
+                <%# ページネーション %>
+                <%= paginate @my_reviews %>
+            <% else %>
+                <div class="text-center">
+                    <%= t('.no_my_reviews_data') %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

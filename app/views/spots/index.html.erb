@@ -22,7 +22,9 @@
             <%# ページネーション %>
             <%= paginate @spots %>
         <% else %>
-            <%= t('.no_spot_data') %>
+            <div class="text-center">
+                <%= t('.no_spot_data') %>
+            </div>
         <% end %>
     </div>
 </div>

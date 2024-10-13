@@ -3,6 +3,15 @@
     <div class="mt-3">
         <div class="card border-2  rounded-md">
             <div class="mx-3 my-2">
+
+                <%# Spot名を表示（オプション） %>
+                <% if show_spot_name %>
+                    <div class="text-xs font-bold">
+                        <%= link_to review.spot.name, spot_path(review.spot), class: "link" %>
+                    </div>
+                    <div class="mt-1"></div>
+                <% end %>
+
                 <%# 名前 %>
                 <div class="text-sm font-bold">
                     <%= review.user.name %>

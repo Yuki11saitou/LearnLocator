@@ -1,5 +1,7 @@
 <% content_for(:title, t('.title')) %>
 
+
+
 <div class="w-5/6 mx-auto max-w-md">
     <div class="mt-6">
         <div class="card border-2">
@@ -28,23 +30,6 @@
                     </div>
                 </div>
 
-                <%# バッジ表示エリア %>
-                <div class="mt-4">
-                    <div class="flex justify-start items-center">
-                        <%# 投稿数 %>
-                        <div class="text-xs text-white font-bold badge badge-primary">
-                            <%= image_tag 'review_mark.svg', class: "h-3 w-3 mr-1" %>
-                            <%= @total_my_reviews %>
-                        </div>
-
-                        <%# いいね数 %>
-                        <div class="text-xs text-white font-bold badge badge-primary ml-2">
-                            <%= image_tag 'to_like_mark.svg', class: "h-3 w-3 mr-1" %>
-                            <%= @total_my_likes %>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- 施設詳細へのリンク -->
                 <div class="mt-4 text-right">
                     <%= link_to t('.to_edit'), edit_profile_path, data: { turbo: false }, class: "btn btn-outline btn-primary" %>
@@ -57,48 +42,19 @@
 
 <div class="mt-8 mb-24">
     <div class="w-5/6 mx-auto max-w-sm md:max-w-4xl">
-
-        <%# タブの出しわけ領域 %>
-        <div role="tablist" class="tabs tabs-bordered grid grid-cols-2 w-full">
-            <%# 投稿した口コミタブ %>
-            <input type="radio" name="my_tabs_1" role="tab" class="tab" aria-label="<%= t('.tab.my_reviews') %>" checked="checked"/> <%# checked="checked"でデフォルトの選択タブを設定 %>
-            <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-b-lg p-2 shadow-xl">
-                <%# 口コミ %>
-                <div class="w-5/6 mx-auto max-w-sm md:max-w-4xl">
-                    <div class="mt-4 mb-10">
-                        <% if @my_reviews.present? %>
-                            <%# <%= render @my_reviews %>
-                            <%= render partial: 'reviews/mypage_review', collection: @my_reviews, as: :review , locals: { prefix: 'my_reviews' } %>
-                            <%# ページネーション %>
-                            <%# <%= paginate @my_reviews %>
-                        <% else %>
-                            <%= t('.no_my_reviews_data') %>
-                        <% end %>
-                    </div>
-                </div>
+            <div class="mt-4 text-center">
+                <%= link_to my_reviews_path, class: "btn btn-outline btn-primary btn-wide" do %>
+                    <%= t('.my_reviews_link') %>
+                    <%= image_tag 'review_mark.svg', class: "h-5 w-5 ml-2" %>
+                    <%= @total_my_reviews %>
+                <% end %>
             </div>
-
-            <%# いいねした口コミタブ %>
-            <input type="radio" name="my_tabs_1" role="tab" class="tab" aria-label="<%= t('.tab.my_likes') %>"/>
-            <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-b-lg p-2 shadow-xl relative">
-
-                <%# 口コミ %>
-                <div class="w-5/6 mx-auto max-w-sm md:max-w-4xl">
-                    <div class="mt-4 mb-10">
-                        <% if @my_likes.present? %>
-                            <%# <%= render @my_likes %>
-                            <%= render partial: 'reviews/mypage_review', collection: @my_likes, as: :review , locals: { prefix: 'my_likes' } %>
-                            <%# ページネーション %>
-                            <%# <%= paginate @my_likes %>
-                        <% else %>
-                            <%= t('.no_my_likes_data') %>
-                        <% end %>
-                    </div>
-                </div>
-
+            <div class="mt-4 text-center">
+                <%= link_to my_likes_path, class: "btn btn-outline btn-primary btn-wide" do %>
+                    <%= t('.my_likes_link') %>
+                    <%= image_tag 'to_like_mark.svg', class: "h-5 w-5 ml-2" %>
+                    <%= @total_my_likes %>
+                <% end %>
             </div>
-
-        </div>
-
     </div>
 </div>

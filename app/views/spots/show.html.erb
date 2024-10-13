@@ -66,7 +66,7 @@
     </div>
 </div>
 
-<div class="mt-4 mb-24">
+<div class="mt-4 mb-28">
     <div class="w-5/6 mx-auto max-w-sm md:max-w-4xl">
 
         <%# タブの出しわけ領域 %>
@@ -135,7 +135,7 @@
                                     <% if @spot.phone_number.present? %>
                                         <%= link_to @spot.phone_number, "tel:#{@spot.phone_number}", class: "link" %>
                                     <% else %>
-                                        <p><%= t('.no_data') %></p>
+                                        <%= t('.no_data') %>
                                     <% end %>
                                 </div>
                             </div>
@@ -151,7 +151,7 @@
                                     <% if @spot.web_site.present? %>
                                         <%= link_to "公式HPリンク", "#{@spot.web_site}", target: :_blank, rel: "noopener noreferrer", class: "link" %>
                                     <% else %>
-                                        <p><%= t('.no_data') %></p>
+                                        <%= t('.no_data') %>
                                     <% end %>
                                 </div>
                             </div>
@@ -165,7 +165,7 @@
                                         <div class="p-2">
                                             <p class="font-bold mb-2"><%= t('.opening_hours') %></p>
                                             <% if @spot.opening_hours.nil? %>
-                                                <p><%= t('.no_data') %></p>
+                                                <%= t('.no_data') %>
                                             <% else %>
                                                 <%= simple_format(h(@spot.opening_hours)) %>
                                             <% end %>
@@ -206,11 +206,13 @@
                 <div class="w-5/6 mx-auto max-w-sm md:max-w-4xl">
                     <div class="mt-4 mb-20">
                         <% if @reviews.present? %>
-                            <%= render @reviews %>
+                            <%= render partial: 'reviews/review', collection: @reviews, as: :review, locals: { show_spot_name: false } %>
                             <%# ページネーション %>
                             <%= paginate @reviews %>
                         <% else %>
-                            <%= t('.no_review_data') %>
+                            <div class="text-center">
+                                <%= t('.no_review_data') %>
+                            </div>
                         <% end %>
                     </div>
                 </div>

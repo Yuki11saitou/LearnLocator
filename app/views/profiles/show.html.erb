@@ -1,0 +1,60 @@
+<% content_for(:title, t('.title')) %>
+
+<%= render 'shared/title', title: t('.title') %>
+
+<div class="w-5/6 mx-auto max-w-md">
+    <div class="mt-6">
+        <div class="card border-2">
+            <div class="m-4">
+
+                <div class="flex items-center space-x-4">
+                    <%# ユーザー画像 %>
+                    <%= image_tag 'LearnLocator_logo', class: "h-20 rounded-xl" %>
+
+                    <div class="flex flex-col items-start">
+                        <%# ユーザー名 %>
+                        <div class="flex items-center">
+                            <%= image_tag 'user_name.svg', class: "h-5 w-5 mr-2" %>
+                            <span class="text-lg">
+                                <%= @user.name %>
+                            </span>
+                        </div>
+
+                        <%# メール %>
+                        <div class="flex items-center mt-2">
+                            <%= image_tag 'email.svg', class: "h-5 w-5 mr-2" %>
+                            <span class="text-lg">
+                                <%= @user.email %>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 施設詳細へのリンク -->
+                <div class="mt-4 text-right">
+                    <%= link_to t('.to_edit'), edit_profile_path, data: { turbo: false }, class: "btn btn-outline btn-primary" %>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mt-8 mb-24">
+    <div class="w-5/6 mx-auto max-w-sm md:max-w-4xl">
+            <div class="mt-4 text-center">
+                <%= link_to my_reviews_path, class: "btn btn-outline btn-primary btn-wide" do %>
+                    <%= t('.my_reviews_link') %>
+                    <%= image_tag 'review_mark.svg', class: "h-5 w-5 ml-2" %>
+                    <%= @total_my_reviews %>
+                <% end %>
+            </div>
+            <div class="mt-4 text-center">
+                <%= link_to my_likes_path, class: "btn btn-outline btn-primary btn-wide" do %>
+                    <%= t('.my_likes_link') %>
+                    <%= image_tag 'to_like_mark.svg', class: "h-5 w-5 ml-2" %>
+                    <%= @total_my_likes %>
+                <% end %>
+            </div>
+    </div>
+</div>

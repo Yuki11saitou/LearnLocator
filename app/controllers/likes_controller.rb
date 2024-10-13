@@ -1,5 +1,4 @@
 class LikesController < ApplicationController
-  before_action :require_login, only: %i[create destroy]
 
   def create
     @review = Review.find(params[:review_id]) # reviewと紐づけるためにreview_idを取得

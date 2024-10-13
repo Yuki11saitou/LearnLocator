@@ -87,6 +87,28 @@ ja:
     show:
       back: 戻る
       x_share: Xでシェア
+  profiles:
+    show:
+      title: マイページ
+      to_edit: 編集
+      my_reviews_link: 投稿した口コミ：
+      my_likes_link: いいねした口コミ：
+    edit:
+      title: プロフィール編集
+      back: 戻る
+      # name: ユーザー名
+      # email: メール
+      # password: パスワード
+      # password_confirmation: パスワード確認
+      # update: 更新
+    my_reviews:
+      title: 投稿した口コミ
+      back: 戻る
+      no_my_reviews_data: 投稿した口コミはありません
+    my_likes:
+      title: いいねした口コミ
+      back: 戻る
+      no_my_likes_data: いいねした口コミはありません
   # 検索フォーム
   search_form:
     placeholder: 施設名/エリア名を入力

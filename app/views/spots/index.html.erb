@@ -1,5 +1,7 @@
 <% content_for(:title, t('.title')) %>
 
+<%= render 'shared/title', title: t('.title') %>
+
 <%# 検索フォーム %>
 <div class="mt-4">
     <form>
@@ -20,7 +22,9 @@
             <%# ページネーション %>
             <%= paginate @spots %>
         <% else %>
-            <%= t('.no_spot_data') %>
+            <div class="text-center">
+                <%= t('.no_spot_data') %>
+            </div>
         <% end %>
     </div>
 </div>

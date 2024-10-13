@@ -3,10 +3,7 @@ class User < ApplicationRecord
 
   has_many :reviews, dependent: :destroy
   has_many :likes, dependent: :destroy
-
-
-  # todo : マイページ作成の際に精査必要
-  has_many :like_spots, through: :likes, source: :review
+  has_many :like_reviews, through: :likes, source: :review
   has_many :bookmarks, dependent: :destroy
   has_many :bookmark_spots, through: :bookmarks, source: :spot
 

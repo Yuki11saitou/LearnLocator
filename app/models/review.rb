@@ -13,7 +13,7 @@ class Review < ApplicationRecord
   end
 
   # Ransackの許可リスト（Reviewモデルの関連モデルの検索条件に使用するカラム名を設定）
-  def self.ransackable_associations(auth_object = nil)
+  def self.ransackable_associations(_auth_object = nil)
     %w[
       user spot
     ]

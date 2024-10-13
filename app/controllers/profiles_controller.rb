@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :set_user, only: %i[show edit update]
+  before_action :set_user, only: %i[show edit update my_reviews my_likes]
 
   def show
     @total_my_reviews = @user.reviews.count
@@ -19,6 +19,14 @@ class ProfilesController < ApplicationController
       flash.now[:alert] = t('alerts.profile_update_failure')
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def my_reviews
+    @my_reviews = @user.reviews.includes(spot: :category).order(created_at: :desc).page(params[:page]).per(5)
+  end
+
+  def my_likes
+    @my_likes = @user.like_reviews.includes(spot: :category).order(created_at: :desc).page(params[:page]).per(5)
   end
 
   private

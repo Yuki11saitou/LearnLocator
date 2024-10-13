@@ -206,7 +206,7 @@
                 <div class="w-5/6 mx-auto max-w-sm md:max-w-4xl">
                     <div class="mt-4 mb-20">
                         <% if @reviews.present? %>
-                            <%= render @reviews %>
+                            <%= render partial: 'reviews/review', collection: @reviews, as: :review, locals: { show_spot_name: false } %>
                             <%# ページネーション %>
                             <%= paginate @reviews %>
                         <% else %>

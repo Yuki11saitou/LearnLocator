@@ -4,10 +4,6 @@ class ProfilesController < ApplicationController
   def show
     @total_my_reviews = @user.reviews.count
     @total_my_likes = @user.like_reviews.count
-
-    # Spotに紐づくCategoryも含める
-    @my_reviews = @user.reviews.includes(spot: :category).order(created_at: :desc).page(params[:page])
-    @my_likes = @user.like_reviews.includes(spot: :category).order(created_at: :desc).page(params[:page])
   end
 
   def edit; end
@@ -22,10 +18,12 @@ class ProfilesController < ApplicationController
   end
 
   def my_reviews
+    # Spotに紐づくCategoryも含める
     @my_reviews = @user.reviews.includes(spot: :category).order(created_at: :desc).page(params[:page]).per(5)
   end
 
   def my_likes
+    # Spotに紐づくCategoryも含める
     @my_likes = @user.like_reviews.includes(spot: :category).order(created_at: :desc).page(params[:page]).per(5)
   end
 

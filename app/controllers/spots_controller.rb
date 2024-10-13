@@ -42,10 +42,9 @@ class SpotsController < ApplicationController
   def bookmarks
     # 口コミ数でのソートを考慮し、LEFT JOIN でレビュー数を取得しておく
     @q = current_user.bookmark_spots
-                      .left_joins(:reviews)
-                      .select('spots.*, COUNT(reviews.id) AS reviews_count')
-                      .group('spots.id')
-                      .ransack(params[:q])
+                     .left_joins(:reviews)
+                     .select('spots.*, COUNT(reviews.id) AS reviews_count').group('spots.id')
+                     .ransack(params[:q])
 
     if params.dig(:q, :s)&.include?('reviews_count')
       # 口コミ数で並べ替える場合

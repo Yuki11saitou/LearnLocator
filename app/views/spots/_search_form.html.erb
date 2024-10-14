@@ -10,7 +10,7 @@
                     <%= f.select :category_id_eq, options_for_select([
                         [t('search_form.select_form.study_room'), 1],
                         [t('search_form.select_form.co_working_space'), 2]
-                    ], params.dig(:q, :category_id_eq)), { include_blank: t('search_form.select_form.facility_type') }, class: 'select select-bordered text-xs w-full' %>
+                    ], params.dig(:q, :category_id_eq)), { include_blank: t('search_form.select_form.facility_type') }, class: 'select select-bordered text-xs w-22' %>
                 </div>
 
                 <%# 検索ボタン %>

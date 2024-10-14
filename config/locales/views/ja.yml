@@ -8,7 +8,7 @@ ja:
     my_page: マイページ
     spot_search: 場所検索
     index_search: 一覧検索
-    spot_differences: 施設の違い
+    review_search: 口コミ検索
     bookmarks: ブックマークした場所
     terms_of_use: 利用規約
     privacy_policy: プライバシーポリシー
@@ -18,11 +18,14 @@ ja:
     my_page: マイページ
     spot_search: 場所検索
     index_search: 一覧検索
-    spot_differences: 施設の違い
+    review_search: 口コミ検索
     bookmarks: ブックマーク
   static_pages:
     top:
       spot_search: 探してみる
+
+
+    # todo : 後ほど必要か精査
     difference:
       title: 施設の違い説明
   user_sessions:

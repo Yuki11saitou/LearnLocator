@@ -158,17 +158,17 @@
                             <!-- バッジ表記 -->
                             <div class="mx-auto flex justify-start items-center">
                                 <!-- カテゴリ名 -->
-                                <div class="text-xs text-white font-bold badge badge-primary"><%= j spot.category.name %></div>
+                                <div class="text-xs font-bold badge badge-ghost"><%= j spot.category.name %></div>
                                 <div class="mr-2"></div>
 
                                 <!-- レーティング -->
                                 <% if spot.rating.present? %>
-                                    <div class="text-xs text-white font-bold badge badge-primary"><%= image_tag 'rating_mark.svg', class: "h-3 w-3 mr-1" %><%= j spot.rating %></div>
+                                    <div class="text-xs font-bold badge badge-ghost"><%= image_tag 'rating_mark.svg', class: "h-3 w-3 mr-1" %><%= j spot.rating %></div>
                                 <% end %>
                                 <div class="mr-2"></div>
 
                                 <!-- 口コミ数 -->
-                                <div id="review_count" class="text-xs text-white font-bold badge badge-primary">
+                                <div id="review_count" class="text-xs font-bold badge badge-ghost">
                                     <%= image_tag 'review_mark.svg', class: "h-3 w-3 mr-1" %>
                                     <%= spot.reviews.count %>
                                 </div>

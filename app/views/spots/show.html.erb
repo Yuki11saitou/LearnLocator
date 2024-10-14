@@ -42,20 +42,20 @@
                 <div class="mt-4">
                     <div class="flex justify-start items-center">
                         <%# カテゴリ名 %>
-                        <div class="text-xs text-white font-bold badge badge-primary">
+                        <div class="text-xs font-bold badge badge-ghost">
                             <%= @spot.category.name %>
                         </div>
                         <%# レーティング %>
                         <div class="mr-2"></div>
                         <% if @spot.rating.present? %>
-                            <div class="text-xs text-white font-bold badge badge-primary">
+                            <div class="text-xs font-bold badge badge-ghost">
                                 <%= image_tag 'rating_mark.svg', class: "h-3 w-3 mr-1" %>
                                 <%= @spot.rating %>
                             </div>
                         <% end %>
                         <%# いいね数 %>
                         <div class="mr-2"></div>
-                        <div id="review_count-<%= @spot.id %>" class="text-xs text-white font-bold badge badge-primary">
+                        <div id="review_count-<%= @spot.id %>" class="text-xs font-bold badge badge-ghost">
                             <%= image_tag 'review_mark.svg', class: "h-3 w-3 mr-1" %>
                             <%= @spot.reviews.count %>
                         </div>

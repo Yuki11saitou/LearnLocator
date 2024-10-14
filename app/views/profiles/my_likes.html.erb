@@ -2,6 +2,7 @@
 
 <div class="w-5/6 mx-auto max-w-sm md:max-w-4xl">
     <div class="mt-4">
+        <%# 戻るボタン、タイトル（同じ高さに表示） %>
         <div class="flex items-center justify-center relative">
             <%# 戻るボタン %>
             <div class="absolute left-0 mt-2">
@@ -20,7 +21,7 @@
         <%# 検索フォーム %>
         <div class="mt-8">
             <form>
-                <%= render 'reviews/search_form', q: @q, url: my_likes_path %>
+                <%= render 'reviews/search_form', q: @q, url: my_likes_path, placeholder_text: t('search_form.placeholder.for_my_like') %>
             </form>
         </div>
     </div>

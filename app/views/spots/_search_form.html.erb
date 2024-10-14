@@ -1,27 +1,23 @@
 <%= search_form_for q, url: url do |f| %>
-    <div class="m-3">
-        <div class="mx-auto flex justify-center">
-            <div class="join">
+    <div class="my-3 mx-8">
+        <div class="mx-auto flex justify-center w-full max-w-md md:max-w-2xl">
+            <div class="flex space-x-1 w-full">
                 <%# 入力欄 %>
-                <%= f.search_field :name_or_address_cont, class: 'input input-bordered join-item text-sm', placeholder: t('search_form.placeholder') %>
+                <%= f.search_field :name_or_address_cont, class: 'input input-bordered text-xs w-full', placeholder: t('search_form.placeholder.for_spot') %>
 
                 <%# 施設選択 %>
-                <div class="tooltip" data-tip="<%= t('search_form.select_form.study_room') %>:<%= t('search_form.description.study_room') %>, <%= t('search_form.select_form.co_working_space') %>:<%= t('search_form.description.co_working_space') %>">
+                <div class="tooltip w-32" data-tip="<%= t('search_form.select_form.study_room') %>:<%= t('search_form.description.study_room') %>, <%= t('search_form.select_form.co_working_space') %>:<%= t('search_form.description.co_working_space') %>">
                     <%= f.select :category_id_eq, options_for_select([
-                        # 施設種別を設定
                         [t('search_form.select_form.study_room'), 1],
                         [t('search_form.select_form.co_working_space'), 2]
-                    ], params.dig(:q, :category_id_eq)), { include_blank: t('search_form.select_form.facility_type') }, class: 'select select-bordered join-item text-xs' %>
+                    ], params.dig(:q, :category_id_eq)), { include_blank: t('search_form.select_form.facility_type') }, class: 'select select-bordered text-xs w-full' %>
                 </div>
 
                 <%# 検索ボタン %>
-                <div class="indicator">
-                    <%= button_tag(type: 'submit', class: 'btn join-item') do %>
-                        <%= image_tag 'search_mark.svg', class: "h-4 w-4" %>
-                    <% end %>
-                </div>
+                <%= button_tag(type: 'submit', class: 'btn text-xs') do %>
+                    <%= image_tag 'search_mark.svg', class: "h-4 w-4" %>
+                <% end %>
             </div>
         </div>
-
     </div>
 <% end %>

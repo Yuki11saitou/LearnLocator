@@ -18,13 +18,49 @@ class ProfilesController < ApplicationController
   end
 
   def my_reviews
-    # Spotに紐づくCategoryも含める
-    @my_reviews = @user.reviews.includes(spot: :category).order(created_at: :desc).page(params[:page]).per(5)
+    # SpotやCategoryを含めつつ、レビューの「いいね」数もカウントする
+    @q = @user.reviews
+              .left_joins(:likes)
+              .select('reviews.*, COUNT(likes.id) AS likes_count') # いいね数をカウント
+              .group('reviews.id')
+              .ransack(params[:q])
+
+    @my_reviews = if params.dig(:q, :s)&.include?('likes_count')
+                    # いいね数で並べ替える場合
+                    @q.result
+                      .includes(spot: :category)
+                      .order("likes_count #{params.dig(:q, :s).split.last.upcase}") # likes_countを並べ替え
+                      .page(params[:page]).per(5)
+                  else
+                    # デフォルトは作成日順
+                    @q.result
+                      .includes(spot: :category)
+                      .order(created_at: :desc)
+                      .page(params[:page]).per(5)
+                  end
   end
 
   def my_likes
-    # Spotに紐づくCategoryも含める
-    @my_likes = @user.like_reviews.includes(spot: :category).order(created_at: :desc).page(params[:page]).per(5)
+    # SpotやCategoryを含めつつ、レビューの「いいね」数もカウントする
+    @q = @user.like_reviews
+              .left_joins(:likes)
+              .select('reviews.*, COUNT(likes.id) AS likes_count') # いいね数をカウント
+              .group('reviews.id')
+              .ransack(params[:q])
+
+    @my_likes = if params.dig(:q, :s)&.include?('likes_count')
+                  # いいね数で並べ替える場合
+                  @q.result
+                    .includes(spot: :category)
+                    .order("likes_count #{params.dig(:q, :s).split.last.upcase}") # likes_countを並べ替え
+                    .page(params[:page]).per(5)
+                else
+                  # デフォルトは作成日順
+                  @q.result
+                    .includes(spot: :category)
+                    .order(created_at: :desc)
+                    .page(params[:page]).per(5)
+                end
   end
 
   private

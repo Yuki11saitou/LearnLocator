@@ -91,7 +91,7 @@ ja:
     show:
       title: マイページ
       to_edit: 編集
-      my_reviews_link: 投稿した口コミ：
+      my_reviews_link: 　投稿した口コミ：
       my_likes_link: いいねした口コミ：
     edit:
       title: プロフィール編集
@@ -104,14 +104,18 @@ ja:
     my_reviews:
       title: 投稿した口コミ
       back: 戻る
-      no_my_reviews_data: 投稿した口コミはありません
+      no_my_reviews_data: データがありません
     my_likes:
       title: いいねした口コミ
       back: 戻る
-      no_my_likes_data: いいねした口コミはありません
+      no_my_likes_data: データがありません
   # 検索フォーム
   search_form:
-    placeholder: 施設名/エリア名を入力
+    placeholder:
+      for_spot: 施設名/エリア名を入力
+      for_review: 施設名/ユーザー/投稿内容を入力
+      for_my_review: 施設名/投稿内容を入力
+      for_my_like: 施設名/ユーザー/投稿内容を入力
     select_form:
       facility_type: 種類
       study_room: (自)
@@ -124,6 +128,8 @@ ja:
     title: 並べ替え
     sorted_by_reviews_count: 口コミ数
     sorted_by_rating: 評価(googleレビュー)
+    sorted_by_review_created_at: 投稿日
+    sorted_by_review_likes_count: いいね数
   # ページネーション
   pagination:
     previous: "«"

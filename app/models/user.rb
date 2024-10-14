@@ -47,4 +47,11 @@ class User < ApplicationRecord
   def unbookmark(spot)
     bookmarks.find_by(spot: spot)&.destroy
   end
+
+  # Ransackの許可リスト（Userモデルの検索条件に使用するカラム名を設定）
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[
+      id name created_at updated_at
+    ]
+  end
 end

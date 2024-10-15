@@ -1,11 +1,28 @@
 class ReviewsController < ApplicationController
-  # todo : 必要かどうかから、後で内容精査
   skip_before_action :require_login, only: %i[index]
   before_action :set_review, only: %i[edit update destroy]
 
+  def index
+    # すべてのレビューを対象に、SpotやCategoryを含めつつ、レビューの「いいね」数もカウント
+    @q = Review.left_joins(:likes)
+               .select('reviews.*, COUNT(likes.id) AS likes_count') # いいね数をカウント
+               .group('reviews.id')
+               .ransack(params[:q])
 
-  # todo : 必要かどうかから、後で内容精査
-  def index; end
+    @reviews = if params.dig(:q, :s)&.include?('likes_count')
+                 # いいね数で並べ替える場合
+                 @q.result
+                   .includes(:user, spot: :category)
+                   .order("likes_count #{params.dig(:q, :s).split.last.upcase}") # likes_countを並べ替え
+                   .page(params[:page]).per(5)
+               else
+                 # デフォルトは作成日順
+                 @q.result
+                   .includes(:user, spot: :category)
+                   .order(created_at: :desc)
+                   .page(params[:page]).per(5)
+               end
+  end
 
   def new
     @review = Review.new

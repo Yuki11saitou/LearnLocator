@@ -34,6 +34,9 @@ Rails.application.routes.draw do
     end
   end
 
+  # 口コミ検索ページのルーティング
+  resources :reviews, only: %i[index]
+
   # いいね機能用のルーティング
   resources :likes, only: %i[create destroy]
 

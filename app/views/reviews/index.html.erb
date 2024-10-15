@@ -1,0 +1,43 @@
+<% content_for(:title, t('.title')) %>
+
+<div class="w-5/6 mx-auto max-w-sm md:max-w-4xl">
+    <div class="mt-4">
+        <%# 戻るボタン、タイトル（同じ高さに表示） %>
+        <div class="flex items-center justify-center relative">
+
+            <%# タイトル %>
+            <div class="text-sm font-bold">
+                <%= t('.title') %>
+            </div>
+        </div>
+
+        <%# 検索フォーム %>
+        <div class="mt-8">
+            <form>
+                <%= render 'reviews/search_form', q: @q, url: reviews_path, placeholder_text: t('search_form.placeholder.for_review') %>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%# 並べ替え機能 %>
+<div class="mb-3">
+    <%= render 'reviews/sort_links', q: @q %>
+</div>
+
+<div class="w-5/6 mx-auto max-w-sm md:max-w-4xl">
+    <div class="mt-4 mb-28">
+        <div class="mt-6">
+            <% if @reviews.present? %>
+                <%# 投稿した口コミ %>
+                <%= render partial: 'reviews/review', collection: @reviews, as: :review, locals: { show_spot_name: true } %>
+                <%# ページネーション %>
+                <%= paginate @reviews %>
+            <% else %>
+                <div class="text-center">
+                    <%= t('.no_data') %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

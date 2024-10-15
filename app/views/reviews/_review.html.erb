@@ -4,12 +4,18 @@
         <div class="card border-2  rounded-md">
             <div class="mx-3 my-2">
 
-                <%# Spot名を表示（オプション） %>
+                <%# 施設名とカテゴリを表示（オプション） %>
                 <% if show_spot_name %>
-                    <div class="text-xs font-bold">
+                    <%# 施設名 %>
+                    <div class="text-sm font-bold">
                         <%= link_to review.spot.name, spot_path(review.spot), class: "link" %>
                     </div>
                     <div class="mt-1"></div>
+                    <%# カテゴリ名 %>
+                    <div class="text-xs font-bold badge badge-ghost">
+                        <%= review.spot.category.name %>
+                    </div>
+                    <div class="mt-3"></div>
                 <% end %>
 
                 <%# 名前 %>
@@ -26,7 +32,7 @@
                 <hr>
                 <div class="mt-1"></div>
                 <%# 口コミ内容 %>
-                <div class="text-sm">
+                <div class="text-md">
                     <%= simple_format(h(review.body)) %>
                 </div>
 

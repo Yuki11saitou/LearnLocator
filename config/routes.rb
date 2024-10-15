@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "static_pages#top"
 
+
+  # todo : 以下のルーティングについては、後ほど精査 
   # 施設の違い説明ページのルーティング
   get 'difference', to:'static_pages#difference'
 
@@ -31,6 +33,9 @@ Rails.application.routes.draw do
       get :bookmarks
     end
   end
+
+  # 口コミ検索ページのルーティング
+  resources :reviews, only: %i[index]
 
   # いいね機能用のルーティング
   resources :likes, only: %i[create destroy]

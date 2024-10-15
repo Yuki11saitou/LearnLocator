@@ -8,7 +8,7 @@ ja:
     my_page: マイページ
     spot_search: 場所検索
     index_search: 一覧検索
-    spot_differences: 施設の違い
+    review_search: 口コミ検索
     bookmarks: ブックマークした場所
     terms_of_use: 利用規約
     privacy_policy: プライバシーポリシー
@@ -18,11 +18,14 @@ ja:
     my_page: マイページ
     spot_search: 場所検索
     index_search: 一覧検索
-    spot_differences: 施設の違い
+    review_search: 口コミ検索
     bookmarks: ブックマーク
   static_pages:
     top:
       spot_search: 探してみる
+
+
+    # todo : 後ほど必要か精査
     difference:
       title: 施設の違い説明
   user_sessions:
@@ -55,7 +58,6 @@ ja:
       to_spot_show: 詳細
     index:
       title: 一覧検索
-      no_spot_data: データがありません
       no_data: データがありません
     show:
       no_data: データがありません
@@ -64,6 +66,7 @@ ja:
       back: 戻る
       to_spot_search: 場所検索画面へ
       to_index_search: 一覧検索画面へ
+      to_bookmark_search: ブックマークした場所
       tab:
         facility_details: 施設詳細
         reviews: 口コミ
@@ -71,9 +74,11 @@ ja:
       no_review_data: 口コミはまだありません
     bookmarks:
       title: ブックマークした場所
-      no_spot_data: データがありません
       no_data: データがありません
   reviews:
+    index:
+      title: 口コミ検索
+      no_data: データがありません
     new:
       title: "【口コミ投稿】%{name}"
       back: 戻る
@@ -104,11 +109,11 @@ ja:
     my_reviews:
       title: 投稿した口コミ
       back: 戻る
-      no_my_reviews_data: データがありません
+      no_data: データがありません
     my_likes:
       title: いいねした口コミ
       back: 戻る
-      no_my_likes_data: データがありません
+      no_data: データがありません
   # 検索フォーム
   search_form:
     placeholder:

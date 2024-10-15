@@ -1,15 +1,50 @@
 <div class="divider"></div>
 
-<li><%= link_to t('header.spot_search'), spots_map_path, data: { turbo: false }, class: "text-base hover:text-secondary" %></li>
-<li><%= link_to t('header.index_search'), spots_path, class: "text-base hover:text-secondary" %></li>
-<li><%= link_to t('header.spot_differences'), difference_path, class: "text-base hover:text-secondary" %></li>
-<li><%= link_to t('header.bookmarks'), bookmarks_spots_path, class: "text-base hover:text-secondary" %></li>
+<li>
+    <%= link_to spots_map_path, data: { turbo: false }, class: "text-base hover:text-secondary" do %>
+        <%= image_tag 'location_search.svg', class: 'h-4 w-4 mr-2' %>
+        <%= t('header.spot_search') %>
+    <% end %>
+</li>
+<li>
+    <%= link_to spots_path, class: "text-base hover:text-secondary" do %>
+        <%= image_tag 'list_search.svg', class: 'h-4 w-4 mr-2' %>
+        <%= t('header.index_search') %>
+    <% end %>
+</li>
+<li>
+    <%= link_to reviews_path, class: "text-base hover:text-secondary" do %>
+        <%= image_tag 'review_search.svg', class: 'h-4 w-4 mr-2' %>
+        <%= t('header.review_search') %>
+    <% end %>
+</li>
+<li>
+    <%= link_to bookmarks_spots_path, class: "text-base hover:text-secondary" do %>
+        <%= image_tag 'bookmark_search.svg', class: 'h-4 w-4 mr-2' %>
+        <%= t('header.bookmarks') %>
+    <% end %>
+</li>
 
 <div class="divider"></div>
 
-<li><%= link_to t('header.terms_of_use'), root_path, class: "text-base hover:text-secondary" %></li>
-<li><%= link_to t('header.privacy_policy'), root_path, class: "text-base hover:text-secondary" %></li>
-<li><%= link_to t('header.contact'), "https://forms.gle/bo4KiVDo8nYDwM4Y7", target: "_blank", rel: "noopener noreferrer", class: "text-base hover:text-secondary" %></li>
+<li>
+    <%= link_to root_path, class: "text-base hover:text-secondary" do %>
+        <%= image_tag 'terms_of_use.svg', class: 'h-4 w-4 mr-2' %>
+        <%= t('header.terms_of_use') %>
+    <% end %>
+</li>
+<li>
+    <%= link_to root_path, class: "text-base hover:text-secondary" do %>
+        <%= image_tag 'privacy_policy.svg', class: 'h-4 w-4 mr-2' %>
+        <%= t('header.privacy_policy') %>
+    <% end %>
+</li>
+<li>
+    <%= link_to "https://forms.gle/bo4KiVDo8nYDwM4Y7", target: "_blank", rel: "noopener noreferrer", class: "text-base hover:text-secondary" do %>
+        <%= image_tag 'contact.svg', class: 'h-4 w-4 mr-2' %>
+        <%= t('header.contact') %>
+    <% end %>
+</li>
 
 <div class="divider"></div>
 

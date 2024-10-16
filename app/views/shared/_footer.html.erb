@@ -1,27 +1,27 @@
 <div class="btm-nav bg-gray-100">
 
     <%= link_to spots_map_path, data: { turbo: false }, class: "hover:bg-gray-300" do %>
-        <%= image_tag 'location_search.svg', class: "h-4 w-4" %>
+        <%= image_tag 'location_search.svg', class: "h-5 w-5" %>
         <span class="text-[0.5rem] btm-nav-label"><%= t('footer.spot_search') %></span>
     <% end %>
 
     <%= link_to spots_path, class: "hover:bg-gray-300" do %>
-        <%= image_tag 'list_search.svg', class: "h-4 w-4" %>
+        <%= image_tag 'list_search.svg', class: "h-5 w-5" %>
         <span class="text-[0.5rem] btm-nav-label"><%= t('footer.index_search') %></span>
     <% end %>
 
     <%= link_to reviews_path, class: "hover:bg-gray-300" do %>
-        <%= image_tag 'review_search.svg', class: "h-4 w-4" %>
+        <%= image_tag 'review_search.svg', class: "h-5 w-5" %>
         <span class="text-[0.5rem] btm-nav-label"><%= t('footer.review_search') %></span>
     <% end %>
 
     <%= link_to bookmarks_spots_path, class: "hover:bg-gray-300" do %>
-        <%= image_tag 'bookmark_search.svg', class: "h-4 w-4" %>
+        <%= image_tag 'bookmark_search.svg', class: "h-5 w-5" %>
         <span class="text-[0.5rem] btm-nav-label"><%= t('footer.bookmarks') %></span>
     <% end %>
 
     <%= link_to profile_path, class: "hover:bg-gray-300" do %>
-        <%= image_tag 'mypage.svg', class: "h-4 w-4" %>
+        <%= image_tag 'mypage.svg', class: "h-5 w-5" %>
         <span class="text-[0.5rem] btm-nav-label"><%= t('footer.my_page') %></span>
     <% end %>
 

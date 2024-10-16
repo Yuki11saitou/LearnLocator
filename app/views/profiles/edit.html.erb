@@ -39,11 +39,18 @@
                     <%= f.email_field :email, placeholder: t('.email') %>
                 </div>
             </div>
+
+            <%# 区切り線 %>
+            <hr>
+            <div class="mt-1"></div>
+
             <div class="mb-3">
-                <div class="input input-bordered flex items-center gap-2">
-                    <%# <%= image_tag 'email.svg', class: "h-4 w-4 opacity-70" %>
-                    <%# <%= f.avatar_field :avatar, placeholder: t('.avatar') %>
-                </div>
+                <label class="form-control w-full max-w-xs">
+                    <div class="label">
+                        <span class="label-text text-xs"><%= t('.avatar') %></span>
+                    </div>
+                    <input type="file" class="file-input file-input-bordered w-full max-w-xs text-sm" />
+                </label>
             </div>
             <div class="flex justify-center">
                 <%= f.submit t('.update'), class: "btn" %>

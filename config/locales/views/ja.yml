@@ -99,7 +99,7 @@ ja:
       title: プロフィール編集
       name: ユーザー名
       email: メール
-      avatar: アバター
+      avatar: プロフィール画像
       update: 更新
     my_reviews:
       title: 投稿した口コミ

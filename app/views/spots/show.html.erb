@@ -202,7 +202,7 @@
                         <%# 「ここへ行く」で Google Map の経路情報へ %>
                         <div class="flex flex-col justify-center items-center">
                             <div class="mt-4">
-                                <%= link_to "https://www.google.com/maps/dir/?api=1&destination=#{@spot.latitude},#{@spot.longitude}", target: :_blank, class: "btn btn-outline btn-primary" do %>
+                                <%= link_to "https://www.google.com/maps/dir/?api=1&destination=#{@spot.latitude},#{@spot.longitude}", target: :_blank, class: "btn" do %>
                                     <p><%= t('.to_spot') %></p>
                                 <% end %>
                             </div>

@@ -32,7 +32,7 @@
 
                 <!-- 施設詳細へのリンク -->
                 <div class="mt-4 text-right">
-                    <%= link_to t('.to_edit'), edit_profile_path, data: { turbo: false }, class: "btn btn-outline btn-primary" %>
+                    <%= link_to t('.to_edit'), edit_profile_path, data: { turbo: false }, class: "btn" %>
                 </div>
 
             </div>
@@ -43,14 +43,14 @@
 <div class="mt-8 mb-24">
     <div class="w-5/6 mx-auto max-w-sm md:max-w-4xl">
             <div class="mt-4 text-center">
-                <%= link_to my_reviews_path, class: "btn btn-outline btn-primary btn-wide" do %>
+                <%= link_to my_reviews_path, class: "btn btn-wide" do %>
                     <%= t('.my_reviews_link') %>
                     <%= image_tag 'review_mark.svg', class: "h-5 w-5 ml-2" %>
                     <%= @total_my_reviews %>
                 <% end %>
             </div>
             <div class="mt-4 text-center">
-                <%= link_to my_likes_path, class: "btn btn-outline btn-primary btn-wide" do %>
+                <%= link_to my_likes_path, class: "btn btn-wide" do %>
                     <%= t('.my_likes_link') %>
                     <%= image_tag 'like_mark.svg', class: "h-5 w-5 ml-2" %>
                     <%= @total_my_likes %>

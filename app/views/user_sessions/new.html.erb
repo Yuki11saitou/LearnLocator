@@ -1,8 +1,10 @@
 <% content_for(:title, t('.title')) %>
 
-<%= render 'shared/title', title: t('.title') %>
-
 <div class="flex flex-col justify-center items-center min-h-screen">
+
+    <%= render 'shared/title', title: t('.title') %>
+    <div class="mb-10"></div>
+
     <%= form_with url: login_path do |f| %>
         <div class="mb-3">
             <div class="input input-bordered flex items-center gap-2">

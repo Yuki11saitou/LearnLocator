@@ -7,8 +7,8 @@
                 <%# 施設名とカテゴリを表示（オプション） %>
                 <% if show_spot_name %>
                     <%# 施設名 %>
-                    <div class="text-sm font-bold">
-                        <%= link_to review.spot.name, spot_path(review.spot), class: "link" %>
+                    <div class="text-sm font-bold text-primary">
+                        <%= link_to review.spot.name, spot_path(review.spot), class: "link link-hover" %>
                     </div>
                     <div class="mt-1"></div>
                     <%# カテゴリ名 %>

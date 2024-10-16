@@ -18,7 +18,6 @@ class User < ApplicationRecord
   # Userモデルに対して CarrierWave のアップローダークラス（AvatarUploader）をマウント
   mount_uploader :avatar, AvatarUploader
 
-
   # ユーザー自身かどうかを判定するメソッド
   def own?(object)
     id == object&.user_id

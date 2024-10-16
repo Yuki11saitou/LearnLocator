@@ -97,11 +97,10 @@ ja:
       my_likes_link: いいねした口コミ：
     edit:
       title: プロフィール編集
-      # name: ユーザー名
-      # email: メール
-      # password: パスワード
-      # password_confirmation: パスワード確認
-      # update: 更新
+      name: ユーザー名
+      email: メール
+      avatar: アバター
+      update: 更新
     my_reviews:
       title: 投稿した口コミ
       no_data: データがありません

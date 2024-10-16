@@ -63,7 +63,6 @@ ja:
       no_data: データがありません
       opening_hours: 営業時間
       to_spot: ここへ行く
-      back: 戻る
       to_spot_search: 場所検索画面
       to_index_search: 一覧検索画面
       to_bookmark_search: ブックマークした場所
@@ -82,16 +81,13 @@ ja:
       no_data: データがありません
     new:
       title: "【口コミ投稿】%{name}"
-      back: 戻る
       placeholder: 300文字以内で入力してください
       submit: 投稿
     edit:
       title: "【口コミ編集】%{name}"
-      back: 戻る
       placeholder: 300文字以内で入力してください
       update: 更新
     show:
-      back: 戻る
       x_share: Xでシェア
   profiles:
     show:
@@ -101,7 +97,6 @@ ja:
       my_likes_link: いいねした口コミ：
     edit:
       title: プロフィール編集
-      back: 戻る
       # name: ユーザー名
       # email: メール
       # password: パスワード
@@ -109,11 +104,9 @@ ja:
       # update: 更新
     my_reviews:
       title: 投稿した口コミ
-      back: 戻る
       no_data: データがありません
     my_likes:
       title: いいねした口コミ
-      back: 戻る
       no_data: データがありません
   # 検索フォーム
   search_form:

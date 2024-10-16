@@ -21,12 +21,18 @@
                         <%= t('.to_index_search') %>
                     <% end %>
                 </li>
-                <%# ブックマーク一覧へのリンクはログイン者のみ表示 %>
+                <%# ブックマーク一覧/マイページへのリンクはログイン者のみ表示 %>
                 <% if logged_in? %>
                     <li>
                         <%= link_to bookmarks_spots_path, class: "text-xs" do %>
                             <%= image_tag 'bookmark_search.svg', class: "h-3 w-3" %>
                             <%= t('.to_bookmark_search') %>
+                        <% end %>
+                    </li>
+                    <li>
+                        <%= link_to profile_path, class: "text-xs" do %>
+                            <%= image_tag 'mypage.svg', class: "h-3 w-3" %>
+                            <%= t('.to_my_page') %>
                         <% end %>
                     </li>
                 <% end %>

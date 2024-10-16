@@ -64,9 +64,10 @@ ja:
       opening_hours: 営業時間
       to_spot: ここへ行く
       back: 戻る
-      to_spot_search: 場所検索画面へ
-      to_index_search: 一覧検索画面へ
+      to_spot_search: 場所検索画面
+      to_index_search: 一覧検索画面
       to_bookmark_search: ブックマークした場所
+      to_my_page: マイページ
       tab:
         facility_details: 施設詳細
         reviews: 口コミ

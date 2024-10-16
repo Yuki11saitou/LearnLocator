@@ -1,14 +1,14 @@
 
 <div id="spot-id-<%= spot.id %>">
-    <div class="card shadow-xl">
+    <div class="card my-4 shadow-md border">
         <div class="m-4">
 
-            <%# Xシェア、ブックマークリンク表示エリア %>
-            <div class="mt-5">
+            <%# 施設名、ブックマークリンク表示エリア %>
+            <div class="mt-2">
                 <ul class="flex justify-between w-full">
                     <%# 左寄せ %>
                     <div class="font-bold text-md">
-                        <%# Spot名 %>
+                        <%# 施設名 %>
                         <%= link_to spot.name, spot_path(spot), class: "link" %>
                     </div>
                     <%# 右寄せ %>

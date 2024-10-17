@@ -1,9 +1,9 @@
 <% content_for(:title, t('.title')) %>
-<div class="flex flex-col justify-center items-center min-h-screen">
 
-    <div class="mb-10">
-        <h1 class="text-lg font-bold"><%= t('.title') %></h1>
-    </div>
+<div class="flex flex-col items-center justify-center min-h-screen">
+
+    <%= render 'shared/title', title: t('.title') %>
+    <div class="mb-10"></div>
 
     <%= form_with model: @user do |f| %>
 
@@ -35,15 +35,17 @@
             </div>
         </div>
         <div class="flex justify-center">
-            <%= f.submit t('.submit'), class: "btn btn-primary" %>
+            <%= f.submit t('.submit'), class: "btn" %>
         </div>
     <% end %>
 
     <div class='text-center my-6'>
-        <%= link_to t('.to_login_page'), login_path %>
+        <%= link_to t('.to_login_page'), login_path, class: "btn btn-link" %>
         |
-        <%= link_to t('.password_forget'), '#' %>
+        <%= link_to t('.password_forget'), '#', class: "btn btn-link" %>
     </div>
+
+    <div class="mb-28"></div>
 
 </div>
 

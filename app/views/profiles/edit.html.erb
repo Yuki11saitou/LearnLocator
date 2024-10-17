@@ -1,17 +1,74 @@
 <% content_for(:title, t('.title')) %>
 
-<%= render 'shared/title', title: t('.title') %>
-
 <div class="w-5/6 mx-auto max-w-sm md:max-w-4xl">
-    <div class="mt-4 mb-28">
-        <%# 戻るボタン %>
-        <%= link_to profile_path, class: "btn btn-sm text-xs" do %>
-            <%= image_tag 'page_back_mark.svg', class: "h-3 w-3" %>
-            <%= t('.back') %>
-        <% end %>
+    <div class="mt-4">
+        <%# 戻るボタン、タイトル（同じ高さに表示） %>
+        <div class="flex items-center justify-center relative">
+            <%# 戻るボタン %>
+            <div class="absolute left-0 mt-2">
+                <%= link_to profile_path, class: "btn btn-sm btn-circle text-xs" do %>
+                    <%= image_tag 'page_back_mark.svg', class: "h-3 w-3" %>
+                <% end %>
+            </div>
 
-        <div class="mt-6">
-
+            <%# タイトル %>
+            <div class="text-sm font-bold">
+                <%= t('.title') %>
+            </div>
         </div>
+    </div>
+</div>
+
+<div class="flex flex-col items-center">
+    <%# ユーザー情報更新フォーム %>
+    <div class="mt-12 mb-28">
+        <%= form_with model: @user, url: profile_path, local: true do |f| %>
+
+            <%# エラーメッセージ %>
+            <%= render 'shared/error_messages', object: f.object %>
+
+            <%# 名前 %>
+            <div class="mb-3">
+                <div class="input input-bordered flex items-center gap-2">
+                    <%= image_tag 'user_name.svg', class: "h-4 w-4 opacity-70" %>
+                    <%= f.text_field :name, placeholder: t('.name') %>
+                </div>
+            </div>
+            <%# メール %>
+            <div class="mb-3">
+                <div class="input input-bordered flex items-center gap-2">
+                    <%= image_tag 'email.svg', class: "h-4 w-4 opacity-70" %>
+                    <%= f.email_field :email, placeholder: t('.email') %>
+                </div>
+            </div>
+
+            <%# 区切り線 %>
+            <div class="mt-6"></div>
+            <hr>
+            <div class="mt-6"></div>
+
+            <%# 既存の画像がある場合は表示 %>
+            <div class="mb-6">
+                <% if @user.avatar.present? %>
+                    <div class="flex flex-col items-center">
+                        <div class="label-text text-xs mb-1">
+                            <%= t('.before_update_avatar') %>
+                        </div>
+                        <%= image_tag @user.avatar_url, class: "h-36 rounded-md" %>
+                    </div>
+                <% end %>
+            </div>
+
+            <%# 画像 %>
+            <div class="mb-10">
+                <%= f.label :avatar, t('.avatar') , class: "label-text text-xs" %>
+                <%= f.file_field :avatar, class: "file-input file-input-bordered w-full text-sm", accept: 'image/*' %>
+                <%= f.hidden_field :avatar_cache %>
+            </div>
+
+            <div class="flex justify-center">
+                <%= f.submit t('.update'), class: "btn" %>
+            </div>
+        <% end %>
     </div>
 </div>

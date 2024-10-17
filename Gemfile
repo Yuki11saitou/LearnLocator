@@ -18,6 +18,7 @@ gem "puma", ">= 5.0"
 gem "jsbundling-rails"
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
+# turbo利用のため導入
 gem "turbo-rails"
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
@@ -71,6 +72,9 @@ gem 'kaminari'
 
 # 検索機能を実装するためのgem
 gem 'ransack'
+
+# 画像アップロード機能を実装するためのgem
+gem "carrierwave", "~> 2.0"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

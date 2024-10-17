@@ -1,91 +1,99 @@
 <%# 口コミ表示 %>
 <div id="review-<%= review.id %>" class="review-item">
-    <div class="mt-3">
-        <div class="card border-2  rounded-md">
-            <div class="mx-3 my-2">
+    <div class="card my-5 shadow-md border-2 rounded-md">
+        <div class="mx-4 mt-4 mb-4">
 
-                <%# 施設名とカテゴリを表示（オプション） %>
+            <%# 施設名とカテゴリを表示（オプション） %>
+            <div class="flex flex-col">
                 <% if show_spot_name %>
-                    <%# 施設名 %>
-                    <div class="text-sm font-bold">
-                        <%= link_to review.spot.name, spot_path(review.spot), class: "link" %>
-                    </div>
-                    <div class="mt-1"></div>
                     <%# カテゴリ名 %>
-                    <div class="text-xs font-bold badge badge-ghost">
+                    <div class="text-xs font-bold text-gray-500">
                         <%= review.spot.category.name %>
                     </div>
-                    <div class="mt-3"></div>
+
+                    <div class="mt-1"></div>
+                    <%# 施設名 %>
+                    <div class="text-sm font-bold text-primary">
+                        <%= link_to review.spot.name, spot_path(review.spot), class: "link link-hover" %>
+                    </div>
+                    <div class="mt-6"></div>
                 <% end %>
+            </div>
 
-                <%# 名前 %>
-                <div class="text-sm font-bold">
-                    <%= review.user.name %>
-                </div>
-                <div class="mt-1"></div>
-                <%# 作成日時 %>
-                <div class="text-xs">
-                    <%= l(review.created_at, format: :long) %>
-                </div>
-                <div class="mt-1"></div>
-                <%# 区切り線 %>
-                <hr>
-                <div class="mt-1"></div>
-                <%# 口コミ内容 %>
-                <div class="text-md">
-                    <%= simple_format(h(review.body)) %>
-                </div>
+            <div class="flex items-center space-x-4 mb-2">
+                <%# ユーザー画像 %>
+                <%= image_tag review.user.avatar_url, class: "h-10 w-10 rounded-full object-cover" %>
 
-                <div class="mt-3"></div>
-                <%# 編集、削除、Xシェア、いいねリンク %>
-                <div>
-                    <ul class="flex justify-between w-full">
-                        <%# 左寄せ %>
-                        <div class="flex space-x-4 ml-2">
-                            <% if logged_in? %>
-                                <% if current_user.own?(review) %>
-                                    <%# 編集リンク %>
-                                    <li>
-                                        <%= link_to edit_review_path(review) do %>
-                                            <%= image_tag 'edit_pen_mark.svg', class: "h-4 w-4" %>
-                                        <% end %>
-                                    </li>
-                                    <%# 削除リンク %>
-                                    <li>
-                                        <%= link_to review_path(review), data: { turbo_method: :delete, turbo_confirm: t('turbo_stream.delete.confirm') } do %>
-                                            <%= image_tag 'destroy_trash_mark.svg', class: "h-4 w-4" %>
-                                        <% end %>
-                                    </li>
-                                <% end %>
-                            <% end %>
-                        </div>
-                        <%# 右寄せ %>
-                        <div class="flex space-x-4 mr-2">
-                            <% if logged_in? %>
-                                <% if current_user.own?(review) %>
-                                    <%# Xシェアボタン %>
-                                    <li>
-                                        <%= link_to '#' do %>
-                                            <%= image_tag 'x_mark.svg', class: "h-4 w-4" %>
-                                        <% end %>
-                                    </li>
-                                <% end %>
-                                <li class="flex items-center">
-                                    <%# いいねボタン %>
-                                    <div class="mr-1">
-                                        <%= render 'reviews/like_buttons', { review: review } %>
-                                    </div>
-                                    <%# いいね数 %>
-                                    <div class="text-xs text-gray-500 w-[2ch] text-left" id="like-count-<%= review.id %>"> <%# w-[2ch]の設定により2桁分の幅を確保。text-leftで左揃え %>
-                                        <%= review.likes.count %>
-                                    </div>
+                <div class="flex flex-col items-start">
+                    <%# 名前 %>
+                    <div class="text-sm font-bold">
+                        <%= review.user.name %>
+                    </div>
+                    <div class="mt-1"></div>
+                    <%# 作成日時 %>
+                    <div class="text-xs">
+                        <%= l(review.created_at, format: :long) %>
+                    </div>
+                </div>
+            </div>
+
+            <%# 区切り線 %>
+            <hr>
+            <div class="mt-3"></div>
+            <%# 口コミ内容 %>
+            <div class="text-md mx-2">
+                <%= simple_format(h(review.body)) %>
+            </div>
+
+            <div class="mt-8"></div>
+            <%# 編集、削除、Xシェア、いいねリンク %>
+            <div>
+                <ul class="flex justify-between w-full">
+                    <%# 左寄せ %>
+                    <div class="flex space-x-4 ml-2">
+                        <% if logged_in? %>
+                            <% if current_user.own?(review) %>
+                                <%# 編集リンク %>
+                                <li>
+                                    <%= link_to edit_review_path(review) do %>
+                                        <%= image_tag 'edit_pen_mark.svg', class: "h-4 w-4" %>
+                                    <% end %>
+                                </li>
+                                <%# 削除リンク %>
+                                <li>
+                                    <%= link_to review_path(review), data: { turbo_method: :delete, turbo_confirm: t('turbo_stream.delete.confirm') } do %>
+                                        <%= image_tag 'destroy_trash_mark.svg', class: "h-4 w-4" %>
+                                    <% end %>
                                 </li>
                             <% end %>
-                        </div>
-                    </ul>
-                </div>
-
+                        <% end %>
+                    </div>
+                    <%# 右寄せ %>
+                    <div class="flex space-x-4 mr-2">
+                        <% if logged_in? %>
+                            <% if current_user.own?(review) %>
+                                <%# Xシェアボタン %>
+                                <li>
+                                    <%= link_to '#' do %>
+                                        <%= image_tag 'x_mark.svg', class: "h-4 w-4" %>
+                                    <% end %>
+                                </li>
+                            <% end %>
+                            <li class="flex items-center">
+                                <%# いいねボタン %>
+                                <div class="mr-1">
+                                    <%= render 'reviews/like_buttons', { review: review } %>
+                                </div>
+                                <%# いいね数 %>
+                                <div class="text-xs text-gray-500 w-[2ch] text-left" id="like-count-<%= review.id %>"> <%# w-[2ch]の設定により2桁分の幅を確保。text-leftで左揃え %>
+                                    <%= review.likes.count %>
+                                </div>
+                            </li>
+                        <% end %>
+                    </div>
+                </ul>
             </div>
+
         </div>
     </div>
 </div>

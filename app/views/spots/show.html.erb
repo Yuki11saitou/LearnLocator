@@ -4,9 +4,8 @@
     <div class="w-5/6 mx-auto max-w-sm md:max-w-4xl">
         <%# 戻るボタン %>
         <div class="dropdown dropdown-right">
-            <div tabindex="0" role="button" class="btn btn-sm text-xs">
+            <div tabindex="0" role="button" class="btn btn-sm btn-circle text-xs">
                 <%= image_tag 'page_back_mark.svg', class: "h-3 w-3" %>
-                <%= t('.back') %>
             </div>
             <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
                 <li>
@@ -21,12 +20,18 @@
                         <%= t('.to_index_search') %>
                     <% end %>
                 </li>
-                <%# ブックマーク一覧へのリンクはログイン者のみ表示 %>
+                <%# ブックマーク一覧/マイページへのリンクはログイン者のみ表示 %>
                 <% if logged_in? %>
                     <li>
                         <%= link_to bookmarks_spots_path, class: "text-xs" do %>
                             <%= image_tag 'bookmark_search.svg', class: "h-3 w-3" %>
                             <%= t('.to_bookmark_search') %>
+                        <% end %>
+                    </li>
+                    <li>
+                        <%= link_to profile_path, class: "text-xs" do %>
+                            <%= image_tag 'mypage.svg', class: "h-3 w-3" %>
+                            <%= t('.to_my_page') %>
                         <% end %>
                     </li>
                 <% end %>
@@ -197,7 +202,7 @@
                         <%# 「ここへ行く」で Google Map の経路情報へ %>
                         <div class="flex flex-col justify-center items-center">
                             <div class="mt-4">
-                                <%= link_to "https://www.google.com/maps/dir/?api=1&destination=#{@spot.latitude},#{@spot.longitude}", target: :_blank, class: "btn btn-outline btn-primary" do %>
+                                <%= link_to "https://www.google.com/maps/dir/?api=1&destination=#{@spot.latitude},#{@spot.longitude}", target: :_blank, class: "btn" do %>
                                     <p><%= t('.to_spot') %></p>
                                 <% end %>
                             </div>
@@ -229,7 +234,7 @@
                 <%# 口コミ投稿ボタン %>
                 <div class="absolute border rounded-full bottom-5 right-5">
                     <div class="tooltip" data-tip="<%= t('.post_review') %>">
-                        <%= link_to new_spot_review_path(@spot), class: "inline-flex items-center justify-center w-10 h-10 bg-blue-600 rounded-full hover:bg-blue-700 focus:ring-4" do %>
+                        <%= link_to new_spot_review_path(@spot), class: "skeleton inline-flex items-center justify-center w-10 h-10 bg-blue-600 rounded-full hover:bg-blue-700 focus:ring-4" do %>
                             <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
                             </svg>

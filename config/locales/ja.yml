@@ -16,6 +16,9 @@ ja:
     review_update_failure: "口コミを更新できませんでした"
     profile_update_failure: "ユーザー情報を更新できませんでした"
   errors:
+    messages:
+      # 画像アップロードのエラーメッセージ
+      extension_whitelist_error: "許可されていないファイル形式です。アップロード可能なファイル形式: %{allowed_types}"
   # turbo_streamのエラーメッセージ
   turbo_stream:
     delete:

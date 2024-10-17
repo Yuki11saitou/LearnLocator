@@ -21,18 +21,20 @@
 
 <div class="flex flex-col items-center">
     <%# ユーザー情報更新フォーム %>
-    <div class="mt-14 mb-28">
+    <div class="mt-12 mb-28">
         <%= form_with model: @user, url: profile_path, local: true do |f| %>
 
             <%# エラーメッセージ %>
             <%= render 'shared/error_messages', object: f.object %>
 
+            <%# 名前 %>
             <div class="mb-3">
                 <div class="input input-bordered flex items-center gap-2">
                     <%= image_tag 'user_name.svg', class: "h-4 w-4 opacity-70" %>
                     <%= f.text_field :name, placeholder: t('.name') %>
                 </div>
             </div>
+            <%# メール %>
             <div class="mb-3">
                 <div class="input input-bordered flex items-center gap-2">
                     <%= image_tag 'email.svg', class: "h-4 w-4 opacity-70" %>
@@ -41,17 +43,29 @@
             </div>
 
             <%# 区切り線 %>
+            <div class="mt-6"></div>
             <hr>
-            <div class="mt-1"></div>
+            <div class="mt-6"></div>
 
-            <div class="mb-3">
-                <label class="form-control w-full max-w-xs">
-                    <div class="label">
-                        <span class="label-text text-xs"><%= t('.avatar') %></span>
+            <%# 既存の画像がある場合は表示 %>
+            <div class="mb-6">
+                <% if @user.avatar.present? %>
+                    <div class="flex flex-col items-center">
+                        <div class="label-text text-xs mb-1">
+                            <%= t('.before_update_avatar') %>
+                        </div>
+                        <%= image_tag @user.avatar_url, class: "h-36 rounded-md" %>
                     </div>
-                    <input type="file" class="file-input file-input-bordered w-full max-w-xs text-sm" />
-                </label>
+                <% end %>
             </div>
+
+            <%# 画像 %>
+            <div class="mb-10">
+                <%= f.label :avatar, t('.avatar') , class: "label-text text-xs" %>
+                <%= f.file_field :avatar, class: "file-input file-input-bordered w-full text-sm", accept: 'image/*' %>
+                <%= f.hidden_field :avatar_cache %>
+            </div>
+
             <div class="flex justify-center">
                 <%= f.submit t('.update'), class: "btn" %>
             </div>

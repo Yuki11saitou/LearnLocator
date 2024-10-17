@@ -20,6 +20,9 @@ class AvatarUploader < CarrierWave::Uploader::Base
   #
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
+  def default_url
+    'avatar_placeholder'
+  end
 
   # Process files as they are uploaded:
   # process scale: [200, 300]
@@ -36,8 +39,9 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # Add an allowlist of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_allowlist
+    # webp: GPTの画像生成に対応、heic: iPhoneの画像形式に対応
     %w[
-      jpg jpeg gif png
+      jpg jpeg gif png webp heic
     ]
   end
 

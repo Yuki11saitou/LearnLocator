@@ -101,6 +101,7 @@ ja:
       email: メール
       avatar: プロフィール画像
       update: 更新
+      before_update_avatar: 更新前のプロフィール画像
     my_reviews:
       title: 投稿した口コミ
       no_data: データがありません

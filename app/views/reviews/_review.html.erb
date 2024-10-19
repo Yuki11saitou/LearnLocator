@@ -93,7 +93,7 @@
                             <li class="flex items-center">
                                 <%# ログイン誘導ボタン %>
                                 <div class="mr-1">
-                                    <%= image_tag 'to_like_mark.svg', class: "h-5 w-5", onclick: "document.getElementById('login_modal_like').showModal(); document.getElementById('login-button').focus();", style: 'cursor: pointer;' %>
+                                    <%= image_tag 'to_like_mark.svg', class: "h-5 w-5", onclick: "document.getElementById('login_modal_like').showModal(); document.getElementById('login-button-review-like').focus();", style: 'cursor: pointer;' %>
                                 </div>
                                 <%# いいね数 %>
                                 <div class="text-xs text-gray-500 w-[2ch] text-left" id="like-count-<%= review.id %>"> <%# w-[2ch]の設定により2桁分の幅を確保。text-leftで左揃え %>
@@ -124,7 +124,7 @@
                 <%= button_tag '✕', class: 'btn btn-sm btn-circle btn-ghost absolute right-2 top-2' %>
             <% end %>
             <%# ログインボタン %>
-            <%= link_to t('login_modal.login'), login_path, class: 'btn skeleton rounded-md', id: 'login-button' %>
+            <%= link_to t('login_modal.login'), login_path, class: 'btn skeleton rounded-md', id: 'login-button-review-like' %>
         </div>
     </div>
 </dialog>

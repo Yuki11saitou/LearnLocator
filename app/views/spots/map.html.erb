@@ -55,7 +55,7 @@
                 <%= button_tag '✕', class: 'btn btn-sm btn-circle btn-ghost absolute right-2 top-2' %>
             <% end %>
             <%# ログインボタン %>
-            <%= link_to t('login_modal.login'), login_path, class: 'btn skeleton rounded-md', id: 'login-button' %>
+            <%= link_to t('login_modal.login'), login_path, class: 'btn skeleton rounded-md', id: 'login-button-map-bookmark' %>
         </div>
     </div>
 </dialog>
@@ -161,7 +161,7 @@
                                 <%= render 'spots/bookmark_buttons', { spot: spot } %>
                             <% else %>
                                 <!-- ログイン誘導ボタン -->
-                                <%= image_tag 'to_bookmark.svg', class: "h-5 w-5", onclick: "document.getElementById('login_modal_bookmark').showModal(); document.getElementById('login-button').focus();", style: 'cursor: pointer;' %>
+                                <%= image_tag 'to_bookmark.svg', class: "h-5 w-5", onclick: "document.getElementById('login_modal_bookmark').showModal(); document.getElementById('login-button-map-bookmark').focus();", style: 'cursor: pointer;' %>
                             <% end %>
                         </div>
 

@@ -217,7 +217,7 @@
             <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-b-lg p-2 shadow-xl relative">
 
                 <%# 口コミ %>
-                <div class="w-5/6 mx-auto max-w-sm md:max-w-4xl">
+                <div class="w-[95%] mx-auto max-w-sm md:max-w-4xl">
                     <div class="mt-4 mb-20">
                         <% if @reviews.present? %>
                             <%= render partial: 'reviews/review', collection: @reviews, as: :review, locals: { show_spot_name: false } %>

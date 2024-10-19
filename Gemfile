@@ -75,6 +75,7 @@ gem 'ransack'
 
 # 画像アップロード機能を実装するためのgem
 gem "carrierwave", "~> 2.0"
+gem 'fog-aws'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

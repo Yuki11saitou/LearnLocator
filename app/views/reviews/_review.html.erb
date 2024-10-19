@@ -14,7 +14,7 @@
                     <div class="mt-1"></div>
                     <%# 施設名 %>
                     <div class="text-sm font-bold text-primary">
-                        <%= link_to review.spot.name, spot_path(review.spot), class: "link link-hover" %>
+                        <%= link_to review.spot.name, spot_path(review.spot), class: "link" %>
                     </div>
                     <div class="mt-6"></div>
                 <% end %>
@@ -89,6 +89,17 @@
                                     <%= review.likes.count %>
                                 </div>
                             </li>
+                        <% else %>
+                            <li class="flex items-center">
+                                <%# ログイン誘導ボタン %>
+                                <div class="mr-1">
+                                    <%= image_tag 'to_like_mark.svg', class: "h-5 w-5", onclick: "document.getElementById('login_modal_like').showModal(); document.getElementById('login-button').focus();", style: 'cursor: pointer;' %>
+                                </div>
+                                <%# いいね数 %>
+                                <div class="text-xs text-gray-500 w-[2ch] text-left" id="like-count-<%= review.id %>"> <%# w-[2ch]の設定により2桁分の幅を確保。text-leftで左揃え %>
+                                    <%= review.likes.count %>
+                                </div>
+                            </li>
                         <% end %>
                     </div>
                 </ul>
@@ -97,3 +108,23 @@
         </div>
     </div>
 </div>
+
+<%# ログイン誘導ボタンのダイアログ設定 %>
+<dialog id="login_modal_like" class="modal">
+    <div class="modal-box">
+        <h3 class="text-lg font-bold">
+            <%= t('login_modal.like') %>
+        </h3>
+        <p class="py-4">
+            <%= t('login_modal.description') %>
+        </p>
+        <div class="modal-action">
+            <%# 戻るボタン %>
+            <%= form_with url: '#', method: :dialog do %>
+                <%= button_tag '✕', class: 'btn btn-sm btn-circle btn-ghost absolute right-2 top-2' %>
+            <% end %>
+            <%# ログインボタン %>
+            <%= link_to t('login_modal.login'), login_path, class: 'btn skeleton rounded-md', id: 'login-button' %>
+        </div>
+    </div>
+</dialog>

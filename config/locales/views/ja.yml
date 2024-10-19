@@ -54,7 +54,7 @@ ja:
         study_room: 自習室
         co_working_space: コワーキングスペース
       placeholder:
-        search: 施設名/エリア名を入力
+        search: 施設名/地域を入力
       to_spot_show: 詳細
     index:
       title: 一覧検索
@@ -63,10 +63,6 @@ ja:
       no_data: データがありません
       opening_hours: 営業時間
       to_spot: ここへ行く
-      to_spot_search: 場所検索画面
-      to_index_search: 一覧検索画面
-      to_bookmark_search: ブックマークした場所
-      to_my_page: マイページ
       tab:
         facility_details: 施設詳細
         reviews: 口コミ
@@ -111,7 +107,7 @@ ja:
   # 検索フォーム
   search_form:
     placeholder:
-      for_spot: 施設名/エリア名を入力
+      for_spot: 施設名/地域を入力
       for_review: 施設名/ユーザー/投稿内容を入力
       for_my_review: 施設名/投稿内容を入力
       for_my_like: 施設名/ユーザー/投稿内容を入力
@@ -132,3 +128,10 @@ ja:
   pagination:
     previous: "«"
     next: "»"
+  # ログイン誘導モーダル
+  login_modal:
+    bookmark: 施設のブックマーク機能
+    like: 口コミへのいいね機能
+    review: 口コミの投稿機能
+    description: ログインすると利用できます
+    login: ログイン

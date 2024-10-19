@@ -3,39 +3,29 @@
 <div class="mt-4">
     <div class="w-5/6 mx-auto max-w-sm md:max-w-4xl">
         <%# 戻るボタン %>
-        <div class="dropdown dropdown-right">
-            <div tabindex="0" role="button" class="btn btn-sm btn-circle text-xs">
-                <%= image_tag 'page_back_mark.svg', class: "h-3 w-3" %>
-            </div>
-            <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                <li>
-                    <%= link_to spots_map_path, data: { turbo: false }, class: "text-xs" do %>
-                        <%= image_tag 'location_search.svg', class: "h-3 w-3" %>
-                        <%= t('.to_spot_search') %>
-                    <% end %>
-                </li>
-                <li>
-                    <%= link_to spots_path, class: "text-xs" do %>
-                        <%= image_tag 'list_search.svg', class: "h-3 w-3" %>
-                        <%= t('.to_index_search') %>
-                    <% end %>
-                </li>
-                <%# ブックマーク一覧/マイページへのリンクはログイン者のみ表示 %>
-                <% if logged_in? %>
-                    <li>
-                        <%= link_to bookmarks_spots_path, class: "text-xs" do %>
-                            <%= image_tag 'bookmark_search.svg', class: "h-3 w-3" %>
-                            <%= t('.to_bookmark_search') %>
-                        <% end %>
-                    </li>
-                    <li>
-                        <%= link_to profile_path, class: "text-xs" do %>
-                            <%= image_tag 'mypage.svg', class: "h-3 w-3" %>
-                            <%= t('.to_my_page') %>
-                        <% end %>
-                    </li>
+        <div>
+            <% if request.referer.present? %>
+                <% link_path = case
+                    when request.referer.include?(bookmarks_spots_path) && logged_in?
+                    bookmarks_spots_path
+                    when request.referer.include?(my_reviews_path) && logged_in?
+                    my_reviews_path
+                    when request.referer.include?(my_likes_path) && logged_in?
+                    my_likes_path
+                    when request.referer.include?(reviews_path) && logged_in?
+                    reviews_path
+                    when request.referer.include?(spots_map_path)
+                    spots_map_path
+                    when request.referer.include?(spots_path)
+                    spots_path  # 他のpathとマッチしないよう最後に指定
+                    else
+                    spots_map_path  # 例外的にrefererが取得できない場合、場所検索ページへ
+                end %>
+
+                <%= link_to link_path, data: { turbo: (link_path == spots_map_path ? false : true) }, class: "btn btn-sm btn-circle text-xs" do %>
+                    <%= image_tag 'page_back_mark.svg', class: "h-3 w-3" %>
                 <% end %>
-            </ul>
+            <% end %>
         </div>
     </div>
 </div>
@@ -106,6 +96,9 @@
                                     <li>
                                         <%= render 'spots/bookmark_buttons', { spot: @spot } %>
                                     </li>
+                                <% else %>
+                                    <%# ログイン誘導ボタン %>
+                                    <%= image_tag 'to_bookmark.svg', class: "h-5 w-5", onclick: "document.getElementById('login_modal_bookmark').showModal(); document.getElementById('login-button').focus();", style: 'cursor: pointer;' %>
                                 <% end %>
                             </div>
                         </ul>
@@ -217,7 +210,7 @@
             <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-b-lg p-2 shadow-xl relative">
 
                 <%# 口コミ %>
-                <div class="w-5/6 mx-auto max-w-sm md:max-w-4xl">
+                <div class="w-[95%] mx-auto max-w-sm md:max-w-4xl">
                     <div class="mt-4 mb-20">
                         <% if @reviews.present? %>
                             <%= render partial: 'reviews/review', collection: @reviews, as: :review, locals: { show_spot_name: false } %>
@@ -234,10 +227,19 @@
                 <%# 口コミ投稿ボタン %>
                 <div class="absolute border rounded-full bottom-5 right-5">
                     <div class="tooltip" data-tip="<%= t('.post_review') %>">
-                        <%= link_to new_spot_review_path(@spot), class: "skeleton inline-flex items-center justify-center w-10 h-10 bg-blue-600 rounded-full hover:bg-blue-700 focus:ring-4" do %>
-                            <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-                            </svg>
+                        <% if logged_in? %>
+                            <%= link_to new_spot_review_path(@spot), class: "skeleton inline-flex items-center justify-center w-10 h-10 bg-blue-600 rounded-full hover:bg-blue-700 focus:ring-4" do %>
+                                <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+                                </svg>
+                            <% end %>
+                        <% else %>
+                            <%# ログイン誘導ボタン %>
+                            <%= button_tag type: "button", onclick: "document.getElementById('login_modal_review').showModal(); document.getElementById('login-button').focus();", style: 'cursor: pointer;', class: "skeleton inline-flex items-center justify-center w-10 h-10 bg-blue-600 rounded-full hover:bg-blue-700 focus:ring-4" do %>
+                                <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+                                </svg>
+                            <% end %>
                         <% end %>
                     </div>
                 </div>
@@ -248,6 +250,46 @@
 
     </div>
 </div>
+
+<%# ログイン誘導ボタンのダイアログ設定(ブックマーク) %>
+<dialog id="login_modal_bookmark" class="modal">
+    <div class="modal-box">
+        <h3 class="text-lg font-bold">
+            <%= t('login_modal.bookmark') %>
+        </h3>
+        <p class="py-4">
+            <%= t('login_modal.description') %>
+        </p>
+        <div class="modal-action">
+            <%# 戻るボタン %>
+            <%= form_with url: '#', method: :dialog do %>
+                <%= button_tag '✕', class: 'btn btn-sm btn-circle btn-ghost absolute right-2 top-2' %>
+            <% end %>
+            <%# ログインボタン %>
+            <%= link_to t('login_modal.login'), login_path, class: 'btn skeleton rounded-md', id: 'login-button' %>
+        </div>
+    </div>
+</dialog>
+
+<%# ログイン誘導ボタンのダイアログ設定(口コミ投稿) %>
+<dialog id="login_modal_review" class="modal">
+    <div class="modal-box">
+        <h3 class="text-lg font-bold">
+            <%= t('login_modal.review') %>
+        </h3>
+        <p class="py-4">
+            <%= t('login_modal.description') %>
+        </p>
+        <div class="modal-action">
+            <%# 戻るボタン %>
+            <%= form_with url: '#', method: :dialog do %>
+                <%= button_tag '✕', class: 'btn btn-sm btn-circle btn-ghost absolute right-2 top-2' %>
+            <% end %>
+            <%# ログインボタン %>
+            <%= link_to t('login_modal.login'), login_path, class: 'btn skeleton rounded-md', id: 'login-button' %>
+        </div>
+    </div>
+</dialog>
 
 <%# 地図表示のためのscriptタグ %>
 <script>

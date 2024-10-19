@@ -16,6 +16,9 @@
                         <% if logged_in? %>
                             <%# ブックマークボタン %>
                             <%= render 'spots/bookmark_buttons', { spot: spot } %>
+                        <% else %>
+                            <%# ログイン誘導ボタン %>
+                            <%= image_tag 'to_bookmark.svg', class: "h-5 w-5", onclick: "document.getElementById('login_modal_bookmark').showModal(); document.getElementById('login-button').focus();", style: 'cursor: pointer;' %>
                         <% end %>
                     </div>
                 </ul>
@@ -76,3 +79,23 @@
         </div>
     </div>
 </div>
+
+<%# ログイン誘導ボタンのダイアログ設定 %>
+<dialog id="login_modal_bookmark" class="modal">
+    <div class="modal-box">
+        <h3 class="text-lg font-bold">
+            <%= t('login_modal.bookmark') %>
+        </h3>
+        <p class="py-4">
+            <%= t('login_modal.description') %>
+        </p>
+        <div class="modal-action">
+            <%# 戻るボタン %>
+            <%= form_with url: '#', method: :dialog do %>
+                <%= button_tag '✕', class: 'btn btn-sm btn-circle btn-ghost absolute right-2 top-2' %>
+            <% end %>
+            <%# ログインボタン %>
+            <%= link_to t('login_modal.login'), login_path, class: 'btn skeleton rounded-md', id: 'login-button' %>
+        </div>
+    </div>
+</dialog>

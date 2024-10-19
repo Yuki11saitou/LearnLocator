@@ -98,7 +98,7 @@
                                     </li>
                                 <% else %>
                                     <%# ログイン誘導ボタン %>
-                                    <%= image_tag 'to_bookmark.svg', class: "h-5 w-5", onclick: "document.getElementById('login_modal_bookmark').showModal(); document.getElementById('login-button').focus();", style: 'cursor: pointer;' %>
+                                    <%= image_tag 'to_bookmark.svg', class: "h-5 w-5", onclick: "document.getElementById('login_modal_bookmark').showModal(); document.getElementById('login-button-show-bookmark').focus();", style: 'cursor: pointer;' %>
                                 <% end %>
                             </div>
                         </ul>
@@ -235,7 +235,7 @@
                             <% end %>
                         <% else %>
                             <%# ログイン誘導ボタン %>
-                            <%= button_tag type: "button", onclick: "document.getElementById('login_modal_review').showModal(); document.getElementById('login-button').focus();", style: 'cursor: pointer;', class: "skeleton inline-flex items-center justify-center w-10 h-10 bg-blue-600 rounded-full hover:bg-blue-700 focus:ring-4" do %>
+                            <%= button_tag type: "button", onclick: "document.getElementById('login_modal_review').showModal(); document.getElementById('login-button-show-review').focus();", style: 'cursor: pointer;', class: "skeleton inline-flex items-center justify-center w-10 h-10 bg-blue-600 rounded-full hover:bg-blue-700 focus:ring-4" do %>
                                 <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
                                 </svg>
@@ -266,7 +266,7 @@
                 <%= button_tag '✕', class: 'btn btn-sm btn-circle btn-ghost absolute right-2 top-2' %>
             <% end %>
             <%# ログインボタン %>
-            <%= link_to t('login_modal.login'), login_path, class: 'btn skeleton rounded-md', id: 'login-button' %>
+            <%= link_to t('login_modal.login'), login_path, class: 'btn skeleton rounded-md', id: 'login-button-show-bookmark' %>
         </div>
     </div>
 </dialog>
@@ -286,7 +286,7 @@
                 <%= button_tag '✕', class: 'btn btn-sm btn-circle btn-ghost absolute right-2 top-2' %>
             <% end %>
             <%# ログインボタン %>
-            <%= link_to t('login_modal.login'), login_path, class: 'btn skeleton rounded-md', id: 'login-button' %>
+            <%= link_to t('login_modal.login'), login_path, class: 'btn skeleton rounded-md', id: 'login-button-show-review' %>
         </div>
     </div>
 </dialog>

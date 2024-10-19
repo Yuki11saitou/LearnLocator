@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      auto_login(@user)
       redirect_to root_path, notice: t('notices.user_registration_success')
     else
       flash.now[:alert] = t('alerts.user_registration_failure')

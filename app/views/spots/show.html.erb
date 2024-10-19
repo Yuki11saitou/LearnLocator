@@ -37,8 +37,78 @@
                 <% end %>
             </ul>
         </div>
+
+        <div class="">
+
+            <% if request.referer.present? %>
+                <% if request.referer.include?(bookmarks_spots_path) && logged_in? %>
+                    <%= link_to bookmarks_spots_path, class: "btn btn-sm btn-circle text-xs" do %>
+                        <%= image_tag 'page_back_mark.svg', class: "h-3 w-3" %>
+                    <% end %>
+                <% elsif request.referer.include?(profile_path) && logged_in? %>
+                    <%= link_to profile_path, class: "btn btn-sm btn-circle text-xs" do %>
+                        <%= image_tag 'page_back_mark.svg', class: "h-3 w-3" %>
+                    <% end %>
+                <% elsif request.referer.include?(reviews_path) && logged_in? %>
+                    <%= link_to reviews_path, class: "btn btn-sm btn-circle text-xs" do %>
+                        <%= image_tag 'page_back_mark.svg', class: "h-3 w-3" %>
+                    <% end %>
+                <% elsif request.referer.include?(spots_path) %>
+                    <%= link_to spots_path, class: "btn btn-sm btn-circle text-xs" do%>
+                        <%= image_tag 'page_back_mark.svg', class: "h-3 w-3" %>
+                    <% end %>
+                <% else %>
+                    <%# 現在のページに遷移する直前のURL（リファラ）が取得できない場合は「場所検索」ページに遷移 %>
+                    <%= link_to spots_map_path, data: { turbo: false }, class: "btn btn-sm btn-circle text-xs" do %>
+                        <%= image_tag 'page_back_mark.svg', class: "h-3 w-3" %>
+                    <% end %>
+                <% end %>
+            <% end %>
+
+        </div>
+
+        <div class="">
+            <% if request.referer.present? %>
+                <% link_path = case
+                    when request.referer.include?(bookmarks_spots_path) && logged_in?
+                    bookmarks_spots_path
+                    when request.referer.include?(my_reviews_path) && logged_in?
+                    my_reviews_path
+                    when request.referer.include?(my_likes_path) && logged_in?
+                    my_likes_path
+                    when request.referer.include?(reviews_path) && logged_in?
+                    reviews_path
+                    when request.referer.include?(spots_map_path)
+                    spots_map_path
+                    when request.referer.include?(spots_path)
+                    spots_path
+                    else
+                    spots_map_path
+                end %>
+
+                <%= link_to link_path, data: { turbo: (link_path == spots_map_path ? false : true) }, class: "btn btn-sm btn-circle text-xs" do %>
+                    <%= image_tag 'page_back_mark.svg', class: "h-3 w-3" %>
+                <% end %>
+            <% end %>
+
+
+        </div>
+
+
     </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 <div class="w-5/6 mx-auto max-w-md">
     <div class="mt-2">

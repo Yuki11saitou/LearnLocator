@@ -128,3 +128,10 @@ ja:
   pagination:
     previous: "«"
     next: "»"
+  # ログイン誘導モーダル
+  login_modal:
+    bookmark: 施設のブックマーク機能
+    like: 口コミへのいいね機能
+    review: 口コミの投稿機能
+    description: ログインすると利用できます
+    login: ログイン

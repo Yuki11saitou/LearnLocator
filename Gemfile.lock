@@ -413,6 +413,7 @@ DEPENDENCIES
   jbuilder
   jsbundling-rails
   kaminari
+  mini_magick
   pg (~> 1.1)
   pry-byebug
   puma (>= 5.0)

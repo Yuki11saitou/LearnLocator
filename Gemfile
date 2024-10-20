@@ -77,6 +77,9 @@ gem 'ransack'
 gem "carrierwave", "~> 2.0"
 gem 'fog-aws'
 
+# 画像圧縮・リサイズ機能を実装するためのgem
+gem 'mini_magick'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]

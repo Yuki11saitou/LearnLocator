@@ -87,9 +87,11 @@
                             <div class="flex space-x-4 mr-2">
                                 <%# Xシェアボタン %>
                                 <li>
-                                    <%= link_to '#' do %>
-                                        <%= image_tag 'x_mark.svg', class: "h-5 w-5" %>
-                                    <% end %>
+                                    <div class="twitter">
+                                        <%= link_to "https://twitter.com/intent/tweet?url=#{spot_url(@spot)}&text=#{ERB::Util.url_encode("【LearnLocator - 勉強場所検索サービス -】\n\n「#{@spot.name}」をシェアします！\n\n\n\n\n#LearnLocator #勉強場所探し\n\n")}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア" do %>
+                                            <%= image_tag 'x_mark.svg', class: "h-5 w-5" %>
+                                        <% end %>
+                                    </div>
                                 </li>
                                 <% if logged_in? %>
                                     <%# ブックマークボタン %>
@@ -213,7 +215,7 @@
                 <div class="w-[95%] mx-auto max-w-sm md:max-w-4xl">
                     <div class="mt-4 mb-20">
                         <% if @reviews.present? %>
-                            <%= render partial: 'reviews/review', collection: @reviews, as: :review, locals: { show_spot_name: false } %>
+                            <%= render partial: 'reviews/review', collection: @reviews, as: :review, locals: { show_spot_name: false, x_share_mark: true, delete_mark: true } %>
                             <%# ページネーション %>
                             <%= paginate @reviews %>
                         <% else %>

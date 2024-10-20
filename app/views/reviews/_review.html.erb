@@ -10,7 +10,6 @@
                     <div class="text-xs font-bold text-gray-500">
                         <%= review.spot.category.name %>
                     </div>
-
                     <div class="mt-1"></div>
                     <%# 施設名 %>
                     <div class="text-sm font-bold text-primary">
@@ -59,6 +58,8 @@
                                         <%= image_tag 'edit_pen_mark.svg', class: "h-4 w-4" %>
                                     <% end %>
                                 </li>
+                            <% end %>
+                            <% if current_user.own?(review) && delete_mark %>
                                 <%# 削除リンク %>
                                 <li>
                                     <%= link_to review_path(review), data: { turbo_method: :delete, turbo_confirm: t('turbo_stream.delete.confirm') } do %>
@@ -71,12 +72,14 @@
                     <%# 右寄せ %>
                     <div class="flex space-x-4 mr-2">
                         <% if logged_in? %>
-                            <% if current_user.own?(review) %>
+                            <% if current_user.own?(review) && x_share_mark %>
                                 <%# Xシェアボタン %>
                                 <li>
-                                    <%= link_to '#' do %>
-                                        <%= image_tag 'x_mark.svg', class: "h-4 w-4" %>
-                                    <% end %>
+                                    <div class="twitter">
+                                        <%= link_to "https://twitter.com/intent/tweet?url=#{review_url(review)}&text=#{ERB::Util.url_encode("【LearnLocator - 勉強場所検索サービス -】\n\n「#{review.spot.name}」への口コミを投稿しました！\n\n\n\n\n#LearnLocator #勉強場所探し\n\n")}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア" do %>
+                                            <%= image_tag 'x_mark.svg', class: "h-4 w-4" %>
+                                        <% end %>
+                                    </div>
                                 </li>
                             <% end %>
                             <li class="flex items-center">

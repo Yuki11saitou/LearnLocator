@@ -36,7 +36,7 @@
         <div class="mt-6">
             <% if @my_likes.present? %>
                 <%# 投稿した口コミ %>
-                <%= render partial: 'reviews/review', collection: @my_likes, as: :review, locals: { show_spot_name: true } %>
+                <%= render partial: 'reviews/review', collection: @my_likes, as: :review, locals: { show_spot_name: true, x_share_mark: true, delete_mark: true } %>
                 <%# ページネーション %>
                 <%= paginate @my_likes %>
             <% else %>

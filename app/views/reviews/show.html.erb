@@ -6,26 +6,26 @@
         <%= link_to spot_path(@spot), class: "btn btn-sm btn-circle text-xs" do %>
             <%= image_tag 'page_back_mark.svg', class: "h-3 w-3" %>
         <% end %>
-        <%# 作成した口コミ %>
-        <div class="mt-6">
-            <div class="text-sm">
-                <%= @spot.name %>
-            </div>
-            <div class="mt-1">
-                <div class="card shadow-xl border-2 rounded-md">
-                    <div class="m-4">
-                        <%= simple_format(h(@review.body)) %>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+        <div class="mt-6"></div>
+
+        <%# 口コミ表示(app/views/reviews/_review.html.erbを利用) %>
+        <%= render partial: 'reviews/review', locals: { review: @review, show_spot_name: true, x_share_mark: false, delete_mark: false } %>
+
+        <div class="mt-6"></div>
+
         <%# Xシェアボタン %>
         <div class="flex flex-col justify-center items-center">
-            <div class="mt-6">
-                <%= link_to "#", target: :_blank, class: "btn" do %>
-                    <p><%= t('.x_share') %></p>
+            <% if logged_in? %>
+                <% if current_user.own?(@review) %>
+                    <div class="twitter">
+                        <%= link_to "https://twitter.com/intent/tweet?url=#{review_url(@review)}&text=#{ERB::Util.url_encode("【LearnLocator - 勉強場所探し -】\n\n「#{@spot.name}」への口コミを投稿しました！\n\n\n\n\n#LearnLocator #勉強場所探し\n\n")}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア", class: "btn" do %>
+                            <p><%= t('.x_share') %></p>
+                        <% end %>
+                    </div>
                 <% end %>
-            </div>
+            <% end %>
         </div>
+
     </div>
 </div>

@@ -76,7 +76,7 @@
                                 <%# Xシェアボタン %>
                                 <li>
                                     <div class="twitter">
-                                        <%= link_to "https://twitter.com/intent/tweet?url=#{review_url(review)}&text=#{ERB::Util.url_encode("【LearnLocator - 勉強場所探し -】\n\n「#{review.spot.name}」への口コミを投稿しました！\n\n\n\n\n#LearnLocator #勉強場所探し\n\n")}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア" do %>
+                                        <%= link_to "https://twitter.com/intent/tweet?url=#{review_url(review)}&text=#{ERB::Util.url_encode("【LearnLocator - 勉強場所検索サービス -】\n\n「#{review.spot.name}」への口コミを投稿しました！\n\n\n\n\n#LearnLocator #勉強場所探し\n\n")}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア" do %>
                                             <%= image_tag 'x_mark.svg', class: "h-4 w-4" %>
                                         <% end %>
                                     </div>

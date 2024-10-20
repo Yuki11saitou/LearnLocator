@@ -19,7 +19,7 @@
             <% if logged_in? %>
                 <% if current_user.own?(@review) %>
                     <div class="twitter">
-                        <%= link_to "https://twitter.com/intent/tweet?url=#{review_url(@review)}&text=#{ERB::Util.url_encode("【LearnLocator - 勉強場所探し -】\n\n「#{@spot.name}」への口コミを投稿しました！\n\n\n\n\n#LearnLocator #勉強場所探し\n\n")}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア", class: "btn" do %>
+                        <%= link_to "https://twitter.com/intent/tweet?url=#{review_url(@review)}&text=#{ERB::Util.url_encode("【LearnLocator - 勉強場所検索サービス -】\n\n「#{@spot.name}」への口コミを投稿しました！\n\n\n\n\n#LearnLocator #勉強場所探し\n\n")}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア", class: "btn" do %>
                             <p><%= t('.x_share') %></p>
                         <% end %>
                     </div>

@@ -15,6 +15,7 @@ ja:
     review_creation_failure: "口コミを投稿できませんでした"
     review_update_failure: "口コミを更新できませんでした"
     profile_update_failure: "ユーザー情報を更新できませんでした"
+    not_found: "ページが見つかりません"
   errors:
     messages:
       # 画像アップロードのエラーメッセージ

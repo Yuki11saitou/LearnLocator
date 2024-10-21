@@ -71,4 +71,12 @@ class SpotsController < ApplicationController
     # ソート機能のため、カテゴリを取得(自習室とコワーキングのみ)
     @categories = Category.where(id: [1, 2])
   end
+
+  # オートコンプリート機能
+  def auto_search
+    @spots = Spot.where("name ILIKE ?", "%#{params[:q]}%")
+    respond_to do |format|
+      format.js
+    end
+  end
 end

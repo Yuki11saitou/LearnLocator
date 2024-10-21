@@ -2,8 +2,15 @@
     <div class="my-3 mx-8">
         <div class="mx-auto flex justify-center w-full max-w-md md:max-w-2xl">
             <div class="flex space-x-1 w-full">
-                <%# 入力欄 %>
-                <%= f.search_field :name_or_address_cont, class: 'input input-bordered text-xs w-full', placeholder: t('search_form.placeholder.for_spot') %>
+
+                <%# 入力欄 (オートコンプリート対応) %>
+                <div data-controller="autocomplete" data-autocomplete-url-value="/spots/auto_search" role="combobox" class="flex-grow w-full relative"> <%# class="w-full"を入れないとレイアウト崩れる %>
+                    <%= f.search_field :name_or_address_cont, data: { autocomplete_target: 'input' }, class: 'input input-bordered text-xs w-full', placeholder: t('search_form.placeholder.for_spot') %>
+                    <%# このデータをオートコンプリート用に送る %>
+                    <%= f.hidden_field :name, data: { autocomplete_target: 'hidden' } %>
+                    <%# オートコンプリート出力部分 %>
+                    <ul class="autocomplete-results absolute border border-gray-300 rounded-t-lg rounded-b-lg w-full max-h-60 overflow-auto z-50" data-autocomplete-target="results"></ul>
+                </div>
 
                 <%# 施設選択 %>
                 <div class="tooltip w-32" data-tip="<%= t('search_form.select_form.study_room') %>:<%= t('search_form.description.study_room') %>, <%= t('search_form.select_form.co_working_space') %>:<%= t('search_form.description.co_working_space') %>">
@@ -17,6 +24,7 @@
                 <%= button_tag(type: 'submit', class: 'btn text-xs') do %>
                     <%= image_tag 'search_mark.svg', class: "h-4 w-4" %>
                 <% end %>
+
             </div>
         </div>
     </div>

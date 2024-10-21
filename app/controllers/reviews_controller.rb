@@ -77,4 +77,12 @@ class ReviewsController < ApplicationController
       params.require(:review).permit(:body).merge(spot_id: params[:spot_id])
     end
   end
+
+  # オートコンプリート機能
+  def auto_search
+    @spots = Spot.where("name ILIKE ?", "%#{params[:q]}%")
+    respond_to do |format|
+      format.js
+    end
+  end
 end

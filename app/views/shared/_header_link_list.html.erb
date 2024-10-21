@@ -61,3 +61,11 @@
         <%= image_tag 'x_mark.svg', class: "h-6" %>
     <% end %>
 </div>
+
+<%# QRコード %>
+<div class="text-sm text-center mt-6">
+    <span class="skeleton inline-block px-2"><%= t('header.qr_description') %></span>
+</div>
+<div class="flex flex-col items-center mb-3">
+    <%= image_tag 'qr_for_learnlocator.svg', class: "h-32" %>
+</div>

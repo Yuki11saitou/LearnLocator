@@ -32,14 +32,14 @@
                 <div class="mb-3">
                     <div class="input input-bordered flex items-center gap-2">
                         <%= image_tag 'user_name.svg', class: "h-4 w-4 opacity-70" %>
-                        <%= f.text_field :name, placeholder: t('.name') %>
+                        <%= f.text_field :name, placeholder: t('.name'), class: "w-full" %>
                     </div>
                 </div>
                 <%# メール %>
                 <div class="mb-3">
                     <div class="input input-bordered flex items-center gap-2">
                         <%= image_tag 'email.svg', class: "h-4 w-4 opacity-70" %>
-                        <%= f.email_field :email, placeholder: t('.email') %>
+                        <%= f.email_field :email, placeholder: t('.email'), class: "w-full" %>
                     </div>
                 </div>
 

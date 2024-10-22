@@ -6,7 +6,10 @@ class ProfilesController < ApplicationController
     @total_my_likes = @user.like_reviews.count
   end
 
-  def edit; end
+  def edit
+    # Googleアカウントの場合にビューを出し分ける
+    @google_user = @user.email.include?('@gmail.com')
+  end
 
   def update
     if @user.update(user_params)

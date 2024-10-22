@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
 
   # Google認証用のルーティング
-  # OAuth認証の最初のステップとして、ユーザーを外部サービスの認証ページにリダイレクト
-  get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
   # ここで認証結果を処理し、例えばユーザーをアプリケーションにログインさせるなどの処理を実行
   post "oauth/callback" => "oauths#callback"
   get "oauth/callback" => "oauths#callback" # 一部のOAuthプロバイダーや設定では、コールバックに対してGETリクエストを使用する場合もある
+  # OAuth認証の最初のステップとして、ユーザーを外部サービスの認証ページにリダイレクト
+  get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
 
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

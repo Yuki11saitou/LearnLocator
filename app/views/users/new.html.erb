@@ -45,6 +45,16 @@
         <%= link_to t('.password_forget'), '#', class: "btn btn-link" %>
     </div>
 
+    <%# 区切り線 %>
+    <div class="divider w-[90%] mx-auto">OR</div>
+
+    <%# Googleアカウントで新規登録 %>
+    <div class="mt-6">
+        <%= link_to auth_at_provider_path(provider: :google) do %>
+            <%= image_tag 'google_sign_up.svg' %>
+        <% end %>
+    </div>
+
     <div class="mb-28"></div>
 
 </div>

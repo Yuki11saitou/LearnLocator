@@ -37,10 +37,28 @@
                 </div>
                 <%# メール %>
                 <div class="mb-3">
-                    <div class="input input-bordered flex items-center gap-2">
-                        <%= image_tag 'email.svg', class: "h-4 w-4 opacity-70" %>
-                        <%= f.email_field :email, placeholder: t('.email'), class: "w-full" %>
-                    </div>
+                    <%# editアクションでgoogleログイン者かどうか判定 %>
+                    <% if @google_user %>
+                        <%# id: 'user_email'を付けず、id="email-warning" と id: 'submit_button' に対する処理も行わない(加えて disabled: true で編集不可に) %>
+                        <div class="input input-bordered flex items-center gap-2">
+                            <%= image_tag 'email.svg', class: "h-4 w-4 opacity-70" %>
+                            <%= f.email_field :email, placeholder: t('.email'), class: "w-full", disabled: true %>
+                        </div>
+                        <%# gmailは変更できない旨説明 %>
+                        <div class="text-red-500 text-xs">
+                            <%= t('.gmail_update_forbidden') %>
+                        </div>
+                    <% else %>
+                        <%# id: 'user_email'を付け、id="email-warning" と id: 'submit_button' に対する処理を行う %>
+                        <div class="input input-bordered flex items-center gap-2">
+                            <%= image_tag 'email.svg', class: "h-4 w-4 opacity-70" %>
+                            <%= f.email_field :email, placeholder: t('.email'), id: 'user_email', class: "w-full" %>
+                        </div>
+                        <%# gmailアカウントは受け付けず、Googleログインを促す %>
+                        <div id="email-warning" class="text-red-500 hidden text-xs">
+                            <%= t('.gmail_warning') %>
+                        </div>
+                    <% end %>
                 </div>
 
                 <%# 区切り線 %>
@@ -68,9 +86,33 @@
                 </div>
 
                 <div class="flex justify-center">
-                    <%= f.submit t('.update'), class: "btn" %>
+                    <%= f.submit t('.update'), class: "btn", id: 'submit_button' %>
                 </div>
             <% end %>
         </div>
     </div>
 </div>
+
+<script>
+    // メールアドレスがGmailアドレスの場合、警告を表示
+    // 'DOMContentLoaded'では無く、'turbo:load'を使用(DOMContentLoadedイベントは、ページが完全に再読み込みされたときのみ発火するため)
+    document.addEventListener('turbo:load', function() {
+        const emailInput = document.getElementById('user_email');
+        const emailWarning = document.getElementById('email-warning');
+        const submitButton = document.getElementById('submit_button');
+
+        // 'user_email' が存在する場合のみ、イベントリスナーを追加
+        if (emailInput) {
+            emailInput.addEventListener('input', function() {
+                // @gmail.comが含まれている場合に警告を表示し、更新ボタンを非表示にする
+                if (emailInput.value.includes('@gmail.com')) {
+                    emailWarning.classList.remove('hidden');
+                    submitButton.classList.add('hidden');  // 更新ボタンを非表示
+                } else {
+                    emailWarning.classList.add('hidden');
+                    submitButton.classList.remove('hidden');  // 更新ボタンを表示
+                }
+            });
+        }
+    });
+</script>

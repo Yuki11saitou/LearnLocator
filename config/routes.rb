@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+
+  # Google認証用のルーティング
+  # ここで認証結果を処理し、例えばユーザーをアプリケーションにログインさせるなどの処理を実行
+  post "oauth/callback" => "oauths#callback"
+  get "oauth/callback" => "oauths#callback" # 一部のOAuthプロバイダーや設定では、コールバックに対してGETリクエストを使用する場合もある
+  # OAuth認証の最初のステップとして、ユーザーを外部サービスの認証ページにリダイレクト
+  get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
+
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

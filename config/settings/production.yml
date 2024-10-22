@@ -1,0 +1,6 @@
+default_url_options:
+  protocol: 'https'
+  host: 'www.learn-locator.com'
+
+sorcery:
+    google_callback_url: 'https://www.learn-locator.com/oauth/callback?provider=google'

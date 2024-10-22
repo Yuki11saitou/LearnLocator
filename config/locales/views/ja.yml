@@ -37,6 +37,7 @@ ja:
       login: ログイン
       new_register: 登録ページへ
       password_forget: パスワードをお忘れの方はこちら
+      gmail_warning: 下のボタンからGoogleアカウントでログインできます
   users:
     new:
       title: 新規登録
@@ -47,6 +48,7 @@ ja:
       submit: 登録
       to_login_page: ログインページへ
       password_forget: パスワードをお忘れの方はこちら
+      gmail_warning: 下のボタンからGoogleアカウントで登録できます
   spots:
     map:
       title: 場所検索
@@ -99,6 +101,8 @@ ja:
       avatar: プロフィール画像
       update: 更新
       before_update_avatar: 更新前のプロフィール画像
+      gmail_update_forbidden: Googleアカウントの場合は、メールの変更はできません
+      gmail_warning: お手数ですがGoogleアカウントの場合は、ログアウト後にGoogleアカウントによるユーザー登録をお願いします
     my_reviews:
       title: 投稿した口コミ
       no_data: データがありません

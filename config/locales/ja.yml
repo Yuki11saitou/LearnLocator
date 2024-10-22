@@ -8,6 +8,10 @@ ja:
     review_creation_success: "口コミが投稿されました"
     review_update_success: "口コミが更新されました"
     profile_update_success: "ユーザー情報が更新されました"
+    # Googleログイン
+    auth:
+      login_success: "%{provider}アカウントでログインしました"
+      user_registration_success: "%{provider}アカウントでユーザー登録が完了しました"
   alerts:
     login_failure: "ログインに失敗しました"
     user_registration_failure: "ユーザー登録に失敗しました"
@@ -16,6 +20,10 @@ ja:
     review_update_failure: "口コミを更新できませんでした"
     profile_update_failure: "ユーザー情報を更新できませんでした"
     not_found: "ページが見つかりません"
+    # Googleログイン
+    auth:
+      cancelled: "%{provider}アカウントでのログインがキャンセルされました"
+      failure: "%{provider}アカウントでのログインに失敗しました"
   errors:
     messages:
       # 画像アップロードのエラーメッセージ

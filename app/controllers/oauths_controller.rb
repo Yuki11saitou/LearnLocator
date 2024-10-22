@@ -11,22 +11,22 @@ class OauthsController < ApplicationController
 
     # Google認証がキャンセルされた場合やエラーが発生した場合のハンドリング
     if params[:error]
-      redirect_to root_path, alert: "#{provider.titleize}アカウントでのログインがキャンセルされました"
+      redirect_to root_path, alert: t('alerts.auth.cancelled', provider: provider.titleize)
       return
     end
 
     # 既存のユーザーをプロバイダ情報を元に検索し、存在すればログイン
     if (@user = login_from(provider))
-      redirect_to root_path, notice: "#{provider.titleize}アカウントでログインしました"
+      redirect_to root_path, notice: t('notices.auth.login_success', provider: provider.titleize)
     else
       begin
         # ユーザーが存在しない場合はプロバイダ情報を元に新規ユーザーを作成し、ログイン
         signup_and_login(provider)
-        redirect_to root_path, notice: "#{provider.titleize}アカウントでログインしました"
+        redirect_to root_path, notice: t('notices.auth.user_registration_success', provider: provider.titleize)
       rescue StandardError => e
         # エラーメッセージのログ出力
         logger.error("Login failed: #{e.message}")
-        redirect_to root_path, alert: "#{provider.titleize}アカウントでのログインに失敗しました"
+        redirect_to root_path, alert: t('alerts.auth.failure', provider: provider.titleize)
       end
     end
   end

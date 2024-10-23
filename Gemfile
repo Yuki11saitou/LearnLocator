@@ -84,6 +84,9 @@ gem 'mini_magick'
 # Railsアプリケーションで設定情報を管理する(APIキーやコールバックURLなど、環境ごとに異なる設定を行いたい場合)ためのgem
 gem 'config'
 
+# Railsアプリケーションの開発環境において、送信されるメールをブラウザで確認できるgem
+gem 'letter_opener_web'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]

@@ -8,6 +8,9 @@ ja:
     review_creation_success: "口コミが投稿されました"
     review_update_success: "口コミが更新されました"
     profile_update_success: "ユーザー情報が更新されました"
+    password_reset_mail_submit: "パスワードリセット用のメールを送信しました"
+    password_reset_success: "パスワードがリセットされました"
+    password_reset_failure: "パスワードのリセットに失敗しました"
     # Googleログイン
     auth:
       login_success: "%{provider}アカウントでログインしました"
@@ -32,3 +35,6 @@ ja:
   turbo_stream:
     delete:
       confirm: "本当に削除しますか？"
+  # パスワードリセットメール
+  password_reset_mail:
+    subject: "パスワードリセットのご案内"

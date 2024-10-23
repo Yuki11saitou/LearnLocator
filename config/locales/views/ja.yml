@@ -140,3 +140,20 @@ ja:
     review: 口コミの投稿機能
     description: ログインすると利用できます
     login: ログイン
+  # パスワードリセット
+  password_resets:
+    new:
+      title: パスワードリセット申請
+      submit: 送信
+      email: メール
+      to_login_page: ログインページへ
+      new_register: 登録ページへ
+      gmail_warning: Gmail所有者はパスワード設定なしでログイン・新規登録できます
+    edit:
+      title: パスワードリセット
+      password: パスワード
+      password_confirmation: パスワード確認
+      submit: 更新
+      to_login_page: ログインページへ
+      new_register: 登録ページへ
+

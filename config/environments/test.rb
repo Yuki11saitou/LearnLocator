@@ -44,6 +44,9 @@ Rails.application.configure do
   # ActionMailer::Base.deliveries array.
   config.action_mailer.delivery_method = :test
 
+  # letter_opener_web公式のにあるaction_mailer設定を追加
+  config.action_mailer.default_url_options = Settings.default_url_options.to_h
+
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 

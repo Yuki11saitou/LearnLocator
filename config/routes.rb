@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  # パスワードリセット：Railsアプリケーションにおいて、開発環境で LetterOpenerWeb エンジンを /letter_opener というパスにマウントする設定
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
+
   # Google認証用のルーティング
   # ここで認証結果を処理し、例えばユーザーをアプリケーションにログインさせるなどの処理を実行
   post "oauth/callback" => "oauths#callback"
@@ -63,5 +66,8 @@ Rails.application.routes.draw do
   resource :profile, only: [:show, :edit, :update]
   get 'profiles/my_reviews', to: 'profiles#my_reviews', as: :my_reviews
   get 'profiles/my_likes', to: 'profiles#my_likes', as: :my_likes
+
+  # パスワードリセット用のルーティング
+  resources :password_resets, only: %i[new create edit update]
 
 end

@@ -12,7 +12,7 @@ class UserMailer < ApplicationMailer
   # end
 
   # メールの送信元アドレス
-  default from: ENV['GMAIL_USERNAME']
+  default from: ENV.fetch('GMAIL_USERNAME', nil)
 
   # Sorceryのパスワードリセット機能では、デフォルトで reset_password_email という名前のメソッドを使用する
   def reset_password_email(user)
@@ -21,7 +21,7 @@ class UserMailer < ApplicationMailer
     mail(
       to: user.email,
       subject: t('password_reset_mail.subject'),
-      content_type: "text/html; charset=UTF-8"
+      content_type: "text/html"
     )
   end
 end

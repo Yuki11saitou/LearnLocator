@@ -67,7 +67,7 @@ ja:
               too_short: は4文字以上で入力してください
             password_confirmation:
               blank: を入力してください
-              confirmation: パスワードとパスワード確認が一致しません
+              confirmation: がパスワードと一致しません
         review:
           attributes:
             body:

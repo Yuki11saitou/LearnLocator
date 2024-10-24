@@ -151,7 +151,7 @@ ja:
       gmail_warning: Gmail所有者はパスワード設定なしでログイン・新規登録できます
     edit:
       title: パスワードリセット
-      password: パスワード
+      password: パスワード(4文字以上)
       password_confirmation: パスワード確認
       submit: 更新
       to_login_page: ログインページへ

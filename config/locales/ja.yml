@@ -10,7 +10,6 @@ ja:
     profile_update_success: "ユーザー情報が更新されました"
     password_reset_mail_submit: "パスワードリセット用のメールを送信しました"
     password_reset_success: "パスワードがリセットされました"
-    password_reset_failure: "パスワードのリセットに失敗しました"
     # Googleログイン
     auth:
       login_success: "%{provider}アカウントでログインしました"
@@ -22,6 +21,7 @@ ja:
     review_creation_failure: "口コミを投稿できませんでした"
     review_update_failure: "口コミを更新できませんでした"
     profile_update_failure: "ユーザー情報を更新できませんでした"
+    password_reset_failure: "パスワードのリセットに失敗しました"
     not_found: "ページが見つかりません"
     # Googleログイン
     auth:

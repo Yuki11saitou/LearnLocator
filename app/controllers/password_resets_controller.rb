@@ -27,7 +27,7 @@ class PasswordResetsController < ApplicationController
     if @user.change_password(params[:user][:password])
       redirect_to login_path, notice: t('notices.password_reset_success')
     else
-      flash.now[:danger] = t('notices.password_reset_failure')
+      flash.now[:alert] = t('alerts.password_reset_failure')
       render :edit, status: :unprocessable_entity
     end
   end

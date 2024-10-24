@@ -21,7 +21,7 @@
 
             <div class="flex items-center space-x-4 mb-2">
                 <%# ユーザー画像 %>
-                <%= image_tag review.user.avatar_url, class: "h-10 w-10 rounded-full object-cover" %>
+                <%= image_tag review.user.avatar_url, class: "h-10 w-10 rounded-full object-cover", onclick: "document.getElementById('user_info').showModal();", style: 'cursor: pointer;' %>
 
                 <div class="flex flex-col items-start">
                     <%# 名前 %>
@@ -129,5 +129,40 @@
             <%# ログインボタン %>
             <%= link_to t('login_modal.login'), login_path, class: 'btn skeleton rounded-md', id: 'login-button-review-like' %>
         </div>
+    </div>
+</dialog>
+
+<%# ユーザー情報のダイアログ設定 %>
+<dialog id="user_info" class="modal">
+    <div class="modal-box">
+        <div class="modal-action">
+            <%# 戻るボタン %>
+            <%= form_with url: '#', method: :dialog do %>
+                <%= button_tag '✕', class: 'btn btn-sm btn-circle btn-ghost absolute right-2 top-2' %>
+            <% end %>
+        </div>
+        <div class="flex items-center space-x-4 mb-2">
+                <%# ユーザー画像 %>
+                <%= image_tag review.user.avatar_url, class: "h-24 w-24 rounded-full object-cover" %>
+                <div class="flex flex-col items-start">
+                    <%# 会員No %>
+                    <div class="text-sm">
+                        <%= t('user_info_modal.user_id') %>
+                        <%= review.user.id %>
+                    </div>
+                    <div class="mt-1"></div>
+                    <%# 名前 %>
+                    <div class="text-md font-bold">
+                        <%= review.user.name %>
+                    </div>
+                    <div class="mt-3"></div>
+                    <%# 会員登録日時 %>
+                    <div class="text-xs">
+                        <%= t('user_info_modal.user_created_at') %>
+                        :
+                        <%= l(review.user.created_at, format: :only_date) %>
+                    </div>
+                </div>
+            </div>
     </div>
 </dialog>

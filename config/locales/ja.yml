@@ -38,3 +38,7 @@ ja:
   # パスワードリセットメール
   password_reset_mail:
     subject: "パスワードリセットのご案内"
+  # 日付のカスタムフォーマット
+  time:
+    formats:
+      only_date: "%Y年%m月%d日"

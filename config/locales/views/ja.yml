@@ -92,6 +92,7 @@ ja:
     show:
       title: マイページ
       to_edit: 編集
+      user_id: 会員No.
       my_reviews_link: 　投稿した口コミ：
       my_likes_link: いいねした口コミ：
     edit:
@@ -140,6 +141,10 @@ ja:
     review: 口コミの投稿機能
     description: ログインすると利用できます
     login: ログイン
+  # ユーザー情報モーダル
+  user_info_modal:
+    user_id: 会員No.
+    user_created_at: 会員になった日
   # パスワードリセット
   password_resets:
     new:

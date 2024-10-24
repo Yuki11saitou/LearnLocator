@@ -5,7 +5,7 @@
     <%= render 'shared/title', title: t('.title') %>
     <div class="mb-10"></div>
 
-    <%= form_with url: login_path do |f| %>
+    <%= form_with url: login_path, data: { turbo: false } do |f| %>
         <div class="mb-3">
             <div class="input input-bordered flex items-center gap-2">
                 <%= image_tag 'email.svg', class: "h-4 w-4 opacity-70" %>
@@ -28,9 +28,9 @@
     <% end %>
 
     <div class="text-center my-6">
-        <%= link_to t('.new_register'), new_user_path, class: "btn btn-link" %>
+        <%= link_to t('.new_register'), new_user_path, class: "btn btn-link text-xs" %>
         |
-        <%= link_to t('.password_forget'), new_password_reset_path, class: "btn btn-link" %>
+        <%= link_to t('.password_forget'), new_password_reset_path, class: "btn btn-link text-xs" %>
     </div>
 
     <%# 区切り線 %>

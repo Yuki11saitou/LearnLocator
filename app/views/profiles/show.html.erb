@@ -12,8 +12,16 @@
                     <%= image_tag @user.avatar_url, class: "h-24 w-24 rounded-full object-cover" %>
 
                     <div class="flex flex-col items-start">
-                        <%# ユーザー名 %>
+                        <%# 会員ID %>
                         <div class="flex items-center">
+                            <span class="text-sm break-all">
+                                <%= t('.user_id') %>
+                                <%= @user.id %>
+                            </span>
+                        </div>
+
+                        <%# ユーザー名 %>
+                        <div class="flex items-center mt-4">
                             <%= image_tag 'user_name.svg', class: "h-5 w-5 mr-2" %>
                             <span class="text-md font-bold break-all">
                                 <%= @user.name %>

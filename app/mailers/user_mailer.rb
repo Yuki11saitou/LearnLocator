@@ -21,8 +21,9 @@ class UserMailer < ApplicationMailer
     mail(
       to: user.email,
       subject: t('password_reset_mail.subject'),
-      content_type: "text/html",
-      content_transfer_encoding: 'quoted-printable'
-    )
+    ) do |format|
+      format.text { render 'user_mailer/reset_password_email' }  # .text.erb を使用
+      format.html { render 'user_mailer/reset_password_email' }  # .html.erb を使用
+    end
   end
 end

@@ -21,7 +21,8 @@ class UserMailer < ApplicationMailer
     mail(
       to: user.email,
       subject: t('password_reset_mail.subject'),
-      content_type: "text/html"
+      content_type: "text/html",
+      content_transfer_encoding: 'quoted-printable'
     )
   end
 end

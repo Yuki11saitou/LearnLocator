@@ -23,7 +23,7 @@
     <div class="flex flex-col items-center">
         <%# ユーザー情報更新フォーム %>
         <div class="mt-12 mb-28">
-            <%= form_with model: @user, url: profile_path, local: true do |f| %>
+            <%= form_with model: @user, url: profile_path, local: true, data: { turbo: false } do |f| %>
 
                 <%# エラーメッセージ %>
                 <%= render 'shared/error_messages', object: f.object %>

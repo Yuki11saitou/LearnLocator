@@ -5,7 +5,7 @@
     <%= render 'shared/title', title: t('.title') %>
     <div class="mb-10"></div>
 
-    <%= form_with url: login_path do |f| %>
+    <%= form_with url: login_path, data: { turbo: false } do |f| %>
         <div class="mb-3">
             <div class="input input-bordered flex items-center gap-2">
                 <%= image_tag 'email.svg', class: "h-4 w-4 opacity-70" %>

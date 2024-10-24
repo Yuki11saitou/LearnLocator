@@ -5,7 +5,7 @@
     <%= render 'shared/title', title: t('.title') %>
     <div class="mb-10"></div>
 
-    <%= form_with model: @user do |f| %>
+    <%= form_with model: @user, data: { turbo: false } do |f| %>
 
         <%# エラーメッセージ %>
         <%= render 'shared/error_messages', object: f.object %>

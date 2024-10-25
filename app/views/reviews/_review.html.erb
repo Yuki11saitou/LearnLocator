@@ -142,27 +142,50 @@
             <% end %>
         </div>
         <div class="flex items-center space-x-4 mb-2">
-                <%# ユーザー画像 %>
-                <%= image_tag review.user.avatar_url, class: "h-24 w-24 rounded-full object-cover" %>
-                <div class="flex flex-col items-start">
-                    <%# 会員No %>
-                    <div class="text-sm">
-                        <%= t('user_info_modal.user_id') %>
-                        <%= review.user.id %>
-                    </div>
-                    <div class="mt-1"></div>
-                    <%# 名前 %>
-                    <div class="text-md font-bold">
-                        <%= review.user.name %>
-                    </div>
-                    <div class="mt-3"></div>
-                    <%# 会員登録日時 %>
-                    <div class="text-xs">
-                        <%= t('user_info_modal.user_created_at') %>
-                        :
-                        <%= l(review.user.created_at, format: :only_date) %>
+            <%# ユーザー画像 %>
+            <%= image_tag review.user.avatar_url, class: "h-24 w-24 rounded-full object-cover" %>
+
+            <div class="flex flex-col items-start">
+                <%# 会員No %>
+                <div class="text-xs">
+                    <%= t('user_info_modal.user_id') %>
+                    <%= review.user.id %>
+                </div>
+                <div class="mt-1"></div>
+
+                <%# 名前 %>
+                <div class="text-lg font-bold">
+                    <%= review.user.name %>
+                </div>
+                <div class="mt-3"></div>
+
+                <%# 口コミ数といいね数 %>
+                <div class="text-sm">
+                    <div class="flex items-center space-x-8"> <%# 口コミ数といいね数の間に適度なスペース %>
+                        <%# 口コミ数 %>
+                        <div class="flex items-center space-x-2"> <%# アイコンと数値の間に少し間隔 %>
+                            <%= t('user_info_modal.user_reviews_count') %>
+                            <%= image_tag 'review_mark.svg', class: "h-4 w-4 ml-2 mr-1" %>
+                            <%= review.user.reviews_count %>
+                        </div>
+                        <%# いいね数 %>
+                        <div class="flex items-center space-x-2">
+                            <%= t('user_info_modal.user_likes_count') %>
+                            <%= image_tag 'like_mark.svg', class: "h-4 w-4 ml-2 mr-1" %>
+                            <%= review.user.likes_count %>
+                        </div>
                     </div>
                 </div>
+                <div class="mt-3"></div>
+
+                <%# 会員登録日時 %>
+                <div class="text-sm">
+                    <%= t('user_info_modal.user_created_at') %>
+                    :
+                    <%= l(review.user.created_at, format: :only_date) %>
+                </div>
+
             </div>
+        </div>
     </div>
 </dialog>

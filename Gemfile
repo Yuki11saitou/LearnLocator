@@ -99,6 +99,9 @@ group :development, :test do
   gem "factory_bot_rails" # モデルのインスタンス（テストデータ）を生成するためのgem
   # todo : 必要に応じて導入予定
   # gem 'faker' # ランダムな擬似データを生成するためのgem
+
+  # RSpecのテストカバレッジを計測するためのgem
+  gem 'simplecov'
 end
 
 group :development do

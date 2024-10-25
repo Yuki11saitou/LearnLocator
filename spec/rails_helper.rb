@@ -1,5 +1,18 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
+
+# gem 'simplecov'を有効化するために必要
+# ここから
+require 'simplecov'
+SimpleCov.start do
+  if ENV['CIRCLE_ARTIFACTS']
+    dir = File.join(ENV['CIRCLE_ARTIFACTS'], 'coverage')
+    SimpleCov.coverage_dir(dir)
+  end
+end
+# ここまで
+
+
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 # Prevent database truncation if the environment is production
@@ -68,5 +81,5 @@ RSpec.configure do |config|
 
 
   # FactoryBotを使う際、モジュール名(FactoryBot)を省略するための設定
-  config.include FactoryBot::Syntax::Methods # 最下段に追記
+  config.include FactoryBot::Syntax::Methods
 end

@@ -40,7 +40,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # end
 
   # リサイズの処理
-  process resize_to_fit: [128, 128]
+  process resize_to_fit: [256, 256]
 
   # Add an allowlist of extensions which are allowed to be uploaded.
   # For images you might use something like this:

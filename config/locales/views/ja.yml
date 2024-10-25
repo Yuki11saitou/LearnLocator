@@ -149,6 +149,8 @@ ja:
   user_info_modal:
     user_id: 会員No.
     user_created_at: 会員になった日
+    user_reviews_count: 投稿数：
+    user_likes_count: いいね数：
   # パスワードリセット
   password_resets:
     new:

@@ -97,8 +97,7 @@ group :development, :test do
   gem 'rspec-rails' # RSpecをRailsアプリで使用するために必要
   gem 'spring-commands-rspec' # RSpecのテストを高速化するために必要
   gem "factory_bot_rails" # モデルのインスタンス（テストデータ）を生成するためのgem
-  # todo : 必要に応じて導入予定
-  # gem 'faker' # ランダムな擬似データを生成するためのgem
+  gem 'faker' # ランダムな擬似データを生成するためのgem
 
   # RSpecのテストカバレッジを計測するためのgem
   gem 'simplecov'

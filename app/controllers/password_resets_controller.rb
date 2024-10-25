@@ -22,6 +22,13 @@ class PasswordResetsController < ApplicationController
 
     return not_authenticated if @user.blank?
 
+    # パスワードとパスワード確認が空の場合、エラーメッセージを表示する（これがないと捕捉できない）
+    if params[:user][:password].blank? || params[:user][:password_confirmation].blank?
+      flash.now[:alert] = t('alerts.password_blank')
+      render :edit, status: :unprocessable_entity
+      return
+    end
+
     @user.password_confirmation = params[:user][:password_confirmation]
     # password_confirmationとpasswordが一致していれば、パスワードを更新する
     if @user.change_password(params[:user][:password])

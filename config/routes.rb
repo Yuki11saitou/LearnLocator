@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "static_pages#top"
 
+  # 利用規約とプライバシーポリシーのルーティング
+  get 'terms_of_use', to: 'static_pages#terms_of_use'
+  get 'privacy_policy', to: 'static_pages#privacy_policy'
 
   # todo : 以下のルーティングについては、後ほど精査 
   # 施設の違い説明ページのルーティング

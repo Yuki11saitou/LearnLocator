@@ -24,6 +24,10 @@ ja:
   static_pages:
     top:
       spot_search: 探してみる
+    terms_of_use:
+      title: 利用規約
+    privacy_policy:
+      title: プライバシーポリシー
 
 
     # todo : 後ほど必要か精査

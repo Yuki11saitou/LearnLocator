@@ -28,6 +28,10 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
   config.cache_store = :null_store
 
+  # gem 'spring-commands-rspec'を有効化するために必要
+  config.cache_classes = false
+
+
   # Render exception templates for rescuable exceptions and raise for other exceptions.
   config.action_dispatch.show_exceptions = :rescuable
 

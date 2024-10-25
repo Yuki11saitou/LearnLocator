@@ -92,6 +92,12 @@ group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
   # デバッグ用のgem
   gem 'pry-byebug'
+
+  # RSpecの導入
+  gem 'rspec-rails' # RSpecをRailsアプリで使用するために必要
+  # gem 'spring-commands-rspec' # RSpecのテストを高速化するために必要
+  # gem "factory_bot_rails" # モデルのインスタンス（テストデータ）を生成するためのgem
+  # gem 'faker' # ランダムな擬似データを生成するためのgem
 end
 
 group :development do

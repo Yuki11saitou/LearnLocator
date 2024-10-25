@@ -1,51 +1,57 @@
 <% content_for(:title, t('.title')) %>
 
-<div class="flex flex-col justify-center items-center min-h-screen">
+<%= render 'shared/title', title: t('.title') %>
 
-    <%= render 'shared/title', title: t('.title') %>
-    <div class="mb-10"></div>
+<div class="w-5/6 mx-auto max-w-sm md:max-w-4xl">
+    <div class="flex flex-col items-center">
+        <%# フォーム %>
+        <div class="mt-12">
 
-    <%= form_with url: login_path, data: { turbo: false } do |f| %>
-        <div class="mb-3">
-            <div class="input input-bordered flex items-center gap-2">
-                <%= image_tag 'email.svg', class: "h-4 w-4 opacity-70" %>
-                <%= f.email_field :email, placeholder: t('.email'), id: 'user_email', class: "w-full" %>
-            </div>
-            <%# gmailアカウントは受け付けず、Googleログインを促す %>
-            <div id="email-warning" class="text-red-500 hidden text-xs">
-                <%= t('.gmail_warning') %>
-            </div>
-        </div>
-        <div class="mb-3">
-            <div class="input input-bordered flex items-center gap-2">
-                <%= image_tag 'key_mark.svg', class: "h-4 w-4 opacity-70" %>
-                <%= f.password_field :password, placeholder: t('.password'), class: "w-full" %>
-            </div>
-        </div>
-        <div class="flex justify-center">
-            <%= f.submit t('.login'), class: "btn", id: 'submit_button' %>
-        </div>
-    <% end %>
+            <%= form_with url: login_path, data: { turbo: false } do |f| %>
+                <div class="mb-3">
+                    <div class="input input-bordered flex items-center gap-2">
+                        <%= image_tag 'email.svg', class: "h-4 w-4 opacity-70" %>
+                        <%= f.email_field :email, placeholder: t('.email'), id: 'user_email', class: "w-full" %>
+                    </div>
+                    <%# gmailアカウントは受け付けず、Googleログインを促す %>
+                    <div id="email-warning" class="text-red-500 hidden text-xs">
+                        <%= t('.gmail_warning') %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="input input-bordered flex items-center gap-2">
+                        <%= image_tag 'key_mark.svg', class: "h-4 w-4 opacity-70" %>
+                        <%= f.password_field :password, placeholder: t('.password'), class: "w-full" %>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <%= f.submit t('.login'), class: "btn", id: 'submit_button' %>
+                </div>
+            <% end %>
 
-    <div class="text-center my-6">
-        <%= link_to t('.new_register'), new_user_path, class: "btn btn-link text-xs" %>
-        |
-        <%= link_to t('.password_forget'), new_password_reset_path, class: "btn btn-link text-xs" %>
+            <div class="text-center my-6">
+                <%= link_to t('.new_register'), new_user_path, class: "btn btn-link text-xs" %>
+                |
+                <%= link_to t('.password_forget'), new_password_reset_path, class: "btn btn-link text-xs" %>
+            </div>
+
+            <%# 区切り線 %>
+            <div class="divider mx-auto">OR</div>
+
+        </div>
     </div>
+</div>
 
-    <%# 区切り線 %>
-    <div class="divider w-[90%] mx-auto">OR</div>
-
+<div class="flex flex-col items-center">
     <%# Googleアカウントで新規登録 %>
     <div class="mt-6">
         <%= link_to auth_at_provider_path(provider: :google) do %>
             <%= image_tag 'google_sign_in.svg' %>
         <% end %>
     </div>
-
-    <div class="mb-28"></div>
-
 </div>
+
+<div class="mb-28"></div>
 
 <script>
     // メールアドレスがGmailアドレスの場合、警告を表示

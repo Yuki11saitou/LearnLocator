@@ -28,13 +28,13 @@
 <div class="divider"></div>
 
 <li>
-    <%= link_to root_path, class: "text-base hover:text-secondary" do %>
+    <%= link_to terms_of_use_path, class: "text-base hover:text-secondary" do %>
         <%= image_tag 'terms_of_use.svg', class: 'h-4 w-4 mr-2' %>
         <%= t('header.terms_of_use') %>
     <% end %>
 </li>
 <li>
-    <%= link_to root_path, class: "text-base hover:text-secondary" do %>
+    <%= link_to privacy_policy_path, class: "text-base hover:text-secondary" do %>
         <%= image_tag 'privacy_policy.svg', class: 'h-4 w-4 mr-2' %>
         <%= t('header.privacy_policy') %>
     <% end %>

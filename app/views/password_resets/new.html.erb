@@ -1,35 +1,39 @@
 <% content_for(:title, t('.title')) %>
 
-<div class="flex flex-col justify-center items-center min-h-screen">
+<%= render 'shared/title', title: t('.title') %>
 
-    <%= render 'shared/title', title: t('.title') %>
-    <div class="mb-10"></div>
+<div class="w-5/6 mx-auto max-w-sm md:max-w-4xl">
+    <div class="flex flex-col items-center">
+        <%# フォーム %>
+        <div class="mt-12">
 
-    <%= form_with url: password_resets_path do |f| %>
-        <div class="mb-3">
-            <div class="input input-bordered flex items-center gap-2">
-                <%= image_tag 'email.svg', class: "h-4 w-4 opacity-70" %>
-                <%= f.email_field :email, placeholder: t('.email'), id: 'user_email', class: "w-full" %>
+            <%= form_with url: password_resets_path do |f| %>
+                <div class="mb-3">
+                    <div class="input input-bordered flex items-center gap-2">
+                        <%= image_tag 'email.svg', class: "h-4 w-4 opacity-70" %>
+                        <%= f.email_field :email, placeholder: t('.email'), id: 'user_email', class: "w-full" %>
+                    </div>
+                    <%# gmailアカウントは受け付けず、Googleログインを促す %>
+                    <div id="email-warning" class="text-red-500 hidden text-xs">
+                        <%= t('.gmail_warning') %>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <%= f.submit t('.submit'), class: "btn", id: 'submit_button' %>
+                </div>
+            <% end %>
+
+            <div class="text-center my-6">
+                <%= link_to t('.to_login_page'), login_path, class: "btn btn-link text-xs" %>
+                |
+                <%= link_to t('.new_register'), new_user_path, class: "btn btn-link text-xs" %>
             </div>
-            <%# gmailアカウントは受け付けず、Googleログインを促す %>
-            <div id="email-warning" class="text-red-500 hidden text-xs">
-                <%= t('.gmail_warning') %>
-            </div>
-        </div>
-        <div class="flex justify-center">
-            <%= f.submit t('.submit'), class: "btn", id: 'submit_button' %>
-        </div>
-    <% end %>
 
-    <div class="text-center my-6">
-        <%= link_to t('.to_login_page'), login_path, class: "btn btn-link text-xs" %>
-        |
-        <%= link_to t('.new_register'), new_user_path, class: "btn btn-link text-xs" %>
+        </div>
     </div>
-
-    <div class="mb-28"></div>
-
 </div>
+
+<div class="mb-28"></div>
 
 <script>
     // メールアドレスがGmailアドレスの場合、警告を表示

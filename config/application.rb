@@ -30,5 +30,8 @@ module Myapp
 
     # Railsアプリケーションのデフォルトの言語設定を日本語に設定
     config.i18n.default_locale = :ja
+
+    # RailsアプリケーションでRack::Attackをミドルウェアとして使用するための設定
+    config.middleware.use Rack::Attack
   end
 end

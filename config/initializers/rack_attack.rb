@@ -1,6 +1,6 @@
 class Rack::Attack
   # 同一IPアドレスからのリクエストを1分間に60リクエストまでに制限
-  throttle('req/ip', limit: 10, period: 1.minute) do |req|
+  throttle('req/ip', limit: 1, period: 1.minute) do |req|
     req.ip
   end
 

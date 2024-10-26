@@ -10,6 +10,9 @@
       <%= render 'layouts/google_analytics' %>
     <% end %>
 
+    <%# PWA化のために使用 %>
+    <link rel="manifest" href="/manifest.json">
+
     <%# XのOGP表示 %>
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@tripletsuper11" />
@@ -48,4 +51,19 @@
       <%= render 'shared/footer' %>
     </div>
   </body>
+
+  <%# PWA化のために使用 %>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service_worker.js')
+          .then((registration) => {
+            console.log('Service Worker registered:', registration);
+          })
+          .catch((error) => {
+            console.error('Service Worker registration failed:', error);
+          });
+      });
+    }
+  </script>
 </html>

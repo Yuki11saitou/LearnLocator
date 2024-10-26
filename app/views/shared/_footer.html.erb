@@ -1,27 +1,27 @@
-<div class="btm-nav bg-gray-100 fixed bottom-0 z-40">
+<div class="navbar bg-gray-100 fixed bottom-0 z-40 flex justify-between w-full">
 
-    <%= link_to spots_map_path, data: { turbo: false }, class: "hover:bg-gray-300" do %>
-        <%= image_tag 'location_search.svg', class: "h-5 w-5" %>
+    <%= link_to spots_map_path, data: { turbo: false }, class: "flex flex-col items-center hover:bg-gray-300 flex-1 py-1" do %>
+        <%= image_tag 'location_search.svg', class: "h-5 w-5 mb-1" %>
         <span class="text-[0.5rem] btm-nav-label"><%= t('footer.spot_search') %></span>
     <% end %>
 
-    <%= link_to spots_path, class: "hover:bg-gray-300" do %>
-        <%= image_tag 'list_search.svg', class: "h-5 w-5" %>
+    <%= link_to spots_path, class: "flex flex-col items-center hover:bg-gray-300 flex-1 py-1" do %>
+        <%= image_tag 'list_search.svg', class: "h-5 w-5 mb-1" %>
         <span class="text-[0.5rem] btm-nav-label"><%= t('footer.index_search') %></span>
     <% end %>
 
-    <%= link_to reviews_path, class: "hover:bg-gray-300" do %>
-        <%= image_tag 'review_search.svg', class: "h-5 w-5" %>
+    <%= link_to reviews_path, class: "flex flex-col items-center hover:bg-gray-300 flex-1 py-1" do %>
+        <%= image_tag 'review_search.svg', class: "h-5 w-5 mb-1" %>
         <span class="text-[0.5rem] btm-nav-label"><%= t('footer.review_search') %></span>
     <% end %>
 
-    <%= link_to bookmarks_spots_path, class: "hover:bg-gray-300" do %>
-        <%= image_tag 'bookmark_search.svg', class: "h-5 w-5" %>
+    <%= link_to bookmarks_spots_path, class: "flex flex-col items-center hover:bg-gray-300 flex-1 py-1" do %>
+        <%= image_tag 'bookmark_search.svg', class: "h-5 w-5 mb-1" %>
         <span class="text-[0.5rem] btm-nav-label"><%= t('footer.bookmarks') %></span>
     <% end %>
 
-    <%= link_to profile_path, class: "hover:bg-gray-300" do %>
-        <%= image_tag 'mypage.svg', class: "h-5 w-5" %>
+    <%= link_to profile_path, class: "flex flex-col items-center hover:bg-gray-300 flex-1 py-1" do %>
+        <%= image_tag 'mypage.svg', class: "h-5 w-5 mb-1" %>
         <span class="text-[0.5rem] btm-nav-label"><%= t('footer.my_page') %></span>
     <% end %>
 

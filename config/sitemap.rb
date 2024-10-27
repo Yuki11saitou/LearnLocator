@@ -1,5 +1,5 @@
 # Set the host name for URL creation
-SitemapGenerator::Sitemap.default_host = "http://www.example.com"
+SitemapGenerator::Sitemap.default_host = "http://www.learn-locator.com"
 
 SitemapGenerator::Sitemap.create do
   # Put links creation logic here.
@@ -24,4 +24,27 @@ SitemapGenerator::Sitemap.create do
   #   Article.find_each do |article|
   #     add article_path(article), :lastmod => article.updated_at
   #   end
+
+  # ここから記述
+  # 静的ページ '/' の追加
+  add root_path, priority: 1.0, changefreq: 'monthly'
+
+  # 静的ページ '/spots/map' の追加
+  add spots_map_path, priority: 0.9, changefreq: 'monthly'
+
+  # 静的ページ '/spots' の追加
+  add spots_path, priority: 0.8, changefreq: 'monthly'
+
+  # 静的ページ '/reviews' の追加
+  add reviews_path, priority: 0.8, changefreq: 'daily'
+
+  # 動的ページ '/spots/:id' の追加
+  Spot.find_each do |spot|
+    add spot_path(spot), lastmod: spot.updated_at
+  end
+
+  # 動的ページ '/reviews/:id' の追加
+  Review.find_each do |review|
+    add review_path(review), lastmod: review.updated_at
+  end
 end

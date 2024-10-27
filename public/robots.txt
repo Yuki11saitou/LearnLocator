@@ -1,1 +1,4 @@
 # See https://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
+
+# サイトマップ読み込みの設定を記載
+Sitemap: http://example.com/sitemap.xml.gz

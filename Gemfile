@@ -90,6 +90,12 @@ gem 'letter_opener_web'
 # APIへのリクエスト数を制御するために使用するgem
 gem 'rack-attack'
 
+# SEO対策の一環で、サイトマップを作成するために使用するgem
+gem 'sitemap_generator'
+
+# サイトマップの更新など、定期実行の処理を行うためのgem
+gem 'whenever', require: false
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]

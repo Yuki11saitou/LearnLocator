@@ -1,5 +1,7 @@
 # Set the host name for URL creation
-SitemapGenerator::Sitemap.default_host = "http://www.learn-locator.com"
+SitemapGenerator::Sitemap.default_host = "https://www.learn-locator.com"
+# 生成先のディレクトリを明示
+SitemapGenerator::Sitemap.public_path = 'public/'
 
 SitemapGenerator::Sitemap.create do
   # Put links creation logic here.

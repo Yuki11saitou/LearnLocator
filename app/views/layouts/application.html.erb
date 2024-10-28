@@ -15,6 +15,9 @@
     <%# iOSユーザー向け：Safariでのフルスクリーン表示を可能にするタグ %>
     <meta name="apple-mobile-web-app-capable" content="yes">
 
+    <%# ファビコン導入 %>
+    <%= favicon_link_tag image_path('favicon.png'), type: 'image/png' %>
+
     <%# XのOGP表示 %>
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@tripletsuper11" />

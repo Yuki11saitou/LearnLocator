@@ -20,7 +20,7 @@
 # Learn more: http://github.com/javan/whenever
 
 
-# サイトマップを毎日5時に更新する
+# サイトマップを毎日5時に更新する（ローカルで実行する場合に必要。デプロイ先のRenderでは、別でCron Jobを設定する）
 every 1.day, at: '5:00 am' do
   rake '-s sitemap:refresh'
 end

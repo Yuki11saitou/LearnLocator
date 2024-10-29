@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  skip_before_action :require_login, only: %i[index show]
+  skip_before_action :require_login, only: %i[index show auto_search]
   before_action :set_review, only: %i[edit update destroy]
 
   def index

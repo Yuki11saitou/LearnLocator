@@ -72,7 +72,4 @@ Rails.application.routes.draw do
 
   # パスワードリセット用のルーティング
   resources :password_resets, only: %i[new create edit update]
-
-  # 最後に書く：存在しないページにアクセスした場合に、topページにリダイレクト
-  match '*path', to: 'application#page_not_found', via: :all
 end

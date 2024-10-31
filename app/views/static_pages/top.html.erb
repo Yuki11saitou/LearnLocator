@@ -1,26 +1,245 @@
-<div class="mt-6">
+<div class="mt-6 mb-28">
     <div class="flex flex-col justify-center items-center">
-        <div>
-            <h1 class="text-4xl font-bold mb-2">LearnLocater</h1>
-            <p class="text-lg mb-6">勉強場所、探してみませんか？</p>
+        <%# タイトル %>
+        <div class="mb-16">
+            <h1 class="text-4xl font-bold mb-2 text-center">LearnLocater</h1>
+            <p class="text-lg text-center">- 勉強場所検索サービス -</p>
         </div>
-        <div class="card bg-base-100 w-5/6 shadow-xl">
-            <div class="card-body">
-                <h2 class="card-title">アプリ説明</h2>
-                <p>このアプリは「自習室」「コワーキングスペース」の検索サービスです。</p>
+
+        <%# トップ画像 %>
+        <div class="w-5/6 mx-auto max-w-sm md:max-w-2xl mb-6">
+            <div class="flex items-center justify-center mb-2">
+                <h2 class="text-sm md:text-base text-center text-primary font-bold">
+                    「自習室」「コワーキングスペース」の検索サービスです
+                </h2>
+                <%= image_tag 'question_mark.svg', class: "h-5 w-5 ml-2", onclick: "document.getElementById('spot_difference_modal').showModal();", style: 'cursor: pointer;' %>
             </div>
-            <div class="card-body">
-                <h2 class="card-title">こんな人におすすめ</h2>
-                <li>家以外で勉強してみたい方</li>
-                <li>自分に合った勉強場所を探している方</li>
-                <li>自習室やコワーキングスペースを<br>　 探している方</li>
-            </div>
+            <%= image_tag 'coworking.png', class: "max-w-full rounded-lg" %>
         </div>
-        <div class="mt-6">
-            <%= link_to spots_map_path, data: { turbo: false }, class: "btn hover:text-secondary" do %>
+
+        <%# 利用誘導ボタン %>
+        <div class="flex space-x-10 mb-20">
+            <%= link_to spots_map_path, data: { turbo: false }, class: "btn" do %>
                 <%= image_tag 'location_search.svg', class: "h-4 w-4" %>
-                <%= t('.spot_search') %>
+                <%= t('.to_spot_search') %>
+            <% end %>
+            <%= link_to new_user_path, data: { turbo: false }, class: "btn" do %>
+                <%= image_tag 'new_register.svg', class: "h-4 w-4" %>
+                <%= t('.to_new_register') %>
+            <% end %>
+        </div>
+
+        <%# 未ログインでできることセクション %>
+        <div class="w-5/6 mx-auto max-w-sm md:max-w-2xl mb-20">
+            <div class="flex items-center justify-center mb-2">
+                <h2 class="text-sm md:text-base text-center text-primary font-bold">
+                    LearnLocaterでできること
+                </h2>
+                <%= image_tag 'infomation_mark.svg', class: "h-5 w-5 ml-2", onclick: "document.getElementById('spot_infomation_modal').showModal();", style: 'cursor: pointer;' %>
+            </div>
+
+            <div class="mt-2 carousel rounded-box">
+                <div class="carousel-item pr-4">
+                    <div class="card bg-gray-100 w-full max-w-xs mx-auto">
+                        <div class="card-body justify-center items-center">
+                            <h3 class="text-base font-bold">
+                                場所検索
+                            </h3>
+                            <p class="mt-4 mb-2 text-sm">
+                                現在地近くの勉強場所がわかります。<br>
+                                地名などから周辺の場所を検索することもできます。
+                            </p>
+                            <a href="https://gyazo.com/4164b0da4f85d187c34373b0cd1fc6a1"><video width="490" autoplay muted loop playsinline controls><source src="https://i.gyazo.com/4164b0da4f85d187c34373b0cd1fc6a1.mp4" type="video/mp4"/></video></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item pr-4">
+                    <div class="card bg-gray-100 w-full max-w-xs mx-auto">
+                        <div class="card-body justify-center items-center">
+                            <h3 class="text-base font-bold">
+                                一覧検索
+                            </h3>
+                            <p class="mt-4 mb-2 text-sm">
+                                勉強場所の一覧から条件を設定し検索できます。<br>
+                                結果の並べ替えも可能です。
+                            </p>
+                            <a href="https://gyazo.com/82b4f5844dc1459e2756a71022cde53e"><video width="490" autoplay muted loop playsinline controls><source src="https://i.gyazo.com/82b4f5844dc1459e2756a71022cde53e.mp4" type="video/mp4"/></video></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item pr-4">
+                    <div class="card bg-gray-100 w-full max-w-xs mx-auto">
+                        <div class="card-body justify-center items-center">
+                            <h3 class="text-base font-bold">
+                                口コミ検索
+                            </h3>
+                            <p class="mt-4 mb-2 text-sm">
+                                口コミの一覧から条件を設定し検索できます。<br>
+                                結果の並べ替えも可能です。
+                            </p>
+                            <a href="https://gyazo.com/615afa46380fc2686519ea6912ab224e"><video width="490" autoplay muted loop playsinline controls><source src="https://i.gyazo.com/615afa46380fc2686519ea6912ab224e.mp4" type="video/mp4"/></video></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item pr-4">
+                    <div class="card bg-gray-100 w-full max-w-xs mx-auto">
+                        <div class="card-body justify-center items-center">
+                            <h3 class="text-base font-bold">
+                                施設情報の確認
+                            </h3>
+                            <p class="mt-4 mb-2 text-sm">
+                                口コミ・施設情報の確認のほか、<br>
+                                経路情報も確認できます。
+                            </p>
+                            <a href="https://gyazo.com/614dd7879841a9e5577b61c5ac425a2f"><video width="490" autoplay muted loop playsinline controls><source src="https://i.gyazo.com/614dd7879841a9e5577b61c5ac425a2f.mp4" type="video/mp4"/></video></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <%# ログイン後にできることセクション %>
+        <div class="w-5/6 mx-auto max-w-sm md:max-w-2xl mb-16">
+            <div class="flex items-center justify-center mb-2">
+                <h2 class="text-sm md:text-base text-center text-primary font-bold">
+                    ユーザー登録でさらに
+                </h2>
+            </div>
+
+            <div class="mt-2 carousel rounded-box">
+                <div class="carousel-item pr-4">
+                    <div class="card bg-gray-100 w-full max-w-xs mx-auto">
+                        <div class="card-body justify-center items-center">
+                            <h3 class="text-base font-bold">
+                                ブックマーク
+                            </h3>
+                            <p class="mt-4 mb-2 text-sm">
+                                施設のブックマークを登録できます。
+                            </p>
+                            <a href="https://gyazo.com/e1f9e33e553c15b7f72eb63de2d074b3"><video width="490" autoplay muted loop playsinline controls><source src="https://i.gyazo.com/e1f9e33e553c15b7f72eb63de2d074b3.mp4" type="video/mp4"/></video></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item pr-4">
+                    <div class="card bg-gray-100 w-full max-w-xs mx-auto">
+                        <div class="card-body justify-center items-center">
+                            <h3 class="text-base font-bold">
+                                口コミ投稿
+                            </h3>
+                            <p class="mt-4 mb-2 text-sm">
+                                口コミを投稿できます。<br>
+                                投稿したことをXでシェアできます。<br>
+                                投稿した口コミはマイページから確認できます。
+                            </p>
+                            <a href="https://gyazo.com/67b7613d3c0cc31ea93cb3c08b88df1a"><video width="490" autoplay muted loop playsinline controls><source src="https://i.gyazo.com/67b7613d3c0cc31ea93cb3c08b88df1a.mp4" type="video/mp4"/></video></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item pr-4">
+                    <div class="card bg-gray-100 w-full max-w-xs mx-auto">
+                        <div class="card-body justify-center items-center">
+                            <h3 class="text-base font-bold">
+                                口コミへのいいね
+                            </h3>
+                            <p class="mt-4 mb-2 text-sm">
+                                口コミへのいいねができます。<br>
+                                いいねした口コミはマイページから確認できます。
+                            </p>
+                            <a href="https://gyazo.com/3dfe5741323094769521aa4255ac79a3"><video width="490" autoplay muted loop playsinline controls><source src="https://i.gyazo.com/3dfe5741323094769521aa4255ac79a3.mp4" type="video/mp4"/></video></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex space-x-10 mb-10">
+            <%= link_to spots_map_path, data: { turbo: false }, class: "btn" do %>
+                <%= image_tag 'location_search.svg', class: "h-4 w-4" %>
+                <%= t('.to_spot_search') %>
+            <% end %>
+            <%= link_to new_user_path, data: { turbo: false }, class: "btn" do %>
+                <%= image_tag 'new_register.svg', class: "h-4 w-4" %>
+                <%= t('.to_new_register') %>
+            <% end %>
+        </div>
+
+    </div>
+</div>
+
+<%# 勉強種別に対する答えのダイアログ設定 %>
+<dialog id="spot_difference_modal" class="modal">
+    <div class="modal-box">
+        <h3 class="text-base font-bold text-primary">
+            自習室とコワーキングスペースの違い
+        </h3>
+        <p class="text-sm py-4">
+            施設ごとで違いはありますが、主に以下の点で異なります。
+        </p>
+        <div class="text-sm space-y-4">
+            <hr class="my-4 border-gray-300">
+            <div>
+                <p class="font-semibold mb-2">【自習室】</p>
+                <ul class="list-disc pl-5 space-y-1">
+                    <li><span class="text-secondary">静か</span>で個人作業に集中できる</li>
+                    <li>参考書やテキストなど、<span class="text-secondary">書類</span>を使った学習に適している</li>
+                    <li>学生・受験生のほか、社会人向けにも展開している</li>
+                </ul>
+            </div>
+            <hr class="my-4 border-gray-300">
+            <div>
+                <p class="font-semibold mb-2">【コワーキングスペース】</p>
+                <ul class="list-disc pl-5 space-y-1">
+                    <li><span class="text-secondary">会話</span>が可能で、1人でも複数人でも利用できる</li>
+                    <li><span class="text-secondary">リモートワーク、オンライン会議、PC作業</span>などに適している</li>
+                    <li>フリーランスやリモートワーカーが多く、モニター貸し出し、Wi-Fi・会議室などの設備が充実している</li>
+                </ul>
+            </div>
+        </div>
+        <div class="modal-action">
+            <%# 戻るボタン %>
+            <%= button_tag '閉じる', type: 'button', class: 'btn', onclick: "document.getElementById('spot_difference_modal').close();" %>
+        </div>
+    </div>
+</dialog>
+
+<%# 登録場所に関する情報のダイアログ設定 %>
+<dialog id="spot_infomation_modal" class="modal">
+    <div class="modal-box">
+        <h3 class="text-base font-bold text-primary">
+            対応エリアについて
+        </h3>
+        <p class="text-sm py-4">
+            現在の対応エリアは以下の<span class="text-secondary">15都道府県</span>です。<br>
+            <span class="text-secondary">約600施設</span>の情報を掲載しています。
+        </p>
+        <hr class="my-4 border-gray-300">
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 text-sm">
+            <span>北海道</span>
+            <span>宮城県</span>
+            <span>埼玉県</span>
+            <span>千葉県</span>
+            <span>東京都</span>
+            <span>神奈川県</span>
+            <span>新潟県</span>
+            <span>静岡県</span>
+            <span>愛知県</span>
+            <span>京都府</span>
+            <span>大阪府</span>
+            <span>兵庫県</span>
+            <span>岡山県</span>
+            <span>広島県</span>
+            <span>福岡県</span>
+        </div>
+        <div class="modal-action">
+            <%# 戻るボタン %>
+            <%= form_with url: '#', method: :dialog do %>
+                <%= button_tag '戻る', class: 'btn' %>
             <% end %>
         </div>
     </div>
-</div>
+</dialog>

@@ -24,10 +24,6 @@ Rails.application.routes.draw do
   get 'terms_of_use', to: 'static_pages#terms_of_use'
   get 'privacy_policy', to: 'static_pages#privacy_policy'
 
-  # todo : 以下のルーティングについては、後ほど精査 
-  # 施設の違い説明ページのルーティング
-  get 'difference', to:'static_pages#difference'
-
   # ユーザー登録用のルーティング
   resources :users, only: %i[new create]
 

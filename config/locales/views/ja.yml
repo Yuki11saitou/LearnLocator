@@ -147,6 +147,18 @@ ja:
     user_created_at: 会員になった日
     user_reviews_count: 投稿数：
     user_likes_count: いいね数：
+  # レーティング・コメント数説明モーダル
+  rating_and_review_question_modal:
+    title: レーティングとコメント数の説明
+    close: 閉じる
+    rating:
+      title: レーティング
+      description_html: |
+        Google Mapの評価を反映しています。<br>
+        5段階評価で、平均値を表示します。
+    review_count:
+      title: 口コミ数
+      description_html: 施設に投稿された口コミの総数を示しています。
   # パスワードリセット
   password_resets:
     new:

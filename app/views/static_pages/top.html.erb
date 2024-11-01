@@ -180,7 +180,10 @@
                     <%= t('spot_difference_modal.description.study_room.title') %>
                 </p>
                 <ul class="list-disc pl-5 space-y-1">
-                    <%= t('spot_difference_modal.description.study_room.description_html').html_safe %>
+                    <%# ここはdaisyUIを部分的に当てるため、i18n対応はしない %>
+                    <li><span class="text-secondary">静か</span>で個人作業に集中できる</li>
+                    <li>参考書やテキストなど、<span class="text-secondary">書類</span>を使った学習に適している</li>
+                    <li>学生・受験生のほか、社会人向けにも展開している</li>
                 </ul>
             </div>
             <hr class="my-4 border-gray-300">
@@ -189,7 +192,10 @@
                     <%= t('spot_difference_modal.description.co_working_space.title') %>
                 </p>
                 <ul class="list-disc pl-5 space-y-1">
-                    <%= t('spot_difference_modal.description.co_working_space.description_html').html_safe %>
+                    <%# ここはdaisyUIを部分的に当てるため、i18n対応はしない %>
+                    <li><span class="text-secondary">会話</span>が可能で、1人でも複数人でも利用できる</li>
+                    <li><span class="text-secondary">リモートワーク、オンライン会議、PC作業</span>などに適している</li>
+                    <li>フリーランスやリモートワーカーが多く、モニター貸し出し、Wi-Fi・会議室などの設備が充実している</li>
                 </ul>
             </div>
         </div>
@@ -207,7 +213,9 @@
             <%= t('spot_info_modal.title') %>
         </h3>
         <p class="text-sm py-4">
-            <%= t('spot_info_modal.description.title_html').html_safe %>
+            <%# ここはdaisyUIを部分的に当てるため、i18n対応はしない %>
+            現在の対応エリアは以下の<span class="text-secondary">15都道府県</span>です。<br>
+            <span class="text-secondary">約600施設</span>の情報を掲載しています。
         </p>
         <hr class="my-4 border-gray-300">
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 text-sm">

@@ -30,6 +30,7 @@ ja:
         の検索サービスです
       what_can_do_without_login:
         title: LearnLocaterでできること
+        can_scroll: スクロールできます
         spot_search:
           title: 場所検索
           description_html: |
@@ -52,6 +53,7 @@ ja:
             経路情報も確認できます。
       what_can_do_with_login:
         title: ユーザー登録でさらに
+        can_scroll: スクロールできます
         bookmark:
           title: ブックマーク
           description_html: |

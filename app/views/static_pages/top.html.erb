@@ -12,6 +12,7 @@
                 <h2 class="text-sm md:text-base text-center text-primary font-bold">
                     <%= t('.short_description_html').html_safe %>
                 </h2>
+                <%# モーダル %>
                 <%= image_tag 'question_mark.svg', class: "h-5 w-5 ml-2", onclick: "document.getElementById('spot_difference_modal').showModal();", style: 'cursor: pointer;' %>
             </div>
             <%= image_tag 'coworking.png', class: "max-w-full rounded-lg" %>
@@ -35,12 +36,13 @@
                 <h2 class="text-sm md:text-base text-center text-primary font-bold">
                     <%= t('.what_can_do_without_login.title') %>
                 </h2>
+                <%# モーダル %>
                 <%= image_tag 'infomation_mark.svg', class: "h-5 w-5 ml-2", onclick: "document.getElementById('spot_info_modal').showModal();", style: 'cursor: pointer;' %>
             </div>
 
             <div class="mt-2 carousel rounded-box">
                 <div class="carousel-item pr-4">
-                    <div class="card bg-gray-100 w-full max-w-xs mx-auto">
+                    <div class="card bg-gray-100 w-full max-w-xs mx-auto flex-shrink-">
                         <div class="card-body justify-center items-center">
                             <h3 class="text-base font-bold">
                                 <%= t('.what_can_do_without_login.spot_search.title') %>
@@ -48,7 +50,9 @@
                             <p class="mt-4 mb-2 text-sm">
                                 <%= t('.what_can_do_without_login.spot_search.description_html').html_safe %>
                             </p>
-                            <a href="https://gyazo.com/4164b0da4f85d187c34373b0cd1fc6a1"><video width="490" autoplay muted loop playsinline controls><source src="https://i.gyazo.com/4164b0da4f85d187c34373b0cd1fc6a1.mp4" type="video/mp4"/></video></a>
+                            <video width="490" autoplay muted loop playsinline controls>
+                                <source src="https://i.gyazo.com/4164b0da4f85d187c34373b0cd1fc6a1.mp4" type="video/mp4"/>
+                            </video>
                         </div>
                     </div>
                 </div>
@@ -62,7 +66,9 @@
                             <p class="mt-4 mb-2 text-sm">
                                 <%= t('.what_can_do_without_login.index_search.description_html').html_safe %>
                             </p>
-                            <a href="https://gyazo.com/82b4f5844dc1459e2756a71022cde53e"><video width="490" autoplay muted loop playsinline controls><source src="https://i.gyazo.com/82b4f5844dc1459e2756a71022cde53e.mp4" type="video/mp4"/></video></a>
+                            <video width="490" autoplay muted loop playsinline controls>
+                                <source src="https://i.gyazo.com/82b4f5844dc1459e2756a71022cde53e.mp4" type="video/mp4"/>
+                            </video>
                         </div>
                     </div>
                 </div>
@@ -76,7 +82,9 @@
                             <p class="mt-4 mb-2 text-sm">
                                 <%= t('.what_can_do_without_login.review_search.description_html').html_safe %>
                             </p>
-                            <a href="https://gyazo.com/615afa46380fc2686519ea6912ab224e"><video width="490" autoplay muted loop playsinline controls><source src="https://i.gyazo.com/615afa46380fc2686519ea6912ab224e.mp4" type="video/mp4"/></video></a>
+                            <video width="490" autoplay muted loop playsinline controls>
+                                <source src="https://i.gyazo.com/615afa46380fc2686519ea6912ab224e.mp4" type="video/mp4"/>
+                            </video>
                         </div>
                     </div>
                 </div>
@@ -90,7 +98,9 @@
                             <p class="mt-4 mb-2 text-sm">
                                 <%= t('.what_can_do_without_login.check_spot_details.description_html').html_safe %>
                             </p>
-                            <a href="https://gyazo.com/614dd7879841a9e5577b61c5ac425a2f"><video width="490" autoplay muted loop playsinline controls><source src="https://i.gyazo.com/614dd7879841a9e5577b61c5ac425a2f.mp4" type="video/mp4"/></video></a>
+                            <video width="490" autoplay muted loop playsinline controls>
+                                <source src="https://i.gyazo.com/614dd7879841a9e5577b61c5ac425a2f.mp4" type="video/mp4"/>
+                            </video>
                         </div>
                     </div>
                 </div>
@@ -115,7 +125,9 @@
                             <p class="mt-4 mb-2 text-sm">
                                 <%= t('.what_can_do_with_login.bookmark.description_html').html_safe %>
                             </p>
-                            <a href="https://gyazo.com/e1f9e33e553c15b7f72eb63de2d074b3"><video width="490" autoplay muted loop playsinline controls><source src="https://i.gyazo.com/e1f9e33e553c15b7f72eb63de2d074b3.mp4" type="video/mp4"/></video></a>
+                            <video width="490" autoplay muted loop playsinline controls>
+                                <source src="https://i.gyazo.com/e1f9e33e553c15b7f72eb63de2d074b3.mp4" type="video/mp4"/>
+                            </video>
                         </div>
                     </div>
                 </div>
@@ -129,7 +141,9 @@
                             <p class="mt-4 mb-2 text-sm">
                                 <%= t('.what_can_do_with_login.review.description_html').html_safe %>
                             </p>
-                            <a href="https://gyazo.com/67b7613d3c0cc31ea93cb3c08b88df1a"><video width="490" autoplay muted loop playsinline controls><source src="https://i.gyazo.com/67b7613d3c0cc31ea93cb3c08b88df1a.mp4" type="video/mp4"/></video></a>
+                            <video width="490" autoplay muted loop playsinline controls>
+                                <source src="https://i.gyazo.com/67b7613d3c0cc31ea93cb3c08b88df1a.mp4" type="video/mp4"/>
+                            </video>
                         </div>
                     </div>
                 </div>
@@ -143,7 +157,9 @@
                             <p class="mt-4 mb-2 text-sm">
                                 <%= t('.what_can_do_with_login.like.description_html').html_safe %>
                             </p>
-                            <a href="https://gyazo.com/3dfe5741323094769521aa4255ac79a3"><video width="490" autoplay muted loop playsinline controls><source src="https://i.gyazo.com/3dfe5741323094769521aa4255ac79a3.mp4" type="video/mp4"/></video></a>
+                            <video width="490" autoplay muted loop playsinline controls>
+                                <source src="https://i.gyazo.com/3dfe5741323094769521aa4255ac79a3.mp4" type="video/mp4"/>
+                            </video>
                         </div>
                     </div>
                 </div>

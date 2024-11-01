@@ -25,7 +25,9 @@ ja:
     top:
       title: LearnLocator
       sub_title: 勉強場所検索サービス
-      short_description: 「自習室」「コワーキングスペース」の検索サービスです
+      short_description_html: |
+        「自習室」「コワーキングスペース」<br>
+        の検索サービスです
       what_can_do_without_login:
         title: LearnLocaterでできること
         spot_search:

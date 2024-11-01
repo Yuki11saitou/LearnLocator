@@ -32,12 +32,17 @@
 
         <%# 未ログインでできることセクション %>
         <div class="w-5/6 mx-auto max-w-sm md:max-w-5xl mb-20">
-            <div class="flex items-center justify-center mb-2">
+            <div class="flex items-center justify-center mb-3">
                 <h2 class="text-sm md:text-base text-center text-primary font-bold">
                     <%= t('.what_can_do_without_login.title') %>
                 </h2>
                 <%# モーダル %>
                 <%= image_tag 'infomation_mark.svg', class: "h-5 w-5 ml-2", onclick: "document.getElementById('spot_info_modal').showModal();", style: 'cursor: pointer;' %>
+            </div>
+
+            <div class="flex items-center justify-center text-xs text-gray-500 mb-1">
+                <%= t('.what_can_do_without_login.can_scroll') %>
+                <%= image_tag 'slide_right_mark.svg', class: "h-4 w-4 ml-2" %>
             </div>
 
             <div class="mt-2 carousel rounded-box w-full max-w-full">
@@ -109,10 +114,15 @@
 
         <%# ログイン後にできることセクション %>
         <div class="w-5/6 mx-auto max-w-sm md:max-w-5xl mb-16">
-            <div class="flex items-center justify-center mb-2">
+            <div class="flex items-center justify-center mb-3">
                 <h2 class="text-sm md:text-base text-center text-primary font-bold">
                     <%= t('.what_can_do_with_login.title') %>
                 </h2>
+            </div>
+
+            <div class="flex items-center justify-center text-xs text-gray-500 mb-1">
+                <%= t('.what_can_do_with_login.can_scroll') %>
+                <%= image_tag 'slide_right_mark.svg', class: "h-4 w-4 ml-2" %>
             </div>
 
             <div class="mt-2 carousel rounded-box w-full max-w-full">

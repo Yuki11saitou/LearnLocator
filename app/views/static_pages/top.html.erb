@@ -40,9 +40,9 @@
                 <%= image_tag 'infomation_mark.svg', class: "h-5 w-5 ml-2", onclick: "document.getElementById('spot_info_modal').showModal();", style: 'cursor: pointer;' %>
             </div>
 
-            <div class="mt-2 carousel rounded-box">
+            <div class="mt-2 carousel rounded-box w-full max-w-full">
                 <div class="carousel-item pr-4">
-                    <div class="card bg-gray-100 w-full max-w-xs mx-auto flex-shrink-">
+                    <div class="card bg-gray-100 w-full max-w-xs mx-auto">
                         <div class="card-body justify-center items-center">
                             <h3 class="text-base font-bold">
                                 <%= t('.what_can_do_without_login.spot_search.title') %>
@@ -115,7 +115,7 @@
                 </h2>
             </div>
 
-            <div class="mt-2 carousel rounded-box">
+            <div class="mt-2 carousel rounded-box w-full max-w-full">
                 <div class="carousel-item pr-4">
                     <div class="card bg-gray-100 w-full max-w-xs mx-auto">
                         <div class="card-body justify-center items-center">
@@ -181,7 +181,7 @@
 </div>
 
 <%# 勉強種別に対する説明のダイアログ設定 %>
-<dialog id="spot_difference_modal" class="modal">
+<dialog id="spot_difference_modal" class="modal w-5/6">
     <div class="modal-box">
         <h3 class="text-base font-bold text-primary text-center">
             <%= t('spot_difference_modal.title') %>
@@ -223,7 +223,7 @@
 </dialog>
 
 <%# 登録場所に関する情報のダイアログ設定 %>
-<dialog id="spot_info_modal" class="modal">
+<dialog id="spot_info_modal" class="modal w-5/6">
     <div class="modal-box">
         <h3 class="text-base font-bold text-primary text-center">
             <%= t('spot_info_modal.title') %>

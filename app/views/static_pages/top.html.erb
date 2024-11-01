@@ -31,7 +31,7 @@
         </div>
 
         <%# 未ログインでできることセクション %>
-        <div class="w-5/6 mx-auto max-w-sm md:max-w-2xl mb-20">
+        <div class="w-5/6 mx-auto max-w-sm md:max-w-5xl mb-20">
             <div class="flex items-center justify-center mb-2">
                 <h2 class="text-sm md:text-base text-center text-primary font-bold">
                     <%= t('.what_can_do_without_login.title') %>
@@ -108,7 +108,7 @@
         </div>
 
         <%# ログイン後にできることセクション %>
-        <div class="w-5/6 mx-auto max-w-sm md:max-w-2xl mb-16">
+        <div class="w-5/6 mx-auto max-w-sm md:max-w-5xl mb-16">
             <div class="flex items-center justify-center mb-2">
                 <h2 class="text-sm md:text-base text-center text-primary font-bold">
                     <%= t('.what_can_do_with_login.title') %>
@@ -181,7 +181,7 @@
 </div>
 
 <%# 勉強種別に対する説明のダイアログ設定 %>
-<dialog id="spot_difference_modal" class="modal w-5/6">
+<dialog id="spot_difference_modal" class="modal">
     <div class="modal-box">
         <h3 class="text-base font-bold text-primary text-center">
             <%= t('spot_difference_modal.title') %>
@@ -223,7 +223,7 @@
 </dialog>
 
 <%# 登録場所に関する情報のダイアログ設定 %>
-<dialog id="spot_info_modal" class="modal w-5/6">
+<dialog id="spot_info_modal" class="modal">
     <div class="modal-box">
         <h3 class="text-base font-bold text-primary text-center">
             <%= t('spot_info_modal.title') %>

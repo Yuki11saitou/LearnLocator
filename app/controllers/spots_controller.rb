@@ -1,5 +1,5 @@
 class SpotsController < ApplicationController
-  skip_before_action :require_login, only: %i[map index show]
+  skip_before_action :require_login, only: %i[map index show auto_search]
 
   def map
     @spots = Spot.includes(:category, :reviews).all

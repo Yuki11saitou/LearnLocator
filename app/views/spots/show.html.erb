@@ -57,12 +57,15 @@
                                 <%= @spot.rating %>
                             </div>
                         <% end %>
-                        <%# いいね数 %>
+                        <%# コメント数 %>
                         <div class="mr-2"></div>
                         <div id="review_count-<%= @spot.id %>" class="text-xs font-bold badge badge-ghost">
                             <%= image_tag 'review_mark.svg', class: "h-3 w-3 mr-1" %>
                             <%= @spot.reviews.count %>
                         </div>
+                        <%# レーティングとコメント数に関する説明 %>
+                        <div class="mr-2"></div>
+                        <%= image_tag 'question_mark.svg', class: "h-5 w-5 ml-2", onclick: "document.getElementById('rating_and_review_question_modal').showModal();", style: 'cursor: pointer;' %>
                     </div>
                 </div>
             </div>
@@ -289,6 +292,44 @@
             <% end %>
             <%# ログインボタン %>
             <%= link_to t('login_modal.login'), login_path, class: 'btn skeleton rounded-md', id: 'login-button-show-review' %>
+        </div>
+    </div>
+</dialog>
+
+<%# レーティングとコメント数に関する情報のダイアログ設定 %>
+<dialog id="rating_and_review_question_modal" class="modal">
+    <div class="modal-box">
+        <%# タイトル %>
+        <div class="text-base font-bold text-primary text-center">
+            <%= t('rating_and_review_question_modal.title') %>
+        </div>
+
+        <%# 説明エリア %>
+        <ul class="list-none pl-5 text-sm space-y-4 mt-6">
+            <li class="flex items-center">
+                <%= image_tag 'rating_mark.svg', class: "h-4 w-4 mr-6" %>
+                <div>
+                    <p class="font-semibold mb-2">
+                        <%= t('rating_and_review_question_modal.rating.title') %>
+                    </p>
+                    <%= t('rating_and_review_question_modal.rating.description_html').html_safe %>
+                </div>
+            </li>
+            <hr class="my-4 border-gray-300">
+            <li class="flex items-center">
+                <%= image_tag 'review_mark.svg', class: "h-4 w-4 mr-6" %>
+                <div>
+                    <p class="font-semibold mb-2">
+                        <%= t('rating_and_review_question_modal.review_count.title') %>
+                    </p>
+                    <%= t('rating_and_review_question_modal.review_count.description_html').html_safe %>
+                </div>
+            </li>
+        </ul>
+
+        <%# 閉じるボタン %>
+        <div class="modal-action">
+            <%= button_tag t('rating_and_review_question_modal.close'), type: 'button', class: 'btn', onclick: "document.getElementById('rating_and_review_question_modal').close();" %>
         </div>
     </div>
 </dialog>

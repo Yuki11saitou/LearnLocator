@@ -24,10 +24,6 @@ Rails.application.routes.draw do
   get 'terms_of_use', to: 'static_pages#terms_of_use'
   get 'privacy_policy', to: 'static_pages#privacy_policy'
 
-  # todo : 以下のルーティングについては、後ほど精査 
-  # 施設の違い説明ページのルーティング
-  get 'difference', to:'static_pages#difference'
-
   # ユーザー登録用のルーティング
   resources :users, only: %i[new create]
 
@@ -72,7 +68,4 @@ Rails.application.routes.draw do
 
   # パスワードリセット用のルーティング
   resources :password_resets, only: %i[new create edit update]
-
-  # 最後に書く：存在しないページにアクセスした場合に、topページにリダイレクト
-  match '*path', to: 'application#page_not_found', via: :all
 end

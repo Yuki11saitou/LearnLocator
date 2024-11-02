@@ -1,10 +1,11 @@
 class Spot < ApplicationRecord
-  geocoded_by :address
+  # # geocoderを使用しないため、コメントアウト
+  # geocoded_by :address
+  # after_validation :geocode
 
   belongs_to :category
   has_many :reviews, dependent: :destroy
 
-  after_validation :geocode
   validates :name, :latitude, :longitude, :place_id, presence: true, uniqueness: true
 
   # Ransackの許可リスト（Spotモデルの検索条件に使用するカラム名を設定）

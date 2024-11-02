@@ -58,12 +58,11 @@ gem 'dotenv-rails', groups: [:development, :test]
 # GooglePlacesAPIを使用、条件つき検索、店舗情報などの取得のためのgem
 gem 'google_places'
 
-# GeoderdingAPIを使用、緯度経度から住所を取得、現在地を取得するためのgem
-gem 'geocoder'
+# [現時点で不要だったのでアンインストール済み]GeoderdingAPIを使用、緯度経度から住所を取得、現在地を取得するためのgem
+# gem 'geocoder'
 
-# Google Places APIを利用、オートコンプリート機能、インフォウィンドウの表示などのためのgem
-gem 'gmaps4rails'
-
+# [現時点で不要だったのでアンインストール済み]Google Places APIを利用、オートコンプリート機能、インフォウィンドウの表示などのためのgem
+# gem 'gmaps4rails'
 
 # Ruby on Railsアプリケーションを多言語対応させるためのライブラリ
 gem 'rails-i18n'

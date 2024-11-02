@@ -138,7 +138,7 @@ ja:
     show:
       title: マイページ
       to_edit: 編集
-
+      to_destroy: 退会
       user_id: 会員No.
       my_reviews_link: 　投稿した口コミ：
       my_likes_link: いいねした口コミ：

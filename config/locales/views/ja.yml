@@ -180,6 +180,10 @@ ja:
   pagination:
     previous: "«"
     next: "»"
+  # ヘッダーロゴの説明モーダル
+  logo_modal:
+    title: 本サービスとロゴに込めた思い
+    close: 閉じる
   # 勉強種別に対する説明のモーダル
   spot_difference_modal:
     title: 自習室とコワーキングスペースの違い

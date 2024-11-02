@@ -38,8 +38,9 @@
                     </div>
                 </div>
 
-                <!-- 施設詳細へのリンク -->
-                <div class="mt-4 text-right">
+                <!-- 退会リンク・施設詳細へのリンク -->
+                <div class="mt-4 flex justify-between">
+                    <%= link_to t('.to_destroy'), profile_path, data: { turbo_method: "delete", turbo_confirm: t('turbo_stream.delete.profile.confirm') }, class: "btn" %>
                     <%= link_to t('.to_edit'), edit_profile_path, data: { turbo: false }, class: "btn" %>
                 </div>
 

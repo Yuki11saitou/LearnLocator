@@ -62,7 +62,7 @@ Rails.application.routes.draw do
   resources :bookmarks, only: %i[create destroy]
 
   # マイページ用のルーティング
-  resource :profile, only: [:show, :edit, :update]
+  resource :profile, only: [:show, :edit, :update, :destroy]
   get 'profiles/my_reviews', to: 'profiles#my_reviews', as: :my_reviews
   get 'profiles/my_likes', to: 'profiles#my_likes', as: :my_likes
 

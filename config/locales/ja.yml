@@ -8,6 +8,7 @@ ja:
     review_creation_success: "口コミが投稿されました"
     review_update_success: "口コミが更新されました"
     profile_update_success: "ユーザー情報が更新されました"
+    profile_destroy_success: "ユーザー情報が削除されました"
     password_reset_mail_submit: "パスワードリセット用のメールを送信しました"
     password_reset_success: "パスワードがリセットされました"
     # Googleログイン
@@ -21,6 +22,7 @@ ja:
     review_creation_failure: "口コミを投稿できませんでした"
     review_update_failure: "口コミを更新できませんでした"
     profile_update_failure: "ユーザー情報を更新できませんでした"
+    profile_destroy_failure: "ユーザー情報を削除できませんでした"
     password_reset_failure: "パスワードのリセットに失敗しました"
     password_blank: "パスワードを入力してください"
     not_found: "ページが見つかりません"
@@ -35,7 +37,10 @@ ja:
   # turbo_streamのエラーメッセージ
   turbo_stream:
     delete:
-      confirm: "本当に削除しますか？"
+      review:
+        confirm: "本当に削除しますか？"
+      profile:
+        confirm: "本当に退会しますか？"
   # パスワードリセットメール
   password_reset_mail:
     subject: "パスワードリセットのご案内"

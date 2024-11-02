@@ -10,8 +10,9 @@
         <div class="w-5/6 mx-auto max-w-sm md:max-w-2xl mb-6">
             <div class="flex items-center justify-center mb-2">
                 <h2 class="text-sm md:text-base text-center text-primary font-bold">
-                    <%= t('.short_description') %>
+                    <%= t('.short_description_html').html_safe %>
                 </h2>
+                <%# モーダル %>
                 <%= image_tag 'question_mark.svg', class: "h-5 w-5 ml-2", onclick: "document.getElementById('spot_difference_modal').showModal();", style: 'cursor: pointer;' %>
             </div>
             <%= image_tag 'coworking.png', class: "max-w-full rounded-lg" %>
@@ -30,15 +31,23 @@
         </div>
 
         <%# 未ログインでできることセクション %>
-        <div class="w-5/6 mx-auto max-w-sm md:max-w-2xl mb-20">
-            <div class="flex items-center justify-center mb-2">
+        <div class="w-5/6 mx-auto max-w-sm md:max-w-5xl mb-20">
+            <div class="flex items-center justify-center mb-3">
                 <h2 class="text-sm md:text-base text-center text-primary font-bold">
                     <%= t('.what_can_do_without_login.title') %>
                 </h2>
+                <%# モーダル %>
                 <%= image_tag 'infomation_mark.svg', class: "h-5 w-5 ml-2", onclick: "document.getElementById('spot_info_modal').showModal();", style: 'cursor: pointer;' %>
             </div>
 
-            <div class="mt-2 carousel rounded-box">
+            <%# スクロールできる旨の説明 %>
+            <div class="flex items-center justify-center text-xs text-gray-500 mb-1">
+                <%= t('.what_can_do_without_login.can_scroll') %>
+                <%= image_tag 'slide_right_mark.svg', class: "h-4 w-4 ml-2" %>
+            </div>
+
+            <%# 場所検索の説明エリア %>
+            <div class="mt-2 carousel rounded-box w-full max-w-full">
                 <div class="carousel-item pr-4">
                     <div class="card bg-gray-100 w-full max-w-xs mx-auto">
                         <div class="card-body justify-center items-center">
@@ -48,11 +57,12 @@
                             <p class="mt-4 mb-2 text-sm">
                                 <%= t('.what_can_do_without_login.spot_search.description_html').html_safe %>
                             </p>
-                            <a href="https://gyazo.com/4164b0da4f85d187c34373b0cd1fc6a1"><video width="490" autoplay muted loop playsinline controls><source src="https://i.gyazo.com/4164b0da4f85d187c34373b0cd1fc6a1.mp4" type="video/mp4"/></video></a>
+                            <img src="https://i.gyazo.com/4164b0da4f85d187c34373b0cd1fc6a1.gif" alt="Image from Gyazo" width="490"/>
                         </div>
                     </div>
                 </div>
 
+                <%# 一覧検索の説明エリア %>
                 <div class="carousel-item pr-4">
                     <div class="card bg-gray-100 w-full max-w-xs mx-auto">
                         <div class="card-body justify-center items-center">
@@ -62,11 +72,12 @@
                             <p class="mt-4 mb-2 text-sm">
                                 <%= t('.what_can_do_without_login.index_search.description_html').html_safe %>
                             </p>
-                            <a href="https://gyazo.com/82b4f5844dc1459e2756a71022cde53e"><video width="490" autoplay muted loop playsinline controls><source src="https://i.gyazo.com/82b4f5844dc1459e2756a71022cde53e.mp4" type="video/mp4"/></video></a>
+                            <img src="https://i.gyazo.com/82b4f5844dc1459e2756a71022cde53e.gif" alt="Image from Gyazo" width="490"/>
                         </div>
                     </div>
                 </div>
 
+                <%# 口コミ検索の説明エリア %>
                 <div class="carousel-item pr-4">
                     <div class="card bg-gray-100 w-full max-w-xs mx-auto">
                         <div class="card-body justify-center items-center">
@@ -76,11 +87,12 @@
                             <p class="mt-4 mb-2 text-sm">
                                 <%= t('.what_can_do_without_login.review_search.description_html').html_safe %>
                             </p>
-                            <a href="https://gyazo.com/615afa46380fc2686519ea6912ab224e"><video width="490" autoplay muted loop playsinline controls><source src="https://i.gyazo.com/615afa46380fc2686519ea6912ab224e.mp4" type="video/mp4"/></video></a>
+                            <img src="https://i.gyazo.com/615afa46380fc2686519ea6912ab224e.gif" alt="Image from Gyazo" width="490"/>
                         </div>
                     </div>
                 </div>
 
+                <%# 施設情報の説明エリア %>
                 <div class="carousel-item pr-4">
                     <div class="card bg-gray-100 w-full max-w-xs mx-auto">
                         <div class="card-body justify-center items-center">
@@ -90,7 +102,7 @@
                             <p class="mt-4 mb-2 text-sm">
                                 <%= t('.what_can_do_without_login.check_spot_details.description_html').html_safe %>
                             </p>
-                            <a href="https://gyazo.com/614dd7879841a9e5577b61c5ac425a2f"><video width="490" autoplay muted loop playsinline controls><source src="https://i.gyazo.com/614dd7879841a9e5577b61c5ac425a2f.mp4" type="video/mp4"/></video></a>
+                            <img src="https://i.gyazo.com/614dd7879841a9e5577b61c5ac425a2f.gif" alt="Image from Gyazo" width="490"/>
                         </div>
                     </div>
                 </div>
@@ -98,14 +110,21 @@
         </div>
 
         <%# ログイン後にできることセクション %>
-        <div class="w-5/6 mx-auto max-w-sm md:max-w-2xl mb-16">
-            <div class="flex items-center justify-center mb-2">
+        <div class="w-5/6 mx-auto max-w-sm md:max-w-5xl mb-16">
+            <div class="flex items-center justify-center mb-3">
                 <h2 class="text-sm md:text-base text-center text-primary font-bold">
                     <%= t('.what_can_do_with_login.title') %>
                 </h2>
             </div>
 
-            <div class="mt-2 carousel rounded-box">
+            <%# スクロールできる旨の説明 %>
+            <div class="flex items-center justify-center text-xs text-gray-500 mb-1">
+                <%= t('.what_can_do_with_login.can_scroll') %>
+                <%= image_tag 'slide_right_mark.svg', class: "h-4 w-4 ml-2" %>
+            </div>
+
+            <%# ブックマーク機能の説明エリア %>
+            <div class="mt-2 carousel rounded-box w-full max-w-full">
                 <div class="carousel-item pr-4">
                     <div class="card bg-gray-100 w-full max-w-xs mx-auto">
                         <div class="card-body justify-center items-center">
@@ -115,11 +134,12 @@
                             <p class="mt-4 mb-2 text-sm">
                                 <%= t('.what_can_do_with_login.bookmark.description_html').html_safe %>
                             </p>
-                            <a href="https://gyazo.com/e1f9e33e553c15b7f72eb63de2d074b3"><video width="490" autoplay muted loop playsinline controls><source src="https://i.gyazo.com/e1f9e33e553c15b7f72eb63de2d074b3.mp4" type="video/mp4"/></video></a>
+                            <img src="https://i.gyazo.com/e1f9e33e553c15b7f72eb63de2d074b3.gif" alt="Image from Gyazo" width="490"/>
                         </div>
                     </div>
                 </div>
 
+                <%# 口コミ投稿の説明エリア %>
                 <div class="carousel-item pr-4">
                     <div class="card bg-gray-100 w-full max-w-xs mx-auto">
                         <div class="card-body justify-center items-center">
@@ -129,11 +149,12 @@
                             <p class="mt-4 mb-2 text-sm">
                                 <%= t('.what_can_do_with_login.review.description_html').html_safe %>
                             </p>
-                            <a href="https://gyazo.com/67b7613d3c0cc31ea93cb3c08b88df1a"><video width="490" autoplay muted loop playsinline controls><source src="https://i.gyazo.com/67b7613d3c0cc31ea93cb3c08b88df1a.mp4" type="video/mp4"/></video></a>
+                            <img src="https://i.gyazo.com/67b7613d3c0cc31ea93cb3c08b88df1a.gif" alt="Image from Gyazo" width="490"/>
                         </div>
                     </div>
                 </div>
 
+                <%# いいね機能の説明エリア %>
                 <div class="carousel-item pr-4">
                     <div class="card bg-gray-100 w-full max-w-xs mx-auto">
                         <div class="card-body justify-center items-center">
@@ -143,13 +164,14 @@
                             <p class="mt-4 mb-2 text-sm">
                                 <%= t('.what_can_do_with_login.like.description_html').html_safe %>
                             </p>
-                            <a href="https://gyazo.com/3dfe5741323094769521aa4255ac79a3"><video width="490" autoplay muted loop playsinline controls><source src="https://i.gyazo.com/3dfe5741323094769521aa4255ac79a3.mp4" type="video/mp4"/></video></a>
+                            <img src="https://i.gyazo.com/3dfe5741323094769521aa4255ac79a3.gif" alt="Image from Gyazo" width="490"/>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
+        <%# 利用誘導ボタン %>
         <div class="flex space-x-10 mb-10">
             <%= link_to spots_map_path, data: { turbo: false }, class: "btn" do %>
                 <%= image_tag 'location_search.svg', class: "h-4 w-4" %>
@@ -180,7 +202,10 @@
                     <%= t('spot_difference_modal.description.study_room.title') %>
                 </p>
                 <ul class="list-disc pl-5 space-y-1">
-                    <%= t('spot_difference_modal.description.study_room.description_html').html_safe %>
+                    <%# ここはdaisyUIを部分的に当てるため、i18n対応はしない %>
+                    <li><span class="text-secondary">静か</span>で個人作業に集中できる</li>
+                    <li>参考書やテキストなど、<span class="text-secondary">書類</span>を使った学習に適している</li>
+                    <li>学生・受験生のほか、社会人向けにも展開している</li>
                 </ul>
             </div>
             <hr class="my-4 border-gray-300">
@@ -189,7 +214,10 @@
                     <%= t('spot_difference_modal.description.co_working_space.title') %>
                 </p>
                 <ul class="list-disc pl-5 space-y-1">
-                    <%= t('spot_difference_modal.description.co_working_space.description_html').html_safe %>
+                    <%# ここはdaisyUIを部分的に当てるため、i18n対応はしない %>
+                    <li><span class="text-secondary">会話</span>が可能で、1人でも複数人でも利用できる</li>
+                    <li><span class="text-secondary">リモートワーク、オンライン会議、PC作業</span>などに適している</li>
+                    <li>フリーランスやリモートワーカーが多く、モニター貸し出し、Wi-Fi・会議室などの設備が充実している</li>
                 </ul>
             </div>
         </div>
@@ -207,7 +235,9 @@
             <%= t('spot_info_modal.title') %>
         </h3>
         <p class="text-sm py-4">
-            <%= t('spot_info_modal.description.title_html').html_safe %>
+            <%# ここはdaisyUIを部分的に当てるため、i18n対応はしない %>
+            現在の対応エリアは以下の<span class="text-secondary">15都道府県</span>です。<br>
+            <span class="text-secondary">約600施設</span>の情報を掲載しています。
         </p>
         <hr class="my-4 border-gray-300">
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 text-sm">

@@ -25,9 +25,12 @@ ja:
     top:
       title: LearnLocator
       sub_title: 勉強場所検索サービス
-      short_description: 「自習室」「コワーキングスペース」の検索サービスです
+      short_description_html: |
+        「自習室」「コワーキングスペース」<br>
+        の検索サービスです
       what_can_do_without_login:
         title: LearnLocaterでできること
+        can_scroll: スクロールできます
         spot_search:
           title: 場所検索
           description_html: |
@@ -50,6 +53,7 @@ ja:
             経路情報も確認できます。
       what_can_do_with_login:
         title: ユーザー登録でさらに
+        can_scroll: スクロールできます
         bookmark:
           title: ブックマーク
           description_html: |
@@ -184,24 +188,13 @@ ja:
         施設ごとで違いはありますが、主に以下の点で異なります。
       study_room:
         title: 【自習室】
-        description_html: |
-          <li><span class="text-secondary">静か</span>で個人作業に集中できる</li>
-          <li>参考書やテキストなど、<span class="text-secondary">書類</span>を使った学習に適している</li>
-          <li>学生・受験生のほか、社会人向けにも展開している</li>
       co_working_space:
         title: 【コワーキングスペース】
-        description_html: |
-          <li><span class="text-secondary">会話</span>が可能で、1人でも複数人でも利用できる</li>
-          <li><span class="text-secondary">リモートワーク、オンライン会議、PC作業</span>などに適している</li>
-          <li>フリーランスやリモートワーカーが多く、モニター貸し出し、Wi-Fi・会議室などの設備が充実している</li>
     close: 閉じる
   # 登録場所に関する情報のダイアログ設定
   spot_info_modal:
     title: 対応エリアについて
     description:
-      title_html: |
-        現在の対応エリアは以下の<span class="text-secondary">15都道府県</span>です。<br>
-        <span class="text-secondary">約600施設</span>の情報を掲載しています。
       prefectures_html: |
         <span>北海道</span>
         <span>宮城県</span>

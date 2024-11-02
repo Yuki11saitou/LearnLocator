@@ -40,11 +40,13 @@
                 <%= image_tag 'infomation_mark.svg', class: "h-5 w-5 ml-2", onclick: "document.getElementById('spot_info_modal').showModal();", style: 'cursor: pointer;' %>
             </div>
 
+            <%# スクロールできる旨の説明 %>
             <div class="flex items-center justify-center text-xs text-gray-500 mb-1">
                 <%= t('.what_can_do_without_login.can_scroll') %>
                 <%= image_tag 'slide_right_mark.svg', class: "h-4 w-4 ml-2" %>
             </div>
 
+            <%# 場所検索の説明エリア %>
             <div class="mt-2 carousel rounded-box w-full max-w-full">
                 <div class="carousel-item pr-4">
                     <div class="card bg-gray-100 w-full max-w-xs mx-auto">
@@ -55,13 +57,12 @@
                             <p class="mt-4 mb-2 text-sm">
                                 <%= t('.what_can_do_without_login.spot_search.description_html').html_safe %>
                             </p>
-                            <video width="490" autoplay muted loop playsinline controls>
-                                <source src="https://i.gyazo.com/4164b0da4f85d187c34373b0cd1fc6a1.mp4" type="video/mp4"/>
-                            </video>
+                            <img src="https://i.gyazo.com/4164b0da4f85d187c34373b0cd1fc6a1.gif" alt="Image from Gyazo" width="490"/>
                         </div>
                     </div>
                 </div>
 
+                <%# 一覧検索の説明エリア %>
                 <div class="carousel-item pr-4">
                     <div class="card bg-gray-100 w-full max-w-xs mx-auto">
                         <div class="card-body justify-center items-center">
@@ -71,13 +72,12 @@
                             <p class="mt-4 mb-2 text-sm">
                                 <%= t('.what_can_do_without_login.index_search.description_html').html_safe %>
                             </p>
-                            <video width="490" autoplay muted loop playsinline controls>
-                                <source src="https://i.gyazo.com/82b4f5844dc1459e2756a71022cde53e.mp4" type="video/mp4"/>
-                            </video>
+                            <img src="https://i.gyazo.com/82b4f5844dc1459e2756a71022cde53e.gif" alt="Image from Gyazo" width="490"/>
                         </div>
                     </div>
                 </div>
 
+                <%# 口コミ検索の説明エリア %>
                 <div class="carousel-item pr-4">
                     <div class="card bg-gray-100 w-full max-w-xs mx-auto">
                         <div class="card-body justify-center items-center">
@@ -87,13 +87,12 @@
                             <p class="mt-4 mb-2 text-sm">
                                 <%= t('.what_can_do_without_login.review_search.description_html').html_safe %>
                             </p>
-                            <video width="490" autoplay muted loop playsinline controls>
-                                <source src="https://i.gyazo.com/615afa46380fc2686519ea6912ab224e.mp4" type="video/mp4"/>
-                            </video>
+                            <img src="https://i.gyazo.com/615afa46380fc2686519ea6912ab224e.gif" alt="Image from Gyazo" width="490"/>
                         </div>
                     </div>
                 </div>
 
+                <%# 施設情報の説明エリア %>
                 <div class="carousel-item pr-4">
                     <div class="card bg-gray-100 w-full max-w-xs mx-auto">
                         <div class="card-body justify-center items-center">
@@ -103,9 +102,7 @@
                             <p class="mt-4 mb-2 text-sm">
                                 <%= t('.what_can_do_without_login.check_spot_details.description_html').html_safe %>
                             </p>
-                            <video width="490" autoplay muted loop playsinline controls>
-                                <source src="https://i.gyazo.com/614dd7879841a9e5577b61c5ac425a2f.mp4" type="video/mp4"/>
-                            </video>
+                            <img src="https://i.gyazo.com/614dd7879841a9e5577b61c5ac425a2f.gif" alt="Image from Gyazo" width="490"/>
                         </div>
                     </div>
                 </div>
@@ -120,11 +117,13 @@
                 </h2>
             </div>
 
+            <%# スクロールできる旨の説明 %>
             <div class="flex items-center justify-center text-xs text-gray-500 mb-1">
                 <%= t('.what_can_do_with_login.can_scroll') %>
                 <%= image_tag 'slide_right_mark.svg', class: "h-4 w-4 ml-2" %>
             </div>
 
+            <%# ブックマーク機能の説明エリア %>
             <div class="mt-2 carousel rounded-box w-full max-w-full">
                 <div class="carousel-item pr-4">
                     <div class="card bg-gray-100 w-full max-w-xs mx-auto">
@@ -135,13 +134,12 @@
                             <p class="mt-4 mb-2 text-sm">
                                 <%= t('.what_can_do_with_login.bookmark.description_html').html_safe %>
                             </p>
-                            <video width="490" autoplay muted loop playsinline controls>
-                                <source src="https://i.gyazo.com/e1f9e33e553c15b7f72eb63de2d074b3.mp4" type="video/mp4"/>
-                            </video>
+                            <img src="https://i.gyazo.com/e1f9e33e553c15b7f72eb63de2d074b3.gif" alt="Image from Gyazo" width="490"/>
                         </div>
                     </div>
                 </div>
 
+                <%# 口コミ投稿の説明エリア %>
                 <div class="carousel-item pr-4">
                     <div class="card bg-gray-100 w-full max-w-xs mx-auto">
                         <div class="card-body justify-center items-center">
@@ -151,13 +149,12 @@
                             <p class="mt-4 mb-2 text-sm">
                                 <%= t('.what_can_do_with_login.review.description_html').html_safe %>
                             </p>
-                            <video width="490" autoplay muted loop playsinline controls>
-                                <source src="https://i.gyazo.com/67b7613d3c0cc31ea93cb3c08b88df1a.mp4" type="video/mp4"/>
-                            </video>
+                            <img src="https://i.gyazo.com/67b7613d3c0cc31ea93cb3c08b88df1a.gif" alt="Image from Gyazo" width="490"/>
                         </div>
                     </div>
                 </div>
 
+                <%# いいね機能の説明エリア %>
                 <div class="carousel-item pr-4">
                     <div class="card bg-gray-100 w-full max-w-xs mx-auto">
                         <div class="card-body justify-center items-center">
@@ -167,15 +164,14 @@
                             <p class="mt-4 mb-2 text-sm">
                                 <%= t('.what_can_do_with_login.like.description_html').html_safe %>
                             </p>
-                            <video width="490" autoplay muted loop playsinline controls>
-                                <source src="https://i.gyazo.com/3dfe5741323094769521aa4255ac79a3.mp4" type="video/mp4"/>
-                            </video>
+                            <img src="https://i.gyazo.com/3dfe5741323094769521aa4255ac79a3.gif" alt="Image from Gyazo" width="490"/>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
+        <%# 利用誘導ボタン %>
         <div class="flex space-x-10 mb-10">
             <%= link_to spots_map_path, data: { turbo: false }, class: "btn" do %>
                 <%= image_tag 'location_search.svg', class: "h-4 w-4" %>

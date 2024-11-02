@@ -22,22 +22,25 @@ module.exports = {
         'body-jp': ['Noto Sans JP', 'serif'],
         'body-en': ['Noto Sans', 'serif']
       },
-      // // 画像、テキストのアニメーション追加
-      // animation: {
-      //   "fade-in-fwd": "fade-in-fwd 1.9s cubic-bezier(0.390, 0.575, 0.565, 1.000)   both"
-      // },
-      // keyframes: {
-      //   "fade-in-fwd": {
-      //     "0%": {
-      //         transform: "translateZ(-80px)",
-      //         opacity: "0"
-      //     },
-      //     to: {
-      //         transform: "translateZ(0)",
-      //         opacity: "1"
-      //     }
-      //   }
-      // }
+      // 画像、テキストのアニメーション追加
+      animation: {
+        "tracking-in-contract": "tracking-in-contract 2.0s cubic-bezier(0.215, 0.610, 0.355, 1.000)   both"
+      },
+      keyframes: {
+        "tracking-in-contract": {
+          "0%": {
+              "letter-spacing": "1em",
+              opacity: "0"
+          },
+          "40%": {
+              opacity: ".6"
+          },
+          to: {
+              "letter-spacing": "normal",
+              opacity: "1"
+          }
+        }
+      }
     }
   }
 }

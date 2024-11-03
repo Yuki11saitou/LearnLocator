@@ -5,6 +5,9 @@
     <%# ページタイトルを読み込む %>
     <title><%= page_title(yield(:title)) %></title>
 
+    <%# Google検索時に表示される説明文 %>
+    <meta name="description" content="勉強場所を簡単に探せるアプリ「LearnLocator」。このアプリは自習室やコワーキングスペースの検索サービスです。">
+
     <%# googleフォント読み込み %>
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Sans&display=swap');

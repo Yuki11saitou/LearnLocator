@@ -19,8 +19,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'body-jp': ['Noto Sans JP', 'serif'],
-        'body-en': ['Noto Sans', 'serif']
+        // 'body-en': ['Noto Sans', 'serif'],
+        'body-jp': ['Noto Sans JP', 'serif']
       },
       // 画像、テキストのアニメーション追加
       animation: {

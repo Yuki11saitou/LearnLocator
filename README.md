@@ -2,7 +2,7 @@
 
 ### サービスURL : https://www.learn-locator.com
 
-<img src="https://i.gyazo.com/519b19ef929e67ddbfafb8e564683bd3.png" alt="Image from Gyazo" width="1400"/>
+<img src="https://i.gyazo.com/519b19ef929e67ddbfafb8e564683bd3.png" alt="Image from Gyazo"/>
 
 ## サービス概要
 - 家以外で勉強できる場所(「自習室」と「コワーキングスペース」)を検索できるサービスです。
@@ -30,26 +30,26 @@
 |                                                                                                          |                                                                                                          | 
 | :------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------- | 
 | (1) 場所検索                                                                                                 | (2) 一覧検索                                                                                                 | 
-| <img src="https://i.gyazo.com/4164b0da4f85d187c34373b0cd1fc6a1.gif" alt="Image from Gyazo" width="490"/> | <img src="https://i.gyazo.com/82b4f5844dc1459e2756a71022cde53e.gif" alt="Image from Gyazo" width="490"/> | 
+| <img src="https://i.gyazo.com/4164b0da4f85d187c34373b0cd1fc6a1.gif" alt="Image from Gyazo"/> | <img src="https://i.gyazo.com/82b4f5844dc1459e2756a71022cde53e.gif" alt="Image from Gyazo"/> | 
 | 現在地近くの勉強場所がわかります。<br>地名などから周辺の場所を検索することもできます。                   | 口コミの一覧から条件を設定し検索できます。<br>結果の並べ替えも可能です。                                 | 
 
 |                                                                                                          |                                                                                                          | 
 | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | 
 | (3) 口コミ検索                                                                                               | (4) 施設情報の確認                                                                                           | 
-| <img src="https://i.gyazo.com/615afa46380fc2686519ea6912ab224e.gif" alt="Image from Gyazo" width="490"/> | <img src="https://i.gyazo.com/a53b0e31de95b99e6432fb8da7dd630d.gif" alt="Image from Gyazo" width="490"/> | 
+| <img src="https://i.gyazo.com/615afa46380fc2686519ea6912ab224e.gif" alt="Image from Gyazo"/> | <img src="https://i.gyazo.com/a53b0e31de95b99e6432fb8da7dd630d.gif" alt="Image from Gyazo"/> | 
 | 勉強場所の口コミを検索できます。<br>他のユーザーが投稿した口コミを閲覧できます。                         | 口コミ・施設情報の確認のほか、<br>経路情報も確認できます。                                               | 
 
 ### サブ機能(ユーザー登録必要)
 |                                                                                                          |                                                                                                             | 
 | -------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | 
 | (5) ブックマーク<br>                                                                                     | (6) 口コミ投稿                                                                                              | 
-| <img src="https://i.gyazo.com/e1f9e33e553c15b7f72eb63de2d074b3.gif" alt="Image from Gyazo" width="490"/> | <img src="https://i.gyazo.com/67b7613d3c0cc31ea93cb3c08b88df1a.gif" alt="Image from Gyazo" width="490"/>    | 
+| <img src="https://i.gyazo.com/e1f9e33e553c15b7f72eb63de2d074b3.gif" alt="Image from Gyazo"/> | <img src="https://i.gyazo.com/67b7613d3c0cc31ea93cb3c08b88df1a.gif" alt="Image from Gyazo"/>    | 
 | 施設のブックマークを登録できます。                                                                       | 口コミを投稿できます。<br>投稿したことをXでシェアできます。<br>投稿した口コミはマイページから確認できます。 | 
 
 |                                                                                                          |                                                                                                          | 
 | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | 
 | (7) 口コミへのいいね                                                                                     | (8) マイページ                                                                                           | 
-| <img src="https://i.gyazo.com/3dfe5741323094769521aa4255ac79a3.gif" alt="Image from Gyazo" width="490"/> | <img src="https://i.gyazo.com/ceb2e8c89660190242fdea4e2dd63453.gif" alt="Image from Gyazo" width="490"/> | 
+| <img src="https://i.gyazo.com/3dfe5741323094769521aa4255ac79a3.gif" alt="Image from Gyazo"/> | <img src="https://i.gyazo.com/ceb2e8c89660190242fdea4e2dd63453.gif" alt="Image from Gyazo"/> | 
 | 口コミへのいいねができます。<br>いいねした口コミはマイページから確認できます。                           | マイページで「ユーザー情報の編集・退会」や「投稿・いいねした口コミ」の確認ができます。                   | 
 
 ## ユーザーの獲得について

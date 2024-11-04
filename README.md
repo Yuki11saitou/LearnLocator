@@ -152,12 +152,15 @@
 | 認証           | Sorcery, Googleログイン                                                   | 
 | API            | Google Maps API, Google Places API                                        | 
 
-### 画面遷移図
-Figma：  
-https://www.figma.com/design/jEObdmmCqTXRWpQH72SY9A/LearnLocator_%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?node-id=0-1&t=Yrjiy1yTzEVb3e65-1
+## 画面遷移図
+[![Image from Gyazo](https://i.gyazo.com/f77faab797c218d8dd1bb29d91eda5b5.png)](https://gyazo.com/f77faab797c218d8dd1bb29d91eda5b5)
 
-### ER図
-mermaidchart:  
-https://www.mermaidchart.com/raw/b6d7e76d-8d55-429f-98b9-ca6ed3a8d236?theme=dark&version=v0.1&format=svg
+### [詳細URLはこちら](https://www.figma.com/design/jEObdmmCqTXRWpQH72SY9A/LearnLocator_%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?node-id=0-1&t=Yrjiy1yTzEVb3e65-1)
 
+## ER図
+[![Image from Gyazo](https://i.gyazo.com/3df832f88ab47e8f3cda4b5963107802.png)](https://gyazo.com/3df832f88ab47e8f3cda4b5963107802)
 
+### [詳細URLはこちら](https://www.mermaidchart.com/raw/b6d7e76d-8d55-429f-98b9-ca6ed3a8d236?theme=dark&version=v0.1&format=svg)
+
+## 実装記録
+[実装記録はこちら](https://impartial-trunk-0da.notion.site/340fce9bd3404ba2864cf7ede1543240?pvs=4)

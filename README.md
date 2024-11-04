@@ -160,4 +160,5 @@ https://www.figma.com/design/jEObdmmCqTXRWpQH72SY9A/LearnLocator_%E7%94%BB%E9%9D
 mermaidchart:  
 https://www.mermaidchart.com/raw/b6d7e76d-8d55-429f-98b9-ca6ed3a8d236?theme=dark&version=v0.1&format=svg
 
-
+## 実装記録
+[実装記録](https://impartial-trunk-0da.notion.site/340fce9bd3404ba2864cf7ede1543240?pvs=4)

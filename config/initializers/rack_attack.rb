@@ -5,7 +5,7 @@ class Rack::Attack
   end
 
   # 制限を超えたリクエストに対するレスポンスをカスタマイズ
-  self.throttled_response = lambda do |env|
+  self.throttled_responder = lambda do |env|
     # カスタムHTMLレスポンス
     [
       429,

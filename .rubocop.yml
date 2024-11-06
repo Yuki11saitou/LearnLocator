@@ -104,6 +104,10 @@ Style/SymbolArray:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
+# ハッシュの記述方法をチェック（無効）
+Style/HashSyntax:
+  Enabled: false
+
 # メソッドパラメータ名の最小文字数を設定
 Naming/MethodParameterName:
   MinNameLength: 1

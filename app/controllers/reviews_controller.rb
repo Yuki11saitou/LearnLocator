@@ -24,9 +24,18 @@ class ReviewsController < ApplicationController
                end
   end
 
+  def show
+    @review = Review.find(params[:id])
+    @spot = @review.spot
+  end
+
   def new
     @review = Review.new
     @spot = Spot.find(params[:spot_id])
+  end
+
+  def edit
+    @spot = @review.spot
   end
 
   def create
@@ -38,15 +47,6 @@ class ReviewsController < ApplicationController
       flash.now[:alert] = t('alerts.review_creation_failure')
       render :new, status: :unprocessable_entity
     end
-  end
-
-  def show
-    @review = Review.find(params[:id])
-    @spot = @review.spot
-  end
-
-  def edit
-    @spot = @review.spot
   end
 
   def update

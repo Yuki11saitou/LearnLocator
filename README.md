@@ -139,6 +139,7 @@
 - 存在しないURLに対するエラーハンドリング(idを含むもの・その他)
 - PWA対応
 - SEO対策
+- GitHub Actionsによるテスト自動化(RSpec・RuboCop)
 
 ## 技術スタック
 
@@ -163,4 +164,4 @@
 ### [詳細URLはこちら](https://www.mermaidchart.com/raw/b6d7e76d-8d55-429f-98b9-ca6ed3a8d236?theme=dark&version=v0.1&format=svg)
 
 ## 実装記録
-[実装記録はこちら](https://impartial-trunk-0da.notion.site/340fce9bd3404ba2864cf7ede1543240?pvs=4)
+### [実装記録はこちら](https://impartial-trunk-0da.notion.site/340fce9bd3404ba2864cf7ede1543240?pvs=4)

@@ -145,4 +145,4 @@
 [**実装記録はこちら**](https://impartial-trunk-0da.notion.site/340fce9bd3404ba2864cf7ede1543240?pvs=4)
 
 ## このアプリに関する記事
-[**【個人開発】勉強場所の検索サービスを作成しました ✍️**](https://qiita.com/yuki31100725/items/9cf603f9ac08b850c2d7)
+[**【個人開発】家で勉強できない私が「勉強場所の検索サービス」を作成しました ✍️**](https://qiita.com/yuki31100725/items/9cf603f9ac08b850c2d7)

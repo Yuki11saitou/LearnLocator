@@ -117,4 +117,11 @@ RSpec.describe User, type: :model do
       expect(@user.bookmark?(@spot)).to be false
     end
   end
+
+  describe '.ransackable_attributes' do
+    it '検索可能な属性の配列を返すこと' do
+      expected_attributes = %w[id name created_at updated_at]
+      expect(User.ransackable_attributes).to eq(expected_attributes)
+    end
+  end
 end

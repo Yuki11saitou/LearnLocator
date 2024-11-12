@@ -45,6 +45,12 @@ RSpec.describe User, type: :model do
         expect(@user.errors[:email]).to include("はすでに存在します")
       end
 
+      it 'パスワードの長さが4文字未満' do
+        @user.password = '123'
+        expect(@user).to be_invalid
+        expect(@user.errors[:password]).to include("は4文字以上で入力してください")
+      end
+
       it 'パスワードとパスワード(確認用)が一致しない' do
         @user.password_confirmation = 'differentpassword'
         expect(@user).to be_invalid

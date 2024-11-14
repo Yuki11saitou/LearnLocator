@@ -24,9 +24,12 @@
                 <%= image_tag 'location_search.svg', class: "h-4 w-4" %>
                 <%= t('.to_spot_search') %>
             <% end %>
-            <%= link_to new_user_path, data: { turbo: false }, class: "btn" do %>
-                <%= image_tag 'new_register.svg', class: "h-4 w-4" %>
-                <%= t('.to_new_register') %>
+            <%# 未ログインならユーザー登録ボタンを表示 %>
+            <% unless logged_in? %>
+                <%= link_to new_user_path, data: { turbo: false }, class: "btn" do %>
+                    <%= image_tag 'new_register.svg', class: "h-4 w-4" %>
+                    <%= t('.to_new_register') %>
+                <% end %>
             <% end %>
         </div>
 
@@ -177,9 +180,12 @@
                 <%= image_tag 'location_search.svg', class: "h-4 w-4" %>
                 <%= t('.to_spot_search') %>
             <% end %>
-            <%= link_to new_user_path, data: { turbo: false }, class: "btn" do %>
-                <%= image_tag 'new_register.svg', class: "h-4 w-4" %>
-                <%= t('.to_new_register') %>
+            <%# 未ログインならユーザー登録ボタンを表示 %>
+            <% unless logged_in? %>
+                <%= link_to new_user_path, data: { turbo: false }, class: "btn" do %>
+                    <%= image_tag 'new_register.svg', class: "h-4 w-4" %>
+                    <%= t('.to_new_register') %>
+                <% end %>
             <% end %>
         </div>
 

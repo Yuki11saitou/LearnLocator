@@ -1,7 +1,7 @@
 <div class="navbar bg-gray-100 sticky top-0 left-0 w-full z-50">
     <div class="flex-1">
         <%# ロゴ説明モーダル %>
-        <%= image_tag 'LearnLocator_logo.png', class: "h-10 ml-2 rounded-full", onclick: "document.getElementById('logo_modal').showModal();", style: 'cursor: pointer;' %>
+        <%= image_tag 'LearnLocator_logo.png', class: "h-10 ml-2 mr-2 rounded-full border-4 border-gray-300 hover:border-primary", onclick: "document.getElementById('logo_modal').showModal();", style: 'cursor: pointer;' %>
         <%= link_to t('header.title'), root_path, class: "btn btn-ghost text-xl" %>
     </div>
     <div class="flex-none">

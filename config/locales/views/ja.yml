@@ -133,6 +133,7 @@ ja:
       placeholder: 300文字以内で入力してください
       update: 更新
     show:
+      title: "【口コミ詳細】%{name}"
       x_share: Xでシェア
   profiles:
     show:

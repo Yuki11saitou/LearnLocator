@@ -79,7 +79,6 @@ class ReviewsController < ApplicationController
   end
 
   # オートコンプリート機能
-  # コメント
   def auto_search
     @spots = Spot.where("name ILIKE ?", "%#{params[:q]}%")
     respond_to do |format|

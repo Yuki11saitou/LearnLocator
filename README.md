@@ -141,8 +141,5 @@
 
 [**詳細URLはこちら**](https://www.mermaidchart.com/raw/b6d7e76d-8d55-429f-98b9-ca6ed3a8d236?theme=dark&version=v0.1&format=svg)
 
-## 実装記録
-[**実装記録はこちら**](https://impartial-trunk-0da.notion.site/340fce9bd3404ba2864cf7ede1543240?pvs=4)
-
 ## このアプリに関する記事
 [**【個人開発】家で勉強できない私が「勉強場所の検索サービス」を作成しました ✍️**](https://qiita.com/yuki31100725/items/9cf603f9ac08b850c2d7)
